@@ -127,7 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Region.cpp" />
     <ClCompile Include="Triviador.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Region.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
