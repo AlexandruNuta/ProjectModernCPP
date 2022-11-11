@@ -4,7 +4,10 @@
 class Region
 {
 public:
-
+	Region();
+	bool getIsBase();
+	bool getOwned();
+	int getScore();
 
 private:
 
