@@ -47,3 +47,4 @@ void Region::decrementScore()
 {
 	this->score -= 100;
 }
+ //TEST
