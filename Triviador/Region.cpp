@@ -21,3 +21,29 @@ int Region::getScore()
 {
 	return score;
 }
+
+void Region::makeItBase()
+{
+	if (!m_isBase)
+	{
+		this->m_isBase = true;
+	}
+}
+
+void Region::changeOwned()
+{
+	if (!m_owned)
+	{
+		this->m_owned = true;
+	}
+}
+
+void Region::incrementScore()
+{
+	this->score += 100;
+}
+
+void Region::decrementScore()
+{
+	this->score -= 100;
+}
