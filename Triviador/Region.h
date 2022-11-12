@@ -5,19 +5,19 @@ class Region
 {
 public:
 	Region();
-	bool getIsBase();
-	bool getOwned();
-	int getScore();
+	bool GetIsBase() const;
+	bool GetOwned() const;
+	int GetScore() const;
 
-	void makeItBase();
-	void changeOwned();
-	void incrementScore();
-	void decrementScore();
+public:
+	void MakeItBase();
+	void ChangeOwned();
+	void IncrementScore();
+	void DecrementScore();
 
 private:
-
 	bool m_isBase;
 	bool m_owned;
-	uint16_t score;
+	uint16_t m_score;
 };
 

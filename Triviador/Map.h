@@ -6,11 +6,17 @@
 class Map
 {
 public:
-	Map(const uint8_t& rows,const uint8_t& columns);
+	Map(const uint8_t& rows, const uint8_t& columns);
 	Map() = default;
+
 public:
-	std::vector<std::vector<Region>> getMap();
-	friend std::ostream& operator<<(std::ostream& out,Map map);
+	std::vector<std::vector<Region>> GetMap() const;
+	friend std::ostream& operator<<(std::ostream& out, Map map);
+	void InitializeBase(const std::pair<int, int>& index);
+	void ChangeOwned(const std::pair<int, int>& index);
+	void IncrementRegion(const std::pair<int, int>& index);
+	void DecrementRegion(const std::pair<int, int>& index);
+
 private:
 	std::vector<std::vector<Region>> m_map;
 };

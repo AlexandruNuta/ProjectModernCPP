@@ -4,33 +4,34 @@ Region::Region()
 {
 	this->m_isBase = false;
 	this->m_owned = false;
-	this->score = 100;
+	this->m_score = 100;
 }
 
-bool Region::getIsBase()
+bool Region::GetIsBase() const
 {
 	return m_isBase;
 }
 
-bool Region::getOwned()
+bool Region::GetOwned() const
 {
 	return m_isBase;
 }
 
-int Region::getScore()
+int Region::GetScore() const
 {
-	return score;
+	return m_score;
 }
 
-void Region::makeItBase()
+void Region::MakeItBase()
 {
 	if (!m_isBase)
 	{
 		this->m_isBase = true;
+		this->m_score = 300;
 	}
 }
 
-void Region::changeOwned()
+void Region::ChangeOwned()
 {
 	if (!m_owned)
 	{
@@ -38,13 +39,12 @@ void Region::changeOwned()
 	}
 }
 
-void Region::incrementScore()
+void Region::IncrementScore()
 {
-	this->score += 100;
+	this->m_score += 100;
 }
 
-void Region::decrementScore()
+void Region::DecrementScore()
 {
-	this->score -= 100;
+	this->m_score -= 100;
 }
- //TEST
