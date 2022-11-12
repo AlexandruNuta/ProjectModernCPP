@@ -17,7 +17,7 @@ bool Region::GetOwned() const
 	return m_isBase;
 }
 
-int Region::GetScore() const
+uint16_t Region::GetScore() const
 {
 	return m_score;
 }

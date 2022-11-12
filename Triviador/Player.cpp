@@ -20,3 +20,13 @@ std::vector<std::pair<int, int>> Player::getTerritory()
 {
 	return m_territory;
 }
+
+void Player::addRegion(const std::pair<int, int>& indexes)
+{
+	m_territory.push_back(indexes);
+}
+
+void Player::removeRegion(const std::pair<int, int>& indexes)
+{
+	m_territory.erase(std::remove(m_territory.begin(), m_territory.end(), indexes), m_territory.end());
+}

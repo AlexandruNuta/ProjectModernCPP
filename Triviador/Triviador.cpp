@@ -3,6 +3,6 @@
 
 void main()
 {
-	Map a(3, 3);
+	Map a(4, 4);
 	std::cout << a;
 }

@@ -9,6 +9,7 @@ public:
 	Map() = default;
 	Map(const uint8_t& rows, const uint8_t& columns);
 	std::vector<std::vector<Region>> GetMap() const;
+	uint16_t getScore(const std::pair<int, int>& indexes);
 
 public:
 	friend std::ostream& operator<<(std::ostream& out, Map map);

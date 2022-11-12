@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <algorithm>
 
 class Player
 {
@@ -9,6 +10,10 @@ public:
 	std::string getUsername();
 	std::string getPassword();
 	std::vector<std::pair<int, int>> getTerritory();
+
+public:
+	void addRegion(const std::pair<int, int>& indexes);
+	void removeRegion(const std::pair<int, int>& indexes);
 
 private:
 	std::string m_username;

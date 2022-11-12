@@ -7,7 +7,7 @@ public:
 	Region();
 	bool GetIsBase() const;
 	bool GetOwned() const;
-	int GetScore() const;
+	uint16_t GetScore() const;
 
 public:
 	void MakeItBase();

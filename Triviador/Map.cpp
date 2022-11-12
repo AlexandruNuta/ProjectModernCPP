@@ -10,6 +10,11 @@ std::vector<std::vector<Region>> Map::GetMap() const
 	return m_map;
 }
 
+uint16_t Map::getScore(const std::pair<int, int>& indexes)
+{
+	return m_map[indexes.first][indexes.second].GetScore();
+}
+
 void Map::InitializeBase(const std::pair<int, int>& index)
 {
 	m_map[index.first][index.second].MakeItBase();
