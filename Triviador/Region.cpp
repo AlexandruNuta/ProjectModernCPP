@@ -1,10 +1,10 @@
 #include "Region.h"
 
 Region::Region()
+	:m_isBase(false)
+	,m_score(100)
+	,m_owned(false)
 {
-	this->m_isBase = false;
-	this->m_owned = false;
-	this->m_score = 100;
 }
 
 bool Region::GetIsBase() const

@@ -5,7 +5,8 @@
 class Game
 {
 public:
-
+	Game(Map gameMap, uint8_t numberOfRounds, std::vector<Player> players);
+	
 private:
 	Map m_gameMap;
 	uint8_t m_numberOfRounds;
