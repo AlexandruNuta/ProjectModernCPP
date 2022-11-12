@@ -1,6 +1,8 @@
 #include<iostream>
+#include "Map.h"
 
-int main()
+void main()
 {
-	return 0;
+	Map a(3, 3);
+	std::cout << a;
 }
