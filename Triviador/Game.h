@@ -12,7 +12,7 @@ public:
 	void gameAddRegion(Player player,const std::pair<int, int>& indexes);
 	void removeRegion(Player player, const std::pair<int, int>& indexes);
 	bool verifyIfScore100(const std::pair<int, int>& indexes);
-	
+	uint16_t calculateScore(Player player);
 private:
 	Map m_gameMap;
 	uint8_t m_numberOfRounds;
