@@ -42,3 +42,9 @@ void Game::changeRegionOwner(Player initialPlayer, Player finalPlayer, std::pair
 	removeRegion(initialPlayer, index);
 	gameAddRegion(finalPlayer, index);
 }
+
+void Game::changeBaseOwner(Player initialPlayer, Player finalPlayer)
+{
+	for (auto it :finalPlayer.getTerritory())
+		initialPlayer.addRegion(it);
+}
