@@ -36,3 +36,9 @@ uint16_t Game::calculateScore(Player player)
 		score = score + m_gameMap.getScore(it);
 	return score;
 }
+
+void Game::changeRegionOwner(Player initialPlayer, Player finalPlayer, std::pair<int, int> index)
+{
+	removeRegion(initialPlayer, index);
+	gameAddRegion(finalPlayer, index);
+}

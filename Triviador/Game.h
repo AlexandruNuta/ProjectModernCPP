@@ -13,6 +13,7 @@ public:
 	void removeRegion(Player player, const std::pair<int, int>& indexes);
 	bool verifyIfScore100(const std::pair<int, int>& indexes);
 	uint16_t calculateScore(Player player);
+	void changeRegionOwner(Player initialPlayer, Player finalPlayer, std::pair<int, int> index);//finalPlayer e castigatorul rundei.
 private:
 	Map m_gameMap;
 	uint8_t m_numberOfRounds;
