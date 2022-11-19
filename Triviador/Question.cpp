@@ -17,7 +17,7 @@ std::vector<std::string> Question::getAnswears()
 	return m_answears;
 }
 
-uint8_t Question::getCorrectAnswear()
+int Question::getCorrectAnswear()
 {
 	return m_correctAnswear;
 }

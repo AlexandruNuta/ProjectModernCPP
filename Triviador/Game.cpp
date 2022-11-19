@@ -31,7 +31,7 @@ bool Game::verifyIfScore100(const std::pair<int, int>& indexes)
 
 uint16_t Game::calculateScore(Player player)
 {
-	int score = 0;
+	uint16_t score = 0;
 	for (auto it : player.getTerritory())
 		score = score + m_gameMap.getScore(it);
 	return score;

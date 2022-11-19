@@ -1,7 +1,6 @@
 #pragma once
 #include <string>
 #include <vector>
-#include <cstdint>
 class Question
 {
 public:
@@ -9,11 +8,11 @@ public:
 public:
 	std::string getQuestion();
 	std::vector<std::string> getAnswears();
-	uint8_t getCorrectAnswear();
+	int getCorrectAnswear();
 private:
 	std::string m_question;
 	std::vector<std::string> m_answears;
-	uint8_t m_correctAnswear;
+	int m_correctAnswear;
 };
 
 

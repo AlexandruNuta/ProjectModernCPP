@@ -5,6 +5,7 @@
 class Game
 {
 public:
+	Game() = default;
 	Game(Map gameMap, uint8_t numberOfRounds, std::vector<Player> players);
 
 public:
