@@ -48,3 +48,8 @@ void Game::changeBaseOwner(Player initialPlayer, Player finalPlayer)
 	for (auto it :finalPlayer.getTerritory())
 		initialPlayer.addRegion(it);
 }
+
+std::vector<Player> Game::getPlayers()
+{
+	return m_players;
+}
