@@ -58,3 +58,8 @@ uint8_t Game::getRounds()
 {
 	return m_numberOfRounds;
 }
+
+std::ostream& operator<<(std::ostream& out, Game game)
+{
+	std::cout << game.m_gameMap;
+}

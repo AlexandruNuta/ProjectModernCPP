@@ -18,6 +18,7 @@ public:
 	void changeBaseOwner(Player initialPlayer, Player finalPlayer); //finalPlayer e castigatorul rundei.
 	std::vector<Player> getPlayers();
 	uint8_t getRounds();
+	friend std::ostream& operator<<(std::ostream& out, Game game);
 
 private:
 	Map m_gameMap;
