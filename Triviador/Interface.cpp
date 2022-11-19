@@ -2,9 +2,6 @@
 #include <fstream>
 #include <string>
 
-#define MAX_QUESTION_LENGHT 100
-#define MAX_ANSWEAR_LENGHT 25
-
 Interface::Interface(const Game& game)
 {
 	m_game = game;
@@ -64,4 +61,5 @@ Question Interface::getRandomQuestion(bool mustBeNumerical)
 void Interface::stageChooseBase()
 {
 	Question question = getRandomQuestion(true);
+	std::cout << question;
 }
