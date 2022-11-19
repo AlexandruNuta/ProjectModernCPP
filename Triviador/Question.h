@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <ostream>
 class Question
 {
 public:
@@ -9,6 +10,7 @@ public:
 	std::string getQuestion();
 	std::vector<std::string> getAnswears();
 	int getCorrectAnswear();
+	friend std::ostream& operator<<(std::ostream& out, Question game);
 private:
 	std::string m_question;
 	std::vector<std::string> m_answears;

@@ -61,5 +61,6 @@ uint8_t Game::getRounds()
 
 std::ostream& operator<<(std::ostream& out, Game game)
 {
-	std::cout << game.m_gameMap;
+	out << game.m_gameMap;
+	return out;
 }

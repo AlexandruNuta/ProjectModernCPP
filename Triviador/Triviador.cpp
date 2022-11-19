@@ -7,5 +7,5 @@ void main()
 	Map m(4, 4);
 	Game g(m, 3, x);
 	Interface i(g);
-	i.testFunction(65); 
+	i.testFunction(40); 
 }

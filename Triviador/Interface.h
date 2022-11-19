@@ -2,6 +2,7 @@
 #include "Game.h"
 #include "Question.h"
 #include <vector>
+#include <random>
 class Interface
 {
 public:
@@ -16,6 +17,8 @@ public:
 	* O apelez in Triviador.cpp
 	*/
 	void testFunction(int questionNumber);
+	Question getRandomQuestion(bool mustBeNumerical);
+	void stageChooseBase();
 private:
 	Game m_game;
 	std::vector<Question> m_allQuestion;

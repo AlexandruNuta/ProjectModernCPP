@@ -49,5 +49,19 @@ Interface::Interface(const Game& game)
 
 void Interface::testFunction(int questionNumber)
 {
-	std::cout << m_allQuestion[questionNumber].getQuestion();
+	std::cout << m_allQuestion[questionNumber];
+}
+
+Question Interface::getRandomQuestion(bool mustBeNumerical)
+{
+	if (mustBeNumerical)
+	{
+		return m_allQuestion[rand() % 50 + 50];
+	}
+	return m_allQuestion[rand() % 100];
+}
+
+void Interface::stageChooseBase()
+{
+	Question question = getRandomQuestion(true);
 }
