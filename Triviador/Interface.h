@@ -18,7 +18,8 @@ public:
 	*/
 	void testFunction(int questionNumber);
 	Question getRandomQuestion(bool mustBeNumerical);
-	std::pair<int,int> AnswerAndTime(Question question, Player player);
+	std::tuple<int,int,int> IndexAnswerTime(Question question, int index);
+	std::vector<Player> TopPlayersForOneQuestion(Question question);
 
 	void stageChooseBase();
 

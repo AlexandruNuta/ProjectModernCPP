@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <chrono>
+#include <tuple>
 
 Interface::Interface(const Game& game)
 {
@@ -59,7 +60,7 @@ Question Interface::getRandomQuestion(bool mustBeNumerical)
 	return m_allQuestion[rand() % 100];
 }
 
-std::pair<int, int> Interface::AnswerAndTime(Question question, Player player)
+std::tuple<int, int, int> Interface::IndexAnswerTime(Question question, int index)
 {
 	int answer;
 	int time;
@@ -71,7 +72,17 @@ std::pair<int, int> Interface::AnswerAndTime(Question question, Player player)
 	auto end = Clock::now();
 
 	time = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
-	return std::make_pair(answer, time);
+	return std::make_tuple(index, answer, time);
+}
+
+std::vector<Player> Interface::TopPlayersForOneQuestion(Question question)
+{
+	std::vector<std::tuple<int, int, int>> forSorting;
+
+	for (int index = 0; index < m_game.getPlayers().size(); index++)
+	{
+		forSorting.push_back(IndexAnswerTime(question, index));
+	}
 }
 
 void Interface::stageChooseBase()
