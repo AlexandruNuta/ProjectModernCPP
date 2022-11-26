@@ -71,8 +71,20 @@ std::tuple<int, int, int> Interface::IndexAnswerTime(Question question, int inde
 	std::cin >> answer;
 	auto end = Clock::now();
 
+	answer = answer - question.getCorrectAnswear();
+	std::abs(answer);
+
 	time = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
 	return std::make_tuple(index, answer, time);
+}
+
+bool compareTuples(std::tuple<int, int, int> a, std::tuple<int, int, int> b)
+{
+	if (std::get<1>(a) == 0 && std::get<1>(b) == 0)
+	{
+		return std::get<2>(a) <= std::get<2>(b);
+	}
+	return std::get<1>(a) < std::get<1>(b);
 }
 
 std::vector<Player> Interface::TopPlayersForOneQuestion(Question question)
@@ -83,6 +95,15 @@ std::vector<Player> Interface::TopPlayersForOneQuestion(Question question)
 	{
 		forSorting.push_back(IndexAnswerTime(question, index));
 	}
+	std::sort(forSorting.begin(), forSorting.end(), compareTuples);
+
+	std::vector<Player> sortedPlayers;
+	
+	for (int i = 0; i < forSorting.size(); i++)
+	{
+		sortedPlayers.push_back(m_game.getPlayers()[std::get<0>(forSorting[i])]);
+	}
+	return sortedPlayers;
 }
 
 void Interface::stageChooseBase()

@@ -22,6 +22,13 @@ int Question::getCorrectAnswear()
 	return m_correctAnswear;
 }
 
+bool Question::isNumerical()
+{
+	if (m_answears.size() == 4)
+		return false;
+	return true;
+}
+
 std::ostream& operator<<(std::ostream& out, Question question)
 {
 	if (question.getAnswears().size() == 0) //Question is numerical
