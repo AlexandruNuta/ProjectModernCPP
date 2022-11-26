@@ -37,6 +37,7 @@ void Map::DecrementRegion(const std::pair<int, int>& index)
 
 std::ostream& operator<<(std::ostream& out, Map map)
 {
+	out << std::endl << std::endl;
 	out << "MAP:" << std::endl;
 	out << "Legend: R = region, B = Base, S = Score, O = Owned" << std::endl << std::endl;
 	for (auto row = 0; row < map.m_map.size(); row++)
@@ -51,5 +52,6 @@ std::ostream& operator<<(std::ostream& out, Map map)
 		}
 		out << std::endl;
 	}
+	out << std::endl << std::endl;
 	return out;
 }

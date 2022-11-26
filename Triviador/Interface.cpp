@@ -65,6 +65,7 @@ std::tuple<int, int, int> Interface::IndexAnswerTime(Question question, int inde
 	int answer;
 	int time;
 	std::cout << question;
+	AskForInput(m_game.getPlayers()[index]);
 
 	using Clock = std::chrono::high_resolution_clock;
 	auto start = Clock::now();
@@ -72,7 +73,7 @@ std::tuple<int, int, int> Interface::IndexAnswerTime(Question question, int inde
 	auto end = Clock::now();
 
 	answer = answer - question.getCorrectAnswear();
-	std::abs(answer);
+	answer = std::abs(answer);
 
 	time = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
 	return std::make_tuple(index, answer, time);
@@ -106,8 +107,25 @@ std::vector<Player> Interface::TopPlayersForOneQuestion(Question question)
 	return sortedPlayers;
 }
 
+void Interface::AskForInput(Player player)
+{
+	std::cout << player.getUsername() << " ,please input your answer: ";
+}
+
 void Interface::stageChooseBase()
 {
 	Question question = getRandomQuestion(true);
-	//to be continued....
+	std::vector<Player> sortedPlayers = TopPlayersForOneQuestion(question);
+	for (Player player : sortedPlayers)
+	{
+		int coordinate1, coordinate2;
+
+		std::cout << m_game;
+		std::cout << player.getUsername()<<" ,choose region based on coordinates" << std::endl;
+		std::cout << "Introduce first coordinate:";
+		std::cin >> coordinate1;
+		std::cout << "Introduce second coordinate:";
+		std::cin >> coordinate2;
+		m_game.gameInitialiseBase(player, std::make_pair(coordinate1, coordinate2));
+	}
 }

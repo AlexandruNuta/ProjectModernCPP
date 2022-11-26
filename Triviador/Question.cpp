@@ -34,7 +34,6 @@ std::ostream& operator<<(std::ostream& out, Question question)
 	if (question.getAnswears().size() == 0) //Question is numerical
 	{
 		out << question.getQuestion() << std::endl;
-		out << "Introduce numerical answer: ";
 	}
 	else                                    //Question is not numerical (with 4 answers)
 	{
@@ -42,7 +41,6 @@ std::ostream& operator<<(std::ostream& out, Question question)
 		out << question.getQuestion() << std::endl;
 		out << "1) " << answers[0] << "   2) " << answers[1] << std::endl;
 		out << "3) " << answers[2] << "   4) " << answers[3] << std::endl;
-		out << "Choose the right answer: ";
 	}
 	return out;
 }
