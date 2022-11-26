@@ -18,7 +18,10 @@ public:
 	*/
 	void testFunction(int questionNumber);
 	Question getRandomQuestion(bool mustBeNumerical);
+	std::pair<int,int> AnswerAndTime(Question question, Player player);
+
 	void stageChooseBase();
+
 private:
 	Game m_game;
 	std::vector<Question> m_allQuestion;

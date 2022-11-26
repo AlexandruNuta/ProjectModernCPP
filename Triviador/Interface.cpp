@@ -1,6 +1,7 @@
 #include "Interface.h"
 #include <fstream>
 #include <string>
+#include <chrono>
 
 Interface::Interface(const Game& game)
 {
@@ -58,8 +59,23 @@ Question Interface::getRandomQuestion(bool mustBeNumerical)
 	return m_allQuestion[rand() % 100];
 }
 
+std::pair<int, int> Interface::AnswerAndTime(Question question, Player player)
+{
+	int answer;
+	int time;
+	std::cout << question;
+
+	using Clock = std::chrono::high_resolution_clock;
+	auto start = Clock::now();
+	std::cin >> answer;
+	auto end = Clock::now();
+
+	time = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+	return std::make_pair(answer, time);
+}
+
 void Interface::stageChooseBase()
 {
 	Question question = getRandomQuestion(true);
-	std::cout << question;
+	//to be continued....
 }
