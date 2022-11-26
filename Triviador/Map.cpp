@@ -35,6 +35,11 @@ void Map::DecrementRegion(const std::pair<int, int>& index)
 	m_map[index.first][index.second].DecrementScore();
 }
 
+bool Map::IsOwned(std::pair<int, int> coord)
+{
+	return m_map[coord.first][coord.second].GetOwned();
+}
+
 std::ostream& operator<<(std::ostream& out, Map map)
 {
 	out << std::endl << std::endl;
