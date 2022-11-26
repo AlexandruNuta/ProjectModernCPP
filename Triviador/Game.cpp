@@ -59,6 +59,11 @@ uint8_t Game::getRounds()
 	return m_numberOfRounds;
 }
 
+bool Game::isOwned(std::pair<int, int> coord)
+{
+	return m_gameMap.IsOwned(coord);
+}
+
 std::ostream& operator<<(std::ostream& out, Game game)
 {
 	out << game.m_gameMap;

@@ -19,6 +19,7 @@ public:
 	std::vector<Player> getPlayers();
 	uint8_t getRounds();
 	friend std::ostream& operator<<(std::ostream& out, Game game);
+	bool isOwned(std::pair<int, int> coord);
 
 private:
 	Map m_gameMap;
