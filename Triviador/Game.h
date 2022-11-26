@@ -20,6 +20,7 @@ public:
 	uint8_t getRounds();
 	friend std::ostream& operator<<(std::ostream& out, Game game);
 	bool isOwned(std::pair<int, int> coord);
+	uint8_t getNrRounds();
 
 private:
 	Map m_gameMap;
