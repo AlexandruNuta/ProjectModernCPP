@@ -23,6 +23,7 @@ public:
 	void AskForInput(Player player);
 
 	void stageChooseBase();
+	void stageChoseRegion();
 
 private:
 	Game m_game;

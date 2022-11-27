@@ -18,5 +18,6 @@ void main()
 	Map m(4, 4);
 	Game g(m, 3, x);
 	Interface i(g);
-	i.stageChooseBase(); 
+	i.stageChooseBase();
+	i.stageChoseRegion();
 }

@@ -12,11 +12,11 @@ Interface::Interface(const Game& game)
 	std::string question;
 	std::string answear;
 	std::string rightAnswear;
-	int numeralRightAnswear; 
+	int numeralRightAnswear;
 	while (lineCounter < 300)
 	{
 		std::vector<std::string> answears;
-		
+
 		std::getline(fin, question);
 		std::getline(fin, answear);
 		answears.push_back(answear);
@@ -28,7 +28,7 @@ Interface::Interface(const Game& game)
 		answears.push_back(answear);
 		std::getline(fin, rightAnswear);
 		numeralRightAnswear = std::stoi(rightAnswear);
-		
+
 		Question questionObject(question, answears, numeralRightAnswear);
 		m_allQuestion.push_back(questionObject);
 		lineCounter = lineCounter + 6;
@@ -53,6 +53,7 @@ void Interface::testFunction(int questionNumber)
 
 Question Interface::getRandomQuestion(bool mustBeNumerical)
 {
+	srand(time(NULL));
 	if (mustBeNumerical)
 	{
 		return m_allQuestion[rand() % 50 + 50];
@@ -99,7 +100,7 @@ std::vector<Player> Interface::TopPlayersForOneQuestion(Question question)
 	std::sort(forSorting.begin(), forSorting.end(), compareTuples);
 
 	std::vector<Player> sortedPlayers;
-	
+
 	for (int i = 0; i < forSorting.size(); i++)
 	{
 		sortedPlayers.push_back(m_game.getPlayers()[std::get<0>(forSorting[i])]);
@@ -109,7 +110,7 @@ std::vector<Player> Interface::TopPlayersForOneQuestion(Question question)
 
 void Interface::AskForInput(Player player)
 {
-	std::cout << player.getUsername() << " ,please input your answer: ";
+	std::cout << player.getUsername() << ", please input your answer: ";
 }
 
 void Interface::stageChooseBase()
@@ -121,11 +122,44 @@ void Interface::stageChooseBase()
 		int coordinate1, coordinate2;
 
 		std::cout << m_game;
-		std::cout << player.getUsername()<<" ,choose region based on coordinates" << std::endl;
+		std::cout << player.getUsername() << ", choose region based on coordinates" << std::endl;
 		std::cout << "Introduce first coordinate:";
 		std::cin >> coordinate1;
 		std::cout << "Introduce second coordinate:";
 		std::cin >> coordinate2;
 		m_game.gameInitialiseBase(player, std::make_pair(coordinate1, coordinate2));
+	}
+}
+
+void Interface::stageChoseRegion()
+{
+	Question question = getRandomQuestion(true);
+	std::vector<Player> sortedPlayers = TopPlayersForOneQuestion(question);
+	int coordinate1, coordinate2, ok = 0;
+	for (Player player : sortedPlayers)
+	{
+		std::cout << m_game;
+		std::cout << player.getUsername() << ", choose region based on coordinates" << std::endl;
+		std::cout << "Introduce first coordinate:";
+		std::cin >> coordinate1;
+		std::cout << "Introduce second coordinate:";
+		std::cin >> coordinate2;
+		for (const auto& it : player.getTerritory())
+		{
+			if (it.first == coordinate1)
+				if (abs(it.second - coordinate2) == 1)
+				{
+					ok = 1;
+					player.getTerritory().push_back(std::make_pair(coordinate1, coordinate2));
+				}
+			if (it.second == coordinate2)
+				if (abs(it.first - coordinate1) == 1)
+				{
+					ok = 1;
+					player.getTerritory().push_back(std::make_pair(coordinate1, coordinate2));
+				}
+		}
+		if (!ok)
+			std::cout << "The chosen region cannot be selected." << std::endl;
 	}
 }
