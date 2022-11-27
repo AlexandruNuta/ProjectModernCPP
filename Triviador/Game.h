@@ -22,6 +22,7 @@ public:
 	bool isOwned(std::pair<int, int> coord);
 	uint8_t getNrRounds();
 	std::vector<std::vector<Region>> GetMap();
+	std::pair<int, int> GetSize();
 
 private:
 	Map m_gameMap;

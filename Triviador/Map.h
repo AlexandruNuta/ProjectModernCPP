@@ -18,6 +18,7 @@ public:
 	void IncrementRegion(const std::pair<int, int>& index);
 	void DecrementRegion(const std::pair<int, int>& index);
 	bool IsOwned(std::pair<int, int> coord);
+	std::pair<int, int> size();
 
 private:
 	std::vector<std::vector<Region>> m_map;

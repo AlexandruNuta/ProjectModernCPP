@@ -40,6 +40,13 @@ bool Map::IsOwned(std::pair<int, int> coord)
 	return m_map[coord.first][coord.second].GetOwned();
 }
 
+std::pair<int, int> Map::size()
+{
+	int rows = sizeof m_map / sizeof m_map[0];
+	int cols = sizeof m_map[0] / sizeof(int);
+	return std::make_pair(rows, cols);
+}
+
 std::ostream& operator<<(std::ostream& out, Map map)
 {
 	out << std::endl << std::endl;

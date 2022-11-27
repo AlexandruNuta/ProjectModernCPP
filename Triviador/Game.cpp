@@ -74,6 +74,11 @@ std::vector<std::vector<Region>> Game::GetMap()
 	return m_gameMap.GetMap();
 }
 
+std::pair<int, int> Game::GetSize()
+{
+	return m_gameMap.size();
+}
+
 std::ostream& operator<<(std::ostream& out, Game game)
 {
 	out << game.m_gameMap;

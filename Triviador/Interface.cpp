@@ -149,7 +149,7 @@ void Interface::stageChoseRegion()
 			std::cout << "The chosen region cannot be selected." << std::endl;
 			return;
 		}
-		if (coordinate1 > m_game.GetMap().size())
+		if (coordinate1 > m_game.GetSize().first || coordinate2 > m_game.GetSize().second)
 		{
 			std::cout << "The chosen region cannot be selected." << std::endl;
 			return;
