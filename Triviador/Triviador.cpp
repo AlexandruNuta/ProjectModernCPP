@@ -62,6 +62,63 @@ void main()
 		i.stageChoseRegion();
 		break;
 	}
+	case 3:
+	{
+		std::cout << "Succes!" << std::endl;
+		std::cout << "Jucatorul 1 sa introduca numele si parola:" << std::endl;
+		std::cout << "Numele:" << std::endl; std::cin >> nume;
+		std::cout << "Parola:" << std::endl; std::cin >> parola;
+		Player p1(nume, parola);
+		std::cout << "Jucatorul 2 sa introduca numele si parola:" << std::endl;
+		std::cout << "Numele:" << std::endl; std::cin >> nume;
+		std::cout << "Parola:" << std::endl; std::cin >> parola;
+		Player p2(nume, parola);
+		std::cout << "Jucatorul 3 sa introduca numele si parola:" << std::endl;
+		std::cout << "Numele:" << std::endl; std::cin >> nume;
+		std::cout << "Parola:" << std::endl; std::cin >> parola;
+		Player p3(nume, parola);
+		std::vector<Player> players;
+		players.push_back(p1);
+		players.push_back(p2);
+		players.push_back(p3);
+		Map map(5, 3);
+		Game game(map, 4, players);
+		Interface i(game);
+		i.stageChooseBase();
+		i.stageChoseRegion();
+		break;
+	}
+	case 4:
+	{
+		std::cout << "Succes!" << std::endl;
+		std::cout << "Jucatorul 1 sa introduca numele si parola:" << std::endl;
+		std::cout << "Numele:" << std::endl; std::cin >> nume;
+		std::cout << "Parola:" << std::endl; std::cin >> parola;
+		Player p1(nume, parola);
+		std::cout << "Jucatorul 2 sa introduca numele si parola:" << std::endl;
+		std::cout << "Numele:" << std::endl; std::cin >> nume;
+		std::cout << "Parola:" << std::endl; std::cin >> parola;
+		Player p2(nume, parola);
+		std::cout << "Jucatorul 3 sa introduca numele si parola:" << std::endl;
+		std::cout << "Numele:" << std::endl; std::cin >> nume;
+		std::cout << "Parola:" << std::endl; std::cin >> parola;
+		Player p3(nume, parola);
+		std::cout << "Jucatorul 4 sa introduca numele si parola:" << std::endl;
+		std::cout << "Numele:" << std::endl; std::cin >> nume;
+		std::cout << "Parola:" << std::endl; std::cin >> parola;
+		Player p4(nume, parola);
+		std::vector<Player> players;
+		players.push_back(p1);
+		players.push_back(p2);
+		players.push_back(p3);
+		players.push_back(p4);
+		Map map(6, 4);
+		Game game(map, 4, players);
+		Interface i(game);
+		i.stageChooseBase();
+		i.stageChoseRegion();
+		break;
+	}
 	}
 }
 	//Interface i(game);
