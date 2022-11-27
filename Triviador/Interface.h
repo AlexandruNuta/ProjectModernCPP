@@ -24,6 +24,7 @@ public:
 
 	void stageChooseBase();
 	void stageChoseRegion();
+	void stageDuel();
 
 private:
 	Game m_game;

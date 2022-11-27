@@ -173,3 +173,11 @@ void Interface::stageChoseRegion()
 			std::cout << "The chosen region cannot be selected." << std::endl;
 	}
 }
+
+void Interface::stageDuel()
+{
+	std::cout << "The actual map is:" << std::endl;
+	std::cout<<m_game;
+	uint16_t numberOfRounds=m_game.getPlayers().size();
+	std::vector<Region>vectorOfNeighbors;
+}

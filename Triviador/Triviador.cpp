@@ -28,99 +28,104 @@ void main()
 	std::cin >> numarJucatori;
 	//	std::cout << numarJucatori << std::endl;
 	std::string nume, parola;
-	while(numarJucatori!=5)
-	switch (numarJucatori)
+	while (numarJucatori != 5)
 	{
-	case 0:
-		std::cout << "Numarul minim de jucatori este 2,iar numarul maxim este 4." << std::endl;
-		std::cout << "Va rugam sa introduceti un nou numar de jucatori:"; std::cin >> numarJucatori;
-		std::cout << std::endl;
-		break;
-	case 1:
-		std::cout << "Numarul minim de jucatori este 2,iar numarul maxim este 4." << std::endl;
-		std::cout << "Va rugam sa introduceti un nou numar de jucatori:"; std::cin >> numarJucatori;
-		std::cout<< std::endl;
-		break;
-	case 2:
-	{
-		std::cout << "Succes!" << std::endl;
-		std::cout << "Jucatorul 1 sa introduca numele si parola:" << std::endl;
-		std::cout << "Numele:" << std::endl; std::cin >> nume;
-		std::cout << "Parola:" << std::endl; std::cin >> parola;
-		Player p1(nume, parola);
-		std::cout << "Jucatorul 2 sa introduca numele si parola:" << std::endl;
-		std::cout << "Numele:" << std::endl; std::cin >> nume;
-		std::cout << "Parola:" << std::endl; std::cin >> parola;
-		Player p2(nume, parola);
-		std::vector<Player> players;
-		players.push_back(p1);
-		players.push_back(p2);
-		Map map(3, 3);
-		Game game(map, 5, players);
-		Interface i(game);
-		i.stageChooseBase();
-		i.stageChoseRegion();
-		break;
-	}
-	case 3:
-	{
-		std::cout << "Succes!" << std::endl;
-		std::cout << "Jucatorul 1 sa introduca numele si parola:" << std::endl;
-		std::cout << "Numele:" << std::endl; std::cin >> nume;
-		std::cout << "Parola:" << std::endl; std::cin >> parola;
-		Player p1(nume, parola);
-		std::cout << "Jucatorul 2 sa introduca numele si parola:" << std::endl;
-		std::cout << "Numele:" << std::endl; std::cin >> nume;
-		std::cout << "Parola:" << std::endl; std::cin >> parola;
-		Player p2(nume, parola);
-		std::cout << "Jucatorul 3 sa introduca numele si parola:" << std::endl;
-		std::cout << "Numele:" << std::endl; std::cin >> nume;
-		std::cout << "Parola:" << std::endl; std::cin >> parola;
-		Player p3(nume, parola);
-		std::vector<Player> players;
-		players.push_back(p1);
-		players.push_back(p2);
-		players.push_back(p3);
-		Map map(5, 3);
-		Game game(map, 4, players);
-		Interface i(game);
-		i.stageChooseBase();
-		i.stageChoseRegion();
-		break;
-	}
-	case 4:
-	{
-		std::cout << "Succes!" << std::endl;
-		std::cout << "Jucatorul 1 sa introduca numele si parola:" << std::endl;
-		std::cout << "Numele:" << std::endl; std::cin >> nume;
-		std::cout << "Parola:" << std::endl; std::cin >> parola;
-		Player p1(nume, parola);
-		std::cout << "Jucatorul 2 sa introduca numele si parola:" << std::endl;
-		std::cout << "Numele:" << std::endl; std::cin >> nume;
-		std::cout << "Parola:" << std::endl; std::cin >> parola;
-		Player p2(nume, parola);
-		std::cout << "Jucatorul 3 sa introduca numele si parola:" << std::endl;
-		std::cout << "Numele:" << std::endl; std::cin >> nume;
-		std::cout << "Parola:" << std::endl; std::cin >> parola;
-		Player p3(nume, parola);
-		std::cout << "Jucatorul 4 sa introduca numele si parola:" << std::endl;
-		std::cout << "Numele:" << std::endl; std::cin >> nume;
-		std::cout << "Parola:" << std::endl; std::cin >> parola;
-		Player p4(nume, parola);
-		std::vector<Player> players;
-		players.push_back(p1);
-		players.push_back(p2);
-		players.push_back(p3);
-		players.push_back(p4);
-		Map map(6, 4);
-		Game game(map, 4, players);
-		Interface i(game);
-		i.stageChooseBase();
-		i.stageChoseRegion();
-		break;
-	}
+		switch (numarJucatori)
+		{
+		case 0:
+			std::cout << "Numarul minim de jucatori este 2,iar numarul maxim este 4." << std::endl;
+			std::cout << "Va rugam sa introduceti un nou numar de jucatori:"; std::cin >> numarJucatori;
+			std::cout << std::endl;
+			break;
+		case 1:
+			std::cout << "Numarul minim de jucatori este 2,iar numarul maxim este 4." << std::endl;
+			std::cout << "Va rugam sa introduceti un nou numar de jucatori:"; std::cin >> numarJucatori;
+			std::cout << std::endl;
+			break;
+		case 2:
+		{
+			std::cout << "Succes!" << std::endl;
+			std::cout << "Jucatorul 1 sa introduca numele si parola:" << std::endl;
+			std::cout << "Numele:" << std::endl; std::cin >> nume;
+			std::cout << "Parola:" << std::endl; std::cin >> parola;
+			Player p1(nume, parola);
+			std::cout << "Jucatorul 2 sa introduca numele si parola:" << std::endl;
+			std::cout << "Numele:" << std::endl; std::cin >> nume;
+			std::cout << "Parola:" << std::endl; std::cin >> parola;
+			Player p2(nume, parola);
+			std::vector<Player> players;
+			players.push_back(p1);
+			players.push_back(p2);
+			Map map(3, 3);
+			Game game(map, 5, players);
+			Interface i(game);
+			i.stageChooseBase();
+			i.stageChoseRegion();
+			break;
+		}
+		case 3:
+		{
+			std::cout << "Succes!" << std::endl;
+			std::cout << "Jucatorul 1 sa introduca numele si parola:" << std::endl;
+			std::cout << "Numele:" << std::endl; std::cin >> nume;
+			std::cout << "Parola:" << std::endl; std::cin >> parola;
+			Player p1(nume, parola);
+			std::cout << "Jucatorul 2 sa introduca numele si parola:" << std::endl;
+			std::cout << "Numele:" << std::endl; std::cin >> nume;
+			std::cout << "Parola:" << std::endl; std::cin >> parola;
+			Player p2(nume, parola);
+			std::cout << "Jucatorul 3 sa introduca numele si parola:" << std::endl;
+			std::cout << "Numele:" << std::endl; std::cin >> nume;
+			std::cout << "Parola:" << std::endl; std::cin >> parola;
+			Player p3(nume, parola);
+			std::vector<Player> players;
+			players.push_back(p1);
+			players.push_back(p2);
+			players.push_back(p3);
+			Map map(5, 3);
+			Game game(map, 4, players);
+			Interface i(game);
+			i.stageChooseBase();
+			i.stageChoseRegion();
+			break;
+		}
+		case 4:
+		{
+			std::cout << "Succes!" << std::endl;
+			std::cout << "Jucatorul 1 sa introduca numele si parola:" << std::endl;
+			std::cout << "Numele:" << std::endl; std::cin >> nume;
+			std::cout << "Parola:" << std::endl; std::cin >> parola;
+			Player p1(nume, parola);
+			std::cout << "Jucatorul 2 sa introduca numele si parola:" << std::endl;
+			std::cout << "Numele:" << std::endl; std::cin >> nume;
+			std::cout << "Parola:" << std::endl; std::cin >> parola;
+			Player p2(nume, parola);
+			std::cout << "Jucatorul 3 sa introduca numele si parola:" << std::endl;
+			std::cout << "Numele:" << std::endl; std::cin >> nume;
+			std::cout << "Parola:" << std::endl; std::cin >> parola;
+			Player p3(nume, parola);
+			std::cout << "Jucatorul 4 sa introduca numele si parola:" << std::endl;
+			std::cout << "Numele:" << std::endl; std::cin >> nume;
+			std::cout << "Parola:" << std::endl; std::cin >> parola;
+			Player p4(nume, parola);
+			std::vector<Player> players;
+			players.push_back(p1);
+			players.push_back(p2);
+			players.push_back(p3);
+			players.push_back(p4);
+			Map map(6, 4);
+			Game game(map, 4, players);
+			Interface i(game);
+			i.stageChooseBase();
+			i.stageChoseRegion();
+			break;
+		}
+		case 5:
+			std::cout << "Iesire joc.";
+			break;
+		}
 	}
 }
-	//Interface i(game);
-	//i.stageChooseBase();
-	//i.stageChoseRegion();
+//Interface i(game);
+//i.stageChooseBase();
+//i.stageChoseRegion();
