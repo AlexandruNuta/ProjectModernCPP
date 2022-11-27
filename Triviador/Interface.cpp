@@ -144,6 +144,16 @@ void Interface::stageChoseRegion()
 		std::cin >> coordinate1;
 		std::cout << "Introduce second coordinate:";
 		std::cin >> coordinate2;
+		if (m_game.isOwned(std::make_pair(coordinate1, coordinate2)))
+		{
+			std::cout << "The chosen region cannot be selected." << std::endl;
+			return;
+		}
+		if (coordinate1 > m_game.GetMap().size())
+		{
+			std::cout << "The chosen region cannot be selected." << std::endl;
+			return;
+		}
 		for (const auto& it : player.getTerritory())
 		{
 			if (it.first == coordinate1)

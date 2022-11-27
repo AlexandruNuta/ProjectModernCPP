@@ -69,6 +69,11 @@ uint8_t Game::getNrRounds()
 	return m_numberOfRounds;
 }
 
+std::vector<std::vector<Region>> Game::GetMap()
+{
+	return m_gameMap.GetMap();
+}
+
 std::ostream& operator<<(std::ostream& out, Game game)
 {
 	out << game.m_gameMap;
