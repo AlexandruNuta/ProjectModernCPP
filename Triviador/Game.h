@@ -23,8 +23,9 @@ public:
 	uint8_t getNrRounds();
 	std::vector<std::vector<Region>> GetMap();
 	std::pair<int, int> GetSize();
+	void changePlayerVectors(std::vector<Player> players);
 
-private:
+protected:
 	Map m_gameMap;
 	uint8_t m_numberOfRounds;
 	std::vector<Player> m_players;

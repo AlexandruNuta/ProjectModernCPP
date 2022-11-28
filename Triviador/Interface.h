@@ -19,7 +19,7 @@ public:
 	void testFunction(int questionNumber);
 	Question getRandomQuestion(bool mustBeNumerical);
 	std::tuple<int,int,int> IndexAnswerTime(Question question, int index);
-	std::vector<Player> TopPlayersForOneQuestion(Question question);
+	void TopPlayersForOneQuestion(Question question);
 	void AskForInput(Player player);
 
 	void stageChooseBase();

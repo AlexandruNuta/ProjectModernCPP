@@ -20,7 +20,7 @@ void Map::InitializeBase(const std::pair<int, int>& index)
 	m_map[index.first][index.second].MakeItBase();
 }
 
-void Map::ChangeOwned(const std::pair<int, int>& index)
+void Map::ChangeOwn(const std::pair<int, int>& index)
 {
 	m_map[index.first][index.second].ChangeOwned();
 }

@@ -1,6 +1,6 @@
 #include "Question.h"
 
-Question::Question(const std::string& question,const std::vector<std::string>& answears, const uint8_t& correctAnswear)
+Question::Question(const std::string& question,const std::vector<std::string>& answears, const int& correctAnswear)
 	:m_question(question)
 	, m_answears(answears)
 	, m_correctAnswear(correctAnswear)

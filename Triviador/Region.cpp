@@ -1,5 +1,4 @@
 #include "Region.h"
-
 Region::Region()
 	:m_isBase(false)
 	,m_score(100)
@@ -14,7 +13,7 @@ bool Region::GetIsBase() const
 
 bool Region::GetOwned() const
 {
-	return m_isBase;
+	return m_owned;
 }
 
 uint16_t Region::GetScore() const
@@ -28,6 +27,7 @@ void Region::MakeItBase()
 	{
 		this->m_isBase = true;
 		this->m_score = 300;
+		this->m_owned = true;
 	}
 }
 

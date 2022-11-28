@@ -15,7 +15,7 @@ void Game::gameInitialiseBase(Player player, const std::pair<int, int>& indexes)
 
 void Game::gameAddRegion(Player player, const std::pair<int, int>& indexes)
 {
-	m_gameMap.ChangeOwned(indexes);
+	m_gameMap.ChangeOwn(indexes);
 	player.addRegion(indexes);
 }
 
@@ -77,6 +77,11 @@ std::vector<std::vector<Region>> Game::GetMap()
 std::pair<int, int> Game::GetSize()
 {
 	return m_gameMap.size();
+}
+
+void Game::changePlayerVectors(std::vector<Player> players)
+{
+	m_players.swap(players);
 }
 
 std::ostream& operator<<(std::ostream& out, Game game)

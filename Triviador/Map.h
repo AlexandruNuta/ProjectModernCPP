@@ -14,7 +14,7 @@ public:
 public:
 	friend std::ostream& operator<<(std::ostream& out, Map map);
 	void InitializeBase(const std::pair<int, int>& index);
-	void ChangeOwned(const std::pair<int, int>& index);
+	void ChangeOwn(const std::pair<int, int>& index);
 	void IncrementRegion(const std::pair<int, int>& index);
 	void DecrementRegion(const std::pair<int, int>& index);
 	bool IsOwned(std::pair<int, int> coord);
