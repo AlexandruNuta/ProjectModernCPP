@@ -84,6 +84,11 @@ void Game::changePlayerVectors(std::vector<Player> players)
 	m_players.swap(players);
 }
 
+bool Game::checkIfEmptyRegions()
+{
+	return m_gameMap.checkIfEmptyRegions();
+}
+
 std::ostream& operator<<(std::ostream& out, Game game)
 {
 	out << game.m_gameMap;

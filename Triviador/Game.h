@@ -24,6 +24,7 @@ public:
 	std::vector<std::vector<Region>> GetMap();
 	std::pair<int, int> GetSize();
 	void changePlayerVectors(std::vector<Player> players);
+	bool checkIfEmptyRegions(); 
 
 protected:
 	Map m_gameMap;

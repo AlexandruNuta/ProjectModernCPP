@@ -47,6 +47,21 @@ std::pair<int, int> Map::size()
 	return std::make_pair(rows, cols);
 }
 
+bool Map::checkIfEmptyRegions()
+{
+	for (int i = 0; i < m_map.size(); i++)
+	{
+		for (int j = 0; j < m_map[i].size(); j++)
+		{
+			if (!m_map[i][j].GetOwned())
+			{
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
 std::ostream& operator<<(std::ostream& out, Map map)
 {
 	out << std::endl << std::endl;
