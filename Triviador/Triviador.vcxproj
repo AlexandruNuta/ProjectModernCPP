@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Advantage.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Interface.cpp" />
     <ClCompile Include="Map.cpp" />
@@ -136,6 +137,7 @@
     <ClCompile Include="Triviador.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Advantage.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Interface.h" />
     <ClInclude Include="Map.h" />
