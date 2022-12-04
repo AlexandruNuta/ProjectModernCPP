@@ -137,15 +137,15 @@ void Interface::stageChooseBase()
 		if (coordinate1 > m_game.GetSize().first || coordinate2 > m_game.GetSize().second)
 			std::cout << "The region does not exist!" << std::endl;
 		else
-		while (m_game.isOwned(std::make_pair(coordinate1, coordinate2)))
-		{
-			std::cout << "!Base already occupied!" << std::endl;
-			std::cout << "Please choose an unocuppied region based on coordinates" << std::endl;
-			std::cout << "Introduce first coordinate:";
-			std::cin >> coordinate1;
-			std::cout << "Introduce second coordinate:";
-			std::cin >> coordinate2;
-		}
+			while (m_game.isOwned(std::make_pair(coordinate1, coordinate2)))
+			{
+				std::cout << "!Base already occupied!" << std::endl;
+				std::cout << "Please choose an unocuppied region based on coordinates" << std::endl;
+				std::cout << "Introduce first coordinate:";
+				std::cin >> coordinate1;
+				std::cout << "Introduce second coordinate:";
+				std::cin >> coordinate2;
+			}
 		m_game.gameInitialiseBase(player, std::make_pair(coordinate1, coordinate2));
 		std::cout << "Base initialised with succes!" << std::endl << std::endl;
 	}
@@ -180,15 +180,15 @@ void Interface::stageChoseRegion()
 				if (coordinate1 > m_game.GetSize().first || coordinate2 > m_game.GetSize().second)
 					std::cout << "The region does not exist!" << std::endl;
 				else
-				while (m_game.isOwned(std::make_pair(coordinate1, coordinate2)))
-				{
-					std::cout << "!Region already occupied!" << std::endl;
-					std::cout << "Please choose an unocuppied region based on coordinates" << std::endl;
-					std::cout << "Introduce first coordinate:";
-					std::cin >> coordinate1;
-					std::cout << "Introduce second coordinate:";
-					std::cin >> coordinate2;
-				}
+					while (m_game.isOwned(std::make_pair(coordinate1, coordinate2)))
+					{
+						std::cout << "!Region already occupied!" << std::endl;
+						std::cout << "Please choose an unocuppied region based on coordinates" << std::endl;
+						std::cout << "Introduce first coordinate:";
+						std::cin >> coordinate1;
+						std::cout << "Introduce second coordinate:";
+						std::cin >> coordinate2;
+					}
 				m_game.gameAddRegion(player, std::make_pair(coordinate1, coordinate2));
 				std::cout << "Region added with succes!" << std::endl << std::endl;
 				numberOfRegionsToBeSelected--;
@@ -204,13 +204,13 @@ void Interface::stageDuel()
 {
 	std::cout << std::endl << std::endl << "STAGE 2: CHOOSE REGIONS" << std::endl << std::endl;
 	std::cout << "THE ACTUAL MAP IS:" << std::endl;
-	std::cout << m_game<<std::endl;	
+	std::cout << m_game << std::endl;
 	uint16_t nrRounds;
-	for (int counter = 0; counter < nrRounds; counter++)
-	{
-		Question question = getRandomQuestion(false);
-		TopPlayersForOneQuestion(question);
+	//for (int counter = 0; counter < nrRounds; counter++)
+	//{
+	//	Question question = getRandomQuestion(false);
+	//	TopPlayersForOneQuestion(question);
 
-		std::cout << std::endl << "Correct Answer: " << question.getCorrectAnswear() << std::endl << std::endl;
-	}
+	//	std::cout << std::endl << "Correct Answer: " << question.getCorrectAnswear() << std::endl << std::endl;
+	//}
 }

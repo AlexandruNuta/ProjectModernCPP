@@ -29,6 +29,13 @@ bool Question::isNumerical()
 	return true;
 }
 
+int Question::IndexCorrectAnswear() const
+{
+	for (auto i = 0; i < m_answears.size(); i++)
+		if (stoi(m_answears[i]) == m_correctAnswear)
+			return i;
+}
+
 std::ostream& operator<<(std::ostream& out, Question question)
 {
 	if (question.getAnswears().size() == 0) //Question is numerical
