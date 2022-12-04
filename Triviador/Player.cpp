@@ -35,3 +35,8 @@ void Player::changePassword(std::string newPassword)
 {
 	this->m_password = newPassword;
 }
+
+void Player::changeUsername(std::string newUsername)
+{
+	this->m_username = newUsername;
+}
