@@ -13,7 +13,7 @@ public:
 		answearSuggestion
 	};
 public:
-	void answearElimination(const Player& player, const uint8_t& value,Question question);
+	void answearElimination(const Player& player, const uint8_t& value, Question question);
 
 };
 
