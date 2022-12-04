@@ -16,7 +16,7 @@ public:
 	uint16_t calculateScore(Player player);
 	void changeRegionOwner(Player initialPlayer, Player finalPlayer, std::pair<int, int> index); //finalPlayer e castigatorul rundei.
 	void changeBaseOwner(Player initialPlayer, Player finalPlayer); //finalPlayer e castigatorul rundei.
-	std::vector<Player> getPlayers();
+	std::vector<Player>& getPlayers();
 	uint8_t getRounds();
 	friend std::ostream& operator<<(std::ostream& out, Game game);
 	bool isOwned(std::pair<int, int> coord);

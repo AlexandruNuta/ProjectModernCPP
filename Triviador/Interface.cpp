@@ -124,7 +124,7 @@ void Interface::stageChooseBase()
 
 	std::cout << std::endl << "Correct Answer: " << question.getCorrectAnswear() << std::endl << std::endl;
 
-	for (Player player : m_game.getPlayers())
+	for (Player& player : m_game.getPlayers())
 	{
 		int coordinate1, coordinate2;
 
@@ -134,10 +134,13 @@ void Interface::stageChooseBase()
 		std::cin >> coordinate1;
 		std::cout << "Introduce second coordinate:";
 		std::cin >> coordinate2;
+		if (coordinate1 > m_game.GetSize().first || coordinate2 > m_game.GetSize().second)
+			std::cout << "The region does not exist!" << std::endl;
+		else
 		while (m_game.isOwned(std::make_pair(coordinate1, coordinate2)))
 		{
 			std::cout << "!Base already occupied!" << std::endl;
-			std::cout<<"Please choose an unocuppied region based on coordinates" << std::endl;
+			std::cout << "Please choose an unocuppied region based on coordinates" << std::endl;
 			std::cout << "Introduce first coordinate:";
 			std::cin >> coordinate1;
 			std::cout << "Introduce second coordinate:";
@@ -160,7 +163,7 @@ void Interface::stageChoseRegion()
 
 		std::cout << std::endl << "Correct Answer: " << question.getCorrectAnswear() << std::endl << std::endl;
 
-		for (Player player : m_game.getPlayers())
+		for (Player& player : m_game.getPlayers())
 		{
 			int numberOfRegionsToBeSelected = m_game.getPlayers().size() - 1;
 
@@ -174,6 +177,9 @@ void Interface::stageChoseRegion()
 				std::cin >> coordinate1;
 				std::cout << "Introduce second coordinate:";
 				std::cin >> coordinate2;
+				if (coordinate1 > m_game.GetSize().first || coordinate2 > m_game.GetSize().second)
+					std::cout << "The region does not exist!" << std::endl;
+				else
 				while (m_game.isOwned(std::make_pair(coordinate1, coordinate2)))
 				{
 					std::cout << "!Region already occupied!" << std::endl;
@@ -190,12 +196,12 @@ void Interface::stageChoseRegion()
 		}
 	}
 
-	std::cout << "All regions are owned!" << std::endl <<"Final map:"<< std::endl;
+	std::cout << "All regions are owned!" << std::endl << "Final map:" << std::endl;
 	std::cout << m_game << std::endl << std::endl;
 }
 
 void Interface::stageDuel()
 {
 	std::cout << "The actual map is:" << std::endl;
-	std::cout<<m_game;
+	std::cout << m_game;
 }

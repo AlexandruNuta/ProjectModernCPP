@@ -7,7 +7,7 @@ void numberOfPlayersValidation(uint16_t& numberOfPlayers)
 	while (!(numberOfPlayers >= 2 && numberOfPlayers <= 4))
 	{
 		std::cout << "Numarul minim de jucatori este 2,iar numarul maxim este 4." << std::endl;
-		std::cout << "Va rugam sa introduceti un nou numar de jucatori:"; std::cin >> numberOfPlayers;
+		std::cout << "Va rugam sa introduceti un nou numar de jucatori: "; std::cin >> numberOfPlayers;
 		std::cout << std::endl;
 	}
 }
@@ -18,7 +18,7 @@ void signUpPlayers(std::vector<Player>& players, uint16_t numberOfPlayers)
 	std::string name, password;
 	while (registeredPlayers < numberOfPlayers)
 	{
-		std::cout << "Jucatorul " << registeredPlayers + 1 << " sa introduca numele si parola : " << std::endl;
+		std::cout << "Jucatorul " << registeredPlayers + 1 << " sa introduca numele si parola: " << std::endl;
 		std::cout << "Numele:" << std::endl; std::cin >> name;
 		std::cout << "Parola:" << std::endl; std::cin >> password;
 		Player player(name, password);
@@ -67,7 +67,7 @@ void main()
 	std::vector<Player> players;
 
 	std::cout << "INCEPUTUL JOCULUI." << std::endl;
-	std::cout << "Introduceti numarul de jucatori:";
+	std::cout << "Introduceti numarul de jucatori: ";
 
 	std::cin >> numarJucatori;
 	numberOfPlayersValidation(numarJucatori);

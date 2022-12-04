@@ -49,7 +49,7 @@ void Game::changeBaseOwner(Player initialPlayer, Player finalPlayer)
 		initialPlayer.addRegion(it);
 }
 
-std::vector<Player> Game::getPlayers()
+std::vector<Player>& Game::getPlayers()
 {
 	return m_players;
 }
