@@ -3,6 +3,7 @@
 Player::Player(std::string username, std::string password)
 	:m_username(username)
 	,m_password(password)
+	,m_isInGame(true)
 {
 }
 
@@ -14,6 +15,11 @@ std::string Player::getUsername()
 std::string Player::getPassword()
 {
 	return m_password;
+}
+
+bool Player::getIsInGame()
+{
+	return m_isInGame;
 }
 
 std::vector<std::pair<int, int>> Player::getTerritory()
@@ -39,4 +45,12 @@ void Player::changePassword(std::string newPassword)
 void Player::changeUsername(std::string newUsername)
 {
 	this->m_username = newUsername;
+}
+
+void Player::changeIsInGame()
+{
+	if (this->m_isInGame == true)
+	{
+		this->m_isInGame = false;
+	}
 }
