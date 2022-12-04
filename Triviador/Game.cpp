@@ -7,19 +7,19 @@ Game::Game(Map gameMap, uint8_t numberOfRounds, std::vector<Player> players)
 {
 }
 
-void Game::gameInitialiseBase(Player player, const std::pair<int, int>& indexes)
+void Game::gameInitialiseBase(Player& player, const std::pair<int, int>& indexes)
 {
 	m_gameMap.InitializeBase(indexes);
 	player.addRegion(indexes);
 }
 
-void Game::gameAddRegion(Player player, const std::pair<int, int>& indexes)
+void Game::gameAddRegion(Player& player, const std::pair<int, int>& indexes)
 {
 	m_gameMap.ChangeOwn(indexes);
 	player.addRegion(indexes);
 }
 
-void Game::removeRegion(Player player, const std::pair<int, int>& indexes)
+void Game::removeRegion(Player& player, const std::pair<int, int>& indexes)
 {
 	player.removeRegion(indexes);
 }
@@ -37,13 +37,13 @@ uint16_t Game::calculateScore(Player player)
 	return score;
 }
 
-void Game::changeRegionOwner(Player initialPlayer, Player finalPlayer, std::pair<int, int> index)
+void Game::changeRegionOwner(Player& initialPlayer, Player& finalPlayer, std::pair<int, int> index)
 {
 	removeRegion(initialPlayer, index);
 	gameAddRegion(finalPlayer, index);
 }
 
-void Game::changeBaseOwner(Player initialPlayer, Player finalPlayer)
+void Game::changeBaseOwner(Player& initialPlayer, Player& finalPlayer)
 {
 	for (auto it :finalPlayer.getTerritory())
 		initialPlayer.addRegion(it);
