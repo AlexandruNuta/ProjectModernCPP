@@ -13,6 +13,7 @@ public:
 public:
 	void addRegion(const std::pair<int, int>& indexes);
 	void removeRegion(const std::pair<int, int>& indexes);
+	void changePassword(std::string newPassword);
 
 private:
 	std::string m_username;

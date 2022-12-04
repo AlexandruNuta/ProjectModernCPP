@@ -30,3 +30,8 @@ void Player::removeRegion(const std::pair<int, int>& indexes)
 {
 	m_territory.erase(std::remove(m_territory.begin(), m_territory.end(), indexes), m_territory.end());
 }
+
+void Player::changePassword(std::string newPassword)
+{
+	this->m_password = newPassword;
+}
