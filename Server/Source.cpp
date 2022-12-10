@@ -1,21 +1,15 @@
-#include <filesystem>
 #include <iostream>
-#include <memory>
+#include <numeric>
+#include <sstream>
+#include <regex>
+#include <string>
 
+#include <cpr/cpr.h>
 #include <crow.h>
-#include <sqlite_orm/sqlite_orm.h>
-namespace sql = sqlite_orm;
 
 
 int main() 
 {
-	crow::SimpleApp app;
-
-	CROW_ROUTE(app, "/hello")([]()
-		{
-			return "Hello World";
-		}
-	);
-
-	app.port(18080).multithreaded().run();
+    cpr::Response response = cpr::Get(cpr::Url{ "url" });
+    //to be continued
 }

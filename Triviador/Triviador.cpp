@@ -2,6 +2,14 @@
 #include <fstream>
 #include <string>
 
+#include <filesystem>
+#include <iostream>
+#include <memory>
+
+#include <crow.h>
+#include <sqlite_orm/sqlite_orm.h>
+namespace sql = sqlite_orm;
+
 void numberOfPlayersValidation(uint16_t& numberOfPlayers)
 {
 	while (!(numberOfPlayers >= 2 && numberOfPlayers <= 4))
@@ -62,6 +70,16 @@ void computeMapSizeAndNrRounds(uint16_t numberOfPlayers,uint16_t& mapLines, uint
 
 void main()
 {
+	crow::SimpleApp app;
+
+	CROW_ROUTE(app, "/hello")([]()
+		{
+			return "Hello World";
+		}
+	);
+
+	app.port(18080).multithreaded().run();
+
 	std::string nume, parola;
 	uint16_t numarJucatori;
 	std::vector<Player> players;
