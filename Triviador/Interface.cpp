@@ -202,15 +202,12 @@ void Interface::stageChoseRegion()
 
 void Interface::stageDuel()
 {
-	std::cout << std::endl << std::endl << "STAGE 2: CHOOSE REGIONS" << std::endl << std::endl;
+	std::cout << std::endl << std::endl << "STAGE 3: DUEL" << std::endl << std::endl;
 	std::cout << "THE ACTUAL MAP IS:" << std::endl;
 	std::cout << m_game << std::endl;
-	uint16_t nrRounds;
-	//for (int counter = 0; counter < nrRounds; counter++)
-	//{
-	//	Question question = getRandomQuestion(false);
-	//	TopPlayersForOneQuestion(question);
+	uint16_t nrRounds = m_game.getNrRounds();
+	while (nrRounds)
+	{
 
-	//	std::cout << std::endl << "Correct Answer: " << question.getCorrectAnswear() << std::endl << std::endl;
-	//}
+	}
 }

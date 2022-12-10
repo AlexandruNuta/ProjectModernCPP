@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{27c59a54-c023-448c-9c51-fec6f8f86970}</ProjectGuid>
-    <RootNamespace>Triviador</RootNamespace>
+    <ProjectGuid>{df2a103c-3550-47f2-9d7d-96218bb91fed}</ProjectGuid>
+    <RootNamespace>Server</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -104,7 +104,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalOptions>/D_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,26 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Advantage.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Interface.cpp" />
-    <ClCompile Include="Map.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Question.cpp" />
-    <ClCompile Include="Region.cpp" />
-    <ClCompile Include="Triviador.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Advantage.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="Interface.h" />
-    <ClInclude Include="Map.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="Question.h" />
-    <ClInclude Include="Region.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="XDD.txt" />
+    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
