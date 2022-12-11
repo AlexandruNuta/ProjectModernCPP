@@ -21,9 +21,16 @@ int main()
 	CROW_ROUTE(app, "/")([]() {
 		return "Test";
 		});
-	CROW_ROUTE(app, "/Questions")([]() {
+	/*CROW_ROUTE(app, "/Questions")([]() {
 
 	return "Da";
-		});
+
+		});*/
+	CROW_ROUTE(app, "/InceputulJocului")
+		([] {
+		crow::json::wvalue x;
+	x["message"] = "InceputulJocului!";
+	return x;
+			});
 	app.port(18080).multithreaded().run();
 }
