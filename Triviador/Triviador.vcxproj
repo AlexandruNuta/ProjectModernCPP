@@ -132,6 +132,8 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Interface.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="normalQuestion.cpp" />
+    <ClCompile Include="numericQuestion.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Question.cpp" />
     <ClCompile Include="Region.cpp" />
@@ -142,6 +144,8 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="Interface.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="normalQuestion.h" />
+    <ClInclude Include="numericQuestion.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Question.h" />
     <ClInclude Include="Region.h" />

@@ -39,6 +39,12 @@
     <ClCompile Include="Advantage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="numericQuestion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="normalQuestion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Region.h">
@@ -60,6 +66,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Advantage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="numericQuestion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="normalQuestion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
