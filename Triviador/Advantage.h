@@ -8,12 +8,12 @@ class Advantage
 public:
 	enum class Advantages :uint8_t
 	{
-		answearElimination,
-		answearChoice,
-		answearSuggestion
+		answerElimination,
+		answerChoice,
+		answerSuggestion
 	};
 public:
-	void answearElimination(const Player& player, const uint8_t& value, Question question);
+	void answerElimination(const Player& player, const uint8_t& value, Question question);
 	int answerSugestion(Question question);
 };
 

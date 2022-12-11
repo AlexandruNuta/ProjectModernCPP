@@ -19,5 +19,9 @@ private:
 	bool m_isBase;
 	bool m_owned;
 	uint16_t m_score;
+	Region* m_north;
+	Region* m_East;
+	Region* m_South;
+	Region* m_West;
 };
 

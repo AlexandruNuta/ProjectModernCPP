@@ -1,6 +1,6 @@
 #include "Advantage.h"
 #include<vector>
-void Advantage::answearElimination(const Player& player, const uint8_t& value, Question question)
+void Advantage::answerElimination(const Player& player, const uint8_t& value, Question question)
 {
 	if (value == 0 && question.isNumerical() == false)
 	{
@@ -8,8 +8,8 @@ void Advantage::answearElimination(const Player& player, const uint8_t& value, Q
 	}
 	else
 	{
-		std::vector<std::string>answers = question.getAnswears();
-		uint8_t correctAnswear = question.getCorrectAnswear();
+		std::vector<std::string>answers = question.getAnswers();
+		uint8_t correctAnswear = question.getCorrectAnswer();
 		if (correctAnswear == 0)
 		{
 			answers.erase(answers.begin() + correctAnswear + 1);
@@ -44,8 +44,8 @@ int Advantage::answerSugestion(Question question)
 	std::vector<int> dif;
 	if (question.isNumerical())
 	{
-		for (const auto& it : question.getAnswears())
-			dif.push_back(stoi(it) - question.getCorrectAnswear());
+		for (const auto& it : question.getAnswers())
+			dif.push_back(stoi(it) - question.getCorrectAnswer());
 		for (auto it : dif)
 		{
 			if (it < 0 && abs(it) < abs(left))
