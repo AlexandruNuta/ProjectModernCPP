@@ -1,9 +1,9 @@
 #include "Question.h"
 
-Question::Question(const std::string& question,const std::vector<std::string>& answears, const int& correctAnswear)
+Question::Question(const std::string& question,const std::vector<std::string>& answers, const int& correctAnswer)
 	:m_question(question)
-	, m_answears(answears)
-	, m_correctAnswear(correctAnswear)
+	, m_answers(answers)
+	, m_correctAnswer(correctAnswer)
 {
 }
 
@@ -12,39 +12,39 @@ std::string Question::getQuestion()
 	return m_question;
 }
 
-std::vector<std::string> Question::getAnswears()
+std::vector<std::string> Question::getAnswers()
 {
-	return m_answears;
+	return m_answers;
 }
 
-int Question::getCorrectAnswear()
+int Question::getCorrectAnswer()
 {
-	return m_correctAnswear;
+	return m_correctAnswer;
 }
 
 bool Question::isNumerical()
 {
-	if (m_answears.size() == 4)
+	if (m_answers.size() == 4)
 		return false;
 	return true;
 }
 
-int Question::IndexCorrectAnswear() const
+int Question::IndexCorrectAnswer() const
 {
-	for (auto i = 0; i < m_answears.size(); i++)
-		if (stoi(m_answears[i]) == m_correctAnswear)
+	for (auto i = 0; i < m_answers.size(); i++)
+		if (stoi(m_answers[i]) == m_correctAnswer)
 			return i;
 }
 
 std::ostream& operator<<(std::ostream& out, Question question)
 {
-	if (question.getAnswears().size() == 0) //Question is numerical
+	if (question.getAnswers().size() == 0) //Question is numerical
 	{
 		out << question.getQuestion() << std::endl;
 	}
 	else                                    //Question is not numerical (with 4 answers)
 	{
-		std::vector<std::string> answers = question.getAnswears();
+		std::vector<std::string> answers = question.getAnswers();
 		out << question.getQuestion() << std::endl;
 		out << "1) " << answers[0] << "   2) " << answers[1] << std::endl;
 		out << "3) " << answers[2] << "   4) " << answers[3] << std::endl;

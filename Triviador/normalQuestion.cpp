@@ -5,7 +5,7 @@ bool normalQuestion::verifyAnswer(const std::string& answer)
 	for (int i = 0; i < m_answers.size(); i++)
 		if (m_answers[i] == answer)
 		{
-			if (m_correctAnswear == i)
+			if (m_correctAnswer == i)
 				return true;
 			else
 				return false;
@@ -14,7 +14,7 @@ bool normalQuestion::verifyAnswer(const std::string& answer)
 	return false;
 }
 
-void normalQuestion::setCorrectAnswear(const int& correctAnswear)
+void normalQuestion::setCorrectAnswer(const int& correctAnswer)
 {
-	m_correctAnswear = correctAnswear;
+	m_correctAnswer = correctAnswer;
 }

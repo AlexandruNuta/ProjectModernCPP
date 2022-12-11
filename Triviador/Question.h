@@ -5,18 +5,18 @@
 class Question
 {
 public:
-	Question(const std::string& question,const std::vector<std::string>& answears, const int& correctAnswear);
+	Question(const std::string& question,const std::vector<std::string>& answers, const int& correctAnswer);
 public:
 	std::string getQuestion();
-	std::vector<std::string> getAnswears();
-	int getCorrectAnswear();
+	std::vector<std::string> getAnswers();
+	int getCorrectAnswer();
 	friend std::ostream& operator<<(std::ostream& out, Question game);
 	bool isNumerical();
-	int IndexCorrectAnswear() const;
+	int IndexCorrectAnswer() const;
 private:
 	std::string m_question;
-	std::vector<std::string> m_answears;
-	int m_correctAnswear;
+	std::vector<std::string> m_answers;
+	int m_correctAnswer;
 };
 
 
