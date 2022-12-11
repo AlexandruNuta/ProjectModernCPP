@@ -4,6 +4,7 @@
 
 class normalQuestion
 {
+public:
 	bool verifyAnswer(const std::string& answer);
 	void setCorrectAnswear(const int& correctAnswear);
 private:
