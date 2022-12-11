@@ -205,7 +205,7 @@ void Interface::stageDuel()
 	std::cout << std::endl << std::endl << "STAGE 3: DUEL" << std::endl << std::endl;
 	std::cout << "THE ACTUAL MAP IS:" << std::endl;
 	std::cout << m_game << std::endl;
-	uint16_t nrRounds = m_game.getNrRounds();
+	uint16_t nrRounds = m_game.getRounds();
 	while (nrRounds)
 	{
 

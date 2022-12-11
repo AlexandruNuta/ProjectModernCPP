@@ -63,12 +63,6 @@ bool Game::isOwned(std::pair<int, int> coord)
 {
 	return m_gameMap.IsOwned(coord);
 }
-
-uint8_t Game::getNrRounds()
-{
-	return m_numberOfRounds;
-}
-
 std::vector<std::vector<Region>> Game::GetMap()
 {
 	return m_gameMap.GetMap();

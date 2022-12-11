@@ -70,16 +70,6 @@ void computeMapSizeAndNrRounds(uint16_t numberOfPlayers,uint16_t& mapLines, uint
 
 void main()
 {
-	/*crow::SimpleApp app;
-
-	CROW_ROUTE(app, "/hello")([]()
-		{
-			return "Hello World";
-		}
-	);
-
-	app.port(18080).multithreaded().run();*/
-
 	std::string nume, parola;
 	uint16_t numarJucatori;
 	std::vector<Player> players;
