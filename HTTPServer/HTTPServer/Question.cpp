@@ -52,3 +52,53 @@
 //	return out;
 //}
 
+void populateStorage(Storage& storage)
+{
+	std::vector<Question> questions;
+	std::ifstream fin("XDD.txt");
+	int lineCounter = 0;
+	std::string question;
+	std::string answear;
+	std::string rightAnswear;
+	int numeralRightAnswear;
+	while (lineCounter < 300)
+	{
+		std::vector<std::string> answears;
+
+		std::getline(fin, question);
+		std::getline(fin, answear);
+		answears.push_back(answear);
+		std::getline(fin, answear);
+		answears.push_back(answear);
+		std::getline(fin, answear);
+		answears.push_back(answear);
+		std::getline(fin, answear);
+		answears.push_back(answear);
+		std::getline(fin, rightAnswear);
+		numeralRightAnswear = std::stoi(rightAnswear);
+
+		Question questionObject(0,question, answears, numeralRightAnswear);
+		questions.push_back(questionObject);
+		lineCounter = lineCounter + 6;
+	}
+	while (lineCounter < 400)
+	{
+		std::vector<std::string> answears;
+		std::getline(fin, question);
+		std::getline(fin, rightAnswear);
+		numeralRightAnswear = std::stoi(rightAnswear);
+
+		Question questionObject(0,question, answears, numeralRightAnswear);
+		questions.push_back(questionObject);
+		lineCounter = lineCounter + 2;
+	}
+	storage.insert_range(questions.begin(), questions.end());
+}
+
+Question::Question(uint16_t id, std::string question, std::vector<std::string> answer, int correctAnswer)
+	:m_id(id),
+	m_question(question),
+	m_answers(answer),
+	m_correctAnswer(correctAnswer)
+{
+}

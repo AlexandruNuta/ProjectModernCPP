@@ -1,7 +1,8 @@
 #pragma once
 #include <string>
 #include <vector>
-#include <ostream>
+#include <iostream>
+#include <fstream>
 
 
 #include <crow.h>
@@ -24,11 +25,14 @@ namespace sql = sqlite_orm;
 //	int m_correctAnswear;
 //};
 
-struct Question {
-	uint16_t id;
+class Question {
+public:
+	uint16_t m_id;
 	std::string m_question;
-	std::vector<std::string>m_answears;
-	int m_correctAnswear;
+	std::vector<std::string>m_answers;
+	int m_correctAnswer;
+public:
+	Question( uint16_t id, std::string question, std::vector<std::string> answer, int correctAnswer);
 };
 inline auto createStorage(const std::string& filename)
 {
@@ -36,16 +40,18 @@ inline auto createStorage(const std::string& filename)
 		filename,
 		sql::make_table(
 			"Questions",
-			sql::make_column("Id", &Question::id, sql::autoincrement(), sql::primary_key()),
+			sql::make_column("Id", &Question::m_id, sql::autoincrement(), sql::primary_key()),
 			sql::make_column("Question", &Question::m_question),
-			sql::make_column("CorrectAnswear", &Question::m_correctAnswear)
+			sql::make_column("CorrectAnswear", &Question::m_correctAnswer)
 			),
 		sql::make_table(
 			"Answears",
-			sql::make_column("Id", &Question::id, sql::autoincrement(), sql::primary_key()),
-			sql::make_column("First", &Question::m_answears)
+			sql::make_column("Id", &Question::m_id, sql::autoincrement(), sql::primary_key())
+			//sql::make_column("First", &Question::m_answers)
 			//sql::make_column()
 		)
 	);
 }
 using Storage = decltype(createStorage(""));
+
+void populateStorage(Storage& storage);
