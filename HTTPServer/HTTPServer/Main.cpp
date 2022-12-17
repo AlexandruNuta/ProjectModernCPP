@@ -14,12 +14,11 @@ int main()
 	const std::string db_file = "game_database.sqlite";
 	Storage db = createStorage(db_file);
 	db.sync_schema();
-	/*if (questionCount == 0)
-		populateStorage(db);*/
 	crow::SimpleApp app;
 	CROW_ROUTE(app, "/")([]() {
 		return "Test";
 		});
+
 	CROW_ROUTE(app, "/Questions")([&db]() {
 	std::vector<crow::json::wvalue>Questions;
 	for (const auto& index : db.iterate<Question>())
@@ -27,7 +26,7 @@ int main()
 		Questions.push_back(crow::json::wvalue
 			{
 				{"id",index.m_id},
-				{"name",index.m_question},
+				{"question",index.m_question},
 				{"answer",index.m_answer}
 
 			});
@@ -43,12 +42,12 @@ int main()
 		Questions.push_back(crow::json::wvalue
 			{
 				{"id",index.m_id},
-				{"name",index.m_question},
+				{"question",index.m_question},
 				{"answer",index.m_answer},
-				{"answers1",index.m_answers1},
-				{"answers2",index.m_answers2},
-				{"answers3",index.m_answers3},
-				{"answers4",index.m_answers4}
+				{"answer1",index.m_answers1},
+				{"answer2",index.m_answers2},
+				{"answer3",index.m_answers3},
+				{"answer4",index.m_answers4}
 
 			});
 	}
@@ -71,6 +70,20 @@ int main()
 			std::ostringstream os;
 			os << "In this game will be " << numberOfPlayers << " players";
 			return crow::response(os.str());
+		});
+
+	CROW_ROUTE(app, "/RegisterNewUsers").methods("POST"_method)([&db](const crow::request& request) {
+		auto data = crow::json::load(request.body);
+	for (auto& index : db.iterate<Users>()) {
+		if (index.m_username == data["username"].s()) {
+			return crow::response(400, "You are already registered");
+		}
+	}
+	Users user;
+	user.m_username = data["username"].s();
+	user.m_password = data["password"].s();
+	db.insert(user);
+	return crow::response(200);
 		});
 
 	

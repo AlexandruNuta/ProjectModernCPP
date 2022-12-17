@@ -71,3 +71,14 @@ QuestionMultipleAnswers::QuestionMultipleAnswers(uint16_t id, std::string questi
 QuestionMultipleAnswers::QuestionMultipleAnswers()
 {
 }
+
+Users::Users(const uint16_t& id,const std::string& username,const std::string& password)
+	:m_id(id),
+	m_username(username),
+	m_password(password)
+{
+}
+
+Users::Users()
+{
+}
