@@ -32,5 +32,30 @@ int main()
 	x["message"] = "InceputulJocului!";
 	return x;
 			});
+	CROW_ROUTE(app, "/NumberOfPlayers/<int>")([](int numberOfPlayers) {
+		if (numberOfPlayers > 4) {
+			return crow::response(400);
+		}
+			std::ostringstream os;
+			os << "In this game will be " << numberOfPlayers << " players";
+			return crow::response(os.str());
+		});
+
+	////////////
+
+
+	CROW_ROUTE(app, "/add_json")
+		.methods("POST"_method)
+		([](const crow::request& req) {
+		auto x = crow::json::load(req.body);
+	if (!x)
+		return crow::response(400);
+	int sum = x["a"].i() + x["b"].i();
+	std::ostringstream os;
+	os << sum;
+	return crow::response{ os.str() };
+			});
+
+	/////////////
 	app.port(18080).multithreaded().run();
 }
