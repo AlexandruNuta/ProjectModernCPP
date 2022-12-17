@@ -29,26 +29,43 @@ class Question {
 public:
 	uint16_t m_id;
 	std::string m_question;
-	std::vector<std::string>m_answers;
-	int m_correctAnswer;
+	std::string m_answer;
 public:
-	Question( uint16_t id, std::string question, std::vector<std::string> answer, int correctAnswer);
+	Question( uint16_t id, std::string question,std::string answer);
+	Question();
+};
+class QuestionMultipleAnswers {
+public:
+	uint16_t m_id;
+	std::string m_question;
+	std::string m_answer;
+	std::string m_answers1;
+	std::string m_answers2;
+	std::string m_answers3;
+	std::string m_answers4;
+public:
+	QuestionMultipleAnswers(uint16_t id, std::string question, std::string answer, std::string answers1, std::string answers2, std::string answers3, std::string answers4);
+	QuestionMultipleAnswers();
 };
 inline auto createStorage(const std::string& filename)
 {
 	return sql::make_storage(
 		filename,
 		sql::make_table(
-			"Questions",
-			sql::make_column("Id", &Question::m_id, sql::autoincrement(), sql::primary_key()),
-			sql::make_column("Question", &Question::m_question),
-			sql::make_column("CorrectAnswear", &Question::m_correctAnswer)
-			),
+			"NumericQuestion",
+			sql::make_column("id", &Question::m_id, sql::autoincrement(), sql::primary_key()),
+			sql::make_column("question", &Question::m_question),
+			sql::make_column("answer", &Question::m_answer)
+		),
 		sql::make_table(
-			"Answears",
-			sql::make_column("Id", &Question::m_id, sql::autoincrement(), sql::primary_key())
-			//sql::make_column("First", &Question::m_answers)
-			//sql::make_column()
+			"MultipleAnswersQuestion",
+			sql::make_column("id", &QuestionMultipleAnswers::m_id, sql::autoincrement(), sql::primary_key()),
+			sql::make_column("question", &QuestionMultipleAnswers::m_question),
+			sql::make_column("answer", &QuestionMultipleAnswers::m_answer),
+			sql::make_column("answer1", &QuestionMultipleAnswers::m_answers1),
+			sql::make_column("answer2", &QuestionMultipleAnswers::m_answers2),
+			sql::make_column("answer3", &QuestionMultipleAnswers::m_answers3),
+			sql::make_column("answer4", &QuestionMultipleAnswers::m_answers4)
 		)
 	);
 }
