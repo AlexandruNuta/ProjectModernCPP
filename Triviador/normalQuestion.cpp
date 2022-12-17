@@ -2,6 +2,11 @@
 
 bool normalQuestion::verifyAnswer(const std::string& answer)
 {
+	if (answer.empty())
+	{
+		std::cout << "Invalid Answer" << std::endl;
+		throw;
+	}
 	for (int i = 0; i < m_answers.size(); i++)
 		if (m_answers[i] == answer)
 		{
