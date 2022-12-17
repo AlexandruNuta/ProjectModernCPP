@@ -60,3 +60,8 @@ int Advantage::answerSugestion(Question question)
 		right = 0;
 	return(abs(left) + right);
 }
+
+int Advantage::advantageChoose()
+{
+	return rand()%3;
+}
