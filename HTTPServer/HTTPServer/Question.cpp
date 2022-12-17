@@ -4,6 +4,14 @@
 
 void populateStorage(Storage& storage)
 {
+	std::vector<Question> questions;
+	std::ifstream fin("XDD.txt");
+	int lineCounter = 0;
+	std::string question;
+	std::string answear;
+	std::string rightAnswear;
+	int numeralRightAnswear;
+
 	/*std::vector<Question> questions;
 	std::ifstream fin("XDD.txt");
 	int lineCounter = 0;
