@@ -20,6 +20,21 @@ int main()
 		return "Test";
 		});
 
+	CROW_ROUTE(app, "/history")([&db]() {
+		std::vector<crow::json::wvalue> MatchesJson;
+	for (const auto& match : db.iterate<dbClasses::Matches>())
+	{
+		MatchesJson.push_back(crow::json::wvalue
+			{
+				{"id", match.id},
+				{"name", match.nume},
+				{"no_playes", match.no_players}
+			}
+		);
+	}
+	return crow::json::wvalue(MatchesJson);
+		});
+
 	CROW_ROUTE(app, "/Questions")([&db]() {
 	std::vector<crow::json::wvalue>Questions;
 	for (const auto& index : db.iterate<Question>())
