@@ -61,6 +61,21 @@ int Advantage::answerSugestion(Question question)
 	return(abs(left) + right);
 }
 
+void Advantage::answearChoice(Question question)
+{
+	std::vector<int> random;
+	random.push_back(rand() % question.getCorrectAnswer() / 2 + question.getCorrectAnswer() / 2);
+	random.push_back(rand() % question.getCorrectAnswer() / 2);
+	random.push_back(rand() % question.getCorrectAnswer() / 2 + question.getCorrectAnswer());
+	random.push_back(question.getCorrectAnswer());
+	while (random.size())
+	{
+		int x = rand() % random.size();
+		std::cout << random[x] << " ";
+		random.erase(random.begin() + x);
+	}
+}
+
 int Advantage::advantageChoose()
 {
 	return rand()%3;
