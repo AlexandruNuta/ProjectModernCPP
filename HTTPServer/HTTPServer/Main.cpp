@@ -15,6 +15,7 @@ int main()
 	Storage db = createStorage(db_file);
 	db.sync_schema();
 	crow::SimpleApp app;
+
 	CROW_ROUTE(app, "/")([]() {
 		return "Test";
 		});
@@ -77,6 +78,24 @@ int main()
 			std::ostringstream os;
 			os << "In this game will be " << numberOfPlayers << " players";
 			return crow::response(os.str());
+		});
+
+	CROW_ROUTE(app, "/UserLogin").methods("POST"_method)([&db](const crow::request& req) {
+		auto data = crow::json::load(req.body);
+		auto username = data["username"].s();
+		auto password = data["password"].s();
+		for (const auto& player : db.iterate<Users>())
+		{
+			if (player.m_username == username)
+			{
+				if (player.m_password == password)
+				{
+					return crow::response(200, "Logged in with succes!");
+				}
+				else return crow::response(400, "Typed password is incorrect");
+			}
+			else return crow::response(400, "Typed username is incorrect");
+		}
 		});
 
 	CROW_ROUTE(app, "/RegisterNewUsers").methods("POST"_method)([&db](const crow::request& request) {
