@@ -76,7 +76,27 @@ void Advantage::answearChoice(Question question)
 	}
 }
 
-int Advantage::advantageChoose()
+void Advantage::advantageChoose(Question question) const
 {
-	return rand()%3;
+	std::cout << "Choose an avantage:" << std::endl;
+	std::cout << "1. Answer Elimination - Eliminate two wrong answers." << std::endl;
+	if (question.isNumerical())
+	{
+		std::cout << "2. Answear Choice - Add four answers from which you can choose." << std::endl;
+		std::cout << "3. Answer Suggestion - Suggest an answer close to the correct one." << std::endl;
+	}
+	int x;
+	std::cin >> x;
+	switch (x)
+	{
+	case 1:
+		//answerElimination(player, question);
+		break;
+	case 2:
+		//answerSugestion(question);
+		break;
+	case 3:
+		//answearChoice(question);
+		break;
+	}
 }

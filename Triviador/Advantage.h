@@ -16,6 +16,6 @@ public:
 	void answerElimination(const Player& player, const uint8_t& value, Question question);
 	int answerSugestion(Question question);
 	void answearChoice(Question question);
-	int advantageChoose();
+	void advantageChoose(Question question) const;
 };
 
