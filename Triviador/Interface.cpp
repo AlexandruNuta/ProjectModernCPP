@@ -127,15 +127,25 @@ void Interface::stageChooseBase()
 	for (Player& player : m_game.getPlayers())
 	{
 		int coordinate1, coordinate2;
-
 		std::cout << m_game;
 		std::cout << player.getUsername() << ", choose region based on coordinates" << std::endl;
 		std::cout << "Introduce first coordinate:";
 		std::cin >> coordinate1;
 		std::cout << "Introduce second coordinate:";
 		std::cin >> coordinate2;
-		if (coordinate1 > m_game.GetSize().first || coordinate2 > m_game.GetSize().second)
-			std::cout << "The region does not exist!" << std::endl;
+		
+		if (coordinate1 > m_game.getMapRows()-1 || coordinate2 > m_game.getMapColumns()-1)
+		{
+			while (coordinate1 > m_game.getMapRows()-1 || coordinate2 > m_game.getMapColumns()-1)
+			{
+				std::cout << "The region does not exist!" << std::endl;
+				std::cout << "Please choose a valid region based on coordinates" << std::endl;
+				std::cout << "Introduce first coordinate:";
+				std::cin >> coordinate1;
+				std::cout << "Introduce second coordinate:";
+				std::cin >> coordinate2;
+			}
+		}
 		else
 			while (m_game.isOwned(std::make_pair(coordinate1, coordinate2)))
 			{
@@ -177,8 +187,18 @@ void Interface::stageChoseRegion()
 				std::cin >> coordinate1;
 				std::cout << "Introduce second coordinate:";
 				std::cin >> coordinate2;
-				if (coordinate1 > m_game.GetSize().first || coordinate2 > m_game.GetSize().second)
-					std::cout << "The region does not exist!" << std::endl;
+				if (coordinate1 > m_game.getMapRows()-1 || coordinate2 > m_game.getMapColumns()-1)
+				{
+					while (coordinate1 > m_game.getMapRows()-1 || coordinate2 > m_game.getMapColumns()-1)
+					{
+						std::cout << "The region does not exist!" << std::endl;
+						std::cout << "Please choose a valid region based on coordinates" << std::endl;
+						std::cout << "Introduce first coordinate:";
+						std::cin >> coordinate1;
+						std::cout << "Introduce second coordinate:";
+						std::cin >> coordinate2;
+					}
+				}
 				else
 					while (m_game.isOwned(std::make_pair(coordinate1, coordinate2)))
 					{

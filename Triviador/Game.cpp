@@ -78,6 +78,16 @@ std::pair<int, int> Game::GetSize()
 	return m_gameMap.size();
 }
 
+uint8_t Game::getMapRows()
+{
+	return m_gameMap.getNrRows();
+}
+
+uint8_t Game::getMapColumns()
+{
+	return m_gameMap.getNrColumns();
+}
+
 void Game::changePlayerVectors(std::vector<Player> players)
 {
 	m_players.swap(players);

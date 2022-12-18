@@ -2,6 +2,8 @@
 
 Map::Map(const uint8_t& rows, const uint8_t& columns)
 {
+	m_nrRows = rows;
+	m_nrColumns = columns;
 	m_map.resize(rows, std::vector<Region>(columns));
 }
 
@@ -45,6 +47,16 @@ std::pair<int, int> Map::size()
 	int rows = sizeof m_map / sizeof m_map[0];
 	int cols = sizeof m_map[0] / sizeof(int);
 	return std::make_pair(rows, cols);
+}
+
+uint8_t Map::getNrRows()
+{
+	return m_nrRows;
+}
+
+uint8_t Map::getNrColumns()
+{
+	return m_nrColumns;
 }
 
 bool Map::checkIfEmptyRegions()

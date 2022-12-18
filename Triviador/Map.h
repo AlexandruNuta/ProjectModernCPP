@@ -19,8 +19,12 @@ public:
 	void DecrementRegion(const std::pair<int, int>& index);
 	bool IsOwned(std::pair<int, int> coord);
 	std::pair<int, int> size();
+	uint8_t getNrRows();
+	uint8_t getNrColumns();
 	bool checkIfEmptyRegions();
 private:
+	uint8_t m_nrRows;
+	uint8_t m_nrColumns;
 	std::vector<std::vector<Region>> m_map;
 };
 

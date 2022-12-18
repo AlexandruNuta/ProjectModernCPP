@@ -23,6 +23,8 @@ public:
 	bool isOwned(std::pair<int, int> coord);
 	std::vector<std::vector<Region>> GetMap();
 	std::pair<int, int> GetSize();
+	uint8_t getMapRows();
+	uint8_t getMapColumns();
 	void changePlayerVectors(std::vector<Player> players);
 	bool checkIfEmptyRegions(); 
 
