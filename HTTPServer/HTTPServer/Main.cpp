@@ -53,7 +53,14 @@ int main()
 	}
 	return crow::json::wvalue(Questions);
 		});
-
+	auto questionNumber = db.count<Question>();
+	auto multipleAnswerNumber = db.count< QuestionMultipleAnswers>();
+	if (questionNumber == 0) {
+		populateStorage(db);
+	}
+	if (multipleAnswerNumber == 0) {
+		populateStorage(db);
+	}
 
 	CROW_ROUTE(app, "/InceputulJocului")
 		([] {

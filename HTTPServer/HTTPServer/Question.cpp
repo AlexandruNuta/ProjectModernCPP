@@ -4,53 +4,37 @@
 
 void populateStorage(Storage& storage)
 {
-	std::vector<Question> questions;
-	std::ifstream fin("XDD.txt");
+	std::vector<Question> numericQuestions;
+	std::vector<QuestionMultipleAnswers>multipleAnswer;
+	std::ifstream fin("Questions.txt");
 	int lineCounter = 0;
 	std::string question;
-	std::string answear;
+	std::string answer1;
+	std::string answer2;
+	std::string answer3;
+	std::string answer4;
 	std::string rightAnswear;
-	int numeralRightAnswear;
-
-	/*std::vector<Question> questions;
-	std::ifstream fin("XDD.txt");
-	int lineCounter = 0;
-	std::string question;
-	std::string answear;
-	std::string rightAnswear;
-	int numeralRightAnswear;
-	while (lineCounter < 300)
-	{
-		std::vector<std::string> answears;
-
+	while (lineCounter < 300) {
 		std::getline(fin, question);
-		std::getline(fin, answear);
-		answears.push_back(answear);
-		std::getline(fin, answear);
-		answears.push_back(answear);
-		std::getline(fin, answear);
-		answears.push_back(answear);
-		std::getline(fin, answear);
-		answears.push_back(answear);
-		std::getline(fin, rightAnswear);
-		numeralRightAnswear = std::stoi(rightAnswear);
-
-		Question questionObject(0,question, answears,);
-		questions.push_back(questionObject);
+		std::getline(fin,answer1);
+		std::getline(fin,answer2);
+		std::getline(fin,answer3);
+		std::getline(fin,answer4);
+		std::getline(fin,rightAnswear);
+		QuestionMultipleAnswers temp(0, question, rightAnswear, answer1, answer2, answer3, answer4);
+		multipleAnswer.push_back(temp);
 		lineCounter = lineCounter + 6;
+
 	}
-	while (lineCounter < 400)
-	{
-		std::vector<std::string> answears;
+	while (lineCounter < 400) {
 		std::getline(fin, question);
 		std::getline(fin, rightAnswear);
-		numeralRightAnswear = std::stoi(rightAnswear);
-
-		Question questionObject(0,question, answears, numeralRightAnswear);
-		questions.push_back(questionObject);
+		Question temp(0, question,rightAnswear);
+		numericQuestions.push_back(temp);
 		lineCounter = lineCounter + 2;
 	}
-	storage.insert_range(questions.begin(), questions.end());*/
+	storage.insert_range(numericQuestions.begin(),numericQuestions.end());
+	storage.insert_range(multipleAnswer.begin(), multipleAnswer.end());
 }
 
 Question::Question(uint16_t id, std::string question, std::string answer)
