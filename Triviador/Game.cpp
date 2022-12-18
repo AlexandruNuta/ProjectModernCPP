@@ -54,6 +54,11 @@ std::vector<Player>& Game::getPlayers()
 	return m_players;
 }
 
+uint8_t Game::getNrOfPlayers()
+{
+	return m_players.size();
+}
+
 uint8_t Game::getRounds()
 {
 	return m_numberOfRounds;

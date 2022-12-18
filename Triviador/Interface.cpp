@@ -74,7 +74,7 @@ std::tuple<int, int, int> Interface::IndexAnswerTime(Question question, int inde
 	std::cin >> answer;
 	auto end = Clock::now();
 
-	answer = answer - question.getCorrectAnswear();
+	answer = answer - question.getCorrectAnswer();
 	answer = std::abs(answer);
 
 	time = std::chrono::duration_cast<std::chrono::seconds>(end - start).count();
@@ -122,7 +122,7 @@ void Interface::stageChooseBase()
 	Question question = getRandomQuestion(true);
 	TopPlayersForOneQuestion(question);
 
-	std::cout << std::endl << "Correct Answer: " << question.getCorrectAnswear() << std::endl << std::endl;
+	std::cout << std::endl << "Correct Answer: " << question.getCorrectAnswer() << std::endl << std::endl;
 
 	for (Player& player : m_game.getPlayers())
 	{
@@ -161,7 +161,7 @@ void Interface::stageChoseRegion()
 		Question question = getRandomQuestion(true);
 		TopPlayersForOneQuestion(question);
 
-		std::cout << std::endl << "Correct Answer: " << question.getCorrectAnswear() << std::endl << std::endl;
+		std::cout << std::endl << "Correct Answer: " << question.getCorrectAnswer() << std::endl << std::endl;
 
 		for (Player& player : m_game.getPlayers())
 		{
