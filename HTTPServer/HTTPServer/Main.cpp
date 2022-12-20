@@ -22,13 +22,13 @@ int main()
 
 	CROW_ROUTE(app, "/history")([&db]() {
 		std::vector<crow::json::wvalue> MatchesJson;
-	for (const auto& match : db.iterate<dbClasses::Matches>())
+	for (const auto& match : db.iterate<Matches>())
 	{
 		MatchesJson.push_back(crow::json::wvalue
 			{
 				{"id", match.id},
-				{"name", match.nume},
-				{"no_playes", match.no_players}
+				{"name", match.name},
+				{"wins", match.wins}
 			}
 		);
 	}
@@ -95,7 +95,7 @@ int main()
 			return crow::response(os.str());
 		});
 
-	CROW_ROUTE(app, "/UserLogin").methods("POST"_method)([&db](const crow::request& req) {
+	CROW_ROUTE(app, "/LoginUser").methods("POST"_method)([&db](const crow::request& req) {
 		auto data = crow::json::load(req.body);
 		auto username = data["username"].s();
 		auto password = data["password"].s();

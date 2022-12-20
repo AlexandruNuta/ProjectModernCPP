@@ -33,6 +33,13 @@ public:
 	QuestionMultipleAnswers();
 };
 
+class Matches {
+public:
+	uint16_t id;
+	std::string name;
+	uint16_t wins;
+};
+
 class Users {
 public:
 	uint16_t m_id;
@@ -68,6 +75,12 @@ inline auto createStorage(const std::string& filename)
 			sql::make_column("id",&Users::m_id,sql::autoincrement(), sql::primary_key()),
 			sql::make_column("username",&Users::m_username),
 			sql::make_column("password",&Users::m_password)
+		),
+		sql::make_table(
+			"History",
+			sql::make_column("id",&Matches::id,sql::autoincrement(),sql::primary_key()),
+			sql::make_column("name",&Matches::name),
+			sql::make_column("wins",&Matches::wins)
 		)
 	);
 }
