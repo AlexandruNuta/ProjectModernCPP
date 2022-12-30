@@ -1,56 +1,33 @@
 #include "Player.h"
 
-Player::Player(std::string username, std::string password)
-	:m_username(username)
-	,m_password(password)
-	,m_isInGame(true)
+Player::Player(const std::string& username, const std::string& password, const uint16_t& indexVector)
+	:m_username(username),
+	m_password(password),
+	m_indexVector(indexVector)
 {
 }
 
-std::string Player::getUsername()
+std::shared_ptr<Region> Player::GetBase() const
 {
-	return m_username;
+	const uint16_t baseIndex = 0;
+	return m_territory[baseIndex];
 }
 
-std::string Player::getPassword()
-{
-	return m_password;
-}
-
-bool Player::getIsInGame()
-{
-	return m_isInGame;
-}
-
-std::vector<std::pair<int, int>> Player::getTerritory()
+std::vector<std::shared_ptr<Region>> Player::GetTerritory() const
 {
 	return m_territory;
 }
 
-void Player::addRegion(const std::pair<int, int>& indexes)
+uint16_t Player::GetIndexVector() const
 {
-	m_territory.push_back(indexes);
+	return m_indexVector;
 }
 
-void Player::removeRegion(const std::pair<int, int>& indexes)
+uint16_t Player::TotalScore() const
 {
-	m_territory.erase(std::remove(m_territory.begin(), m_territory.end(), indexes), m_territory.end());
+	uint16_t totalScore = 0;
+	for (const auto& region : m_territory)
+		totalScore = totalScore + region->GetScore();
+	return totalScore;
 }
 
-void Player::changePassword(std::string newPassword)
-{
-	this->m_password = newPassword;
-}
-
-void Player::changeUsername(std::string newUsername)
-{
-	this->m_username = newUsername;
-}
-
-void Player::changeIsInGame()
-{
-	if (this->m_isInGame == true)
-	{
-		this->m_isInGame = false;
-	}
-}

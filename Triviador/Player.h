@@ -1,28 +1,23 @@
 #pragma once
-#include <string>
+
 #include <vector>
-#include <algorithm>
+
+#include "Region.h"
 
 class Player
 {
 public:
-	Player(std::string username, std::string password);
-	std::string getUsername();
-	std::string getPassword();
-	bool getIsInGame();
-	std::vector<std::pair<int, int>> getTerritory();
+	Player(const std::string& username, const std::string& password, const uint16_t& indexVector);
 
-public:
-	void addRegion(const std::pair<int, int>& indexes);
-	void removeRegion(const std::pair<int, int>& indexes);
-	void changePassword(std::string newPassword);
-	void changeUsername(std::string newUsername);
-	void changeIsInGame();
+	std::shared_ptr<Region> GetBase() const;
+	std::vector<std::shared_ptr<Region>> GetTerritory() const;
+	uint16_t GetIndexVector() const;
+	uint16_t TotalScore() const;
 
 private:
 	std::string m_username;
 	std::string m_password;
-	bool m_isInGame;
-	std::vector < std::pair<int, int> > m_territory;
+	uint16_t m_indexVector;
+	std::vector<std::shared_ptr<Region>> m_territory;
 };
 
