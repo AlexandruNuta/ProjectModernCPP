@@ -14,6 +14,9 @@ public:
 	Question GetNumericalQuestion() const;
 	Question GetQuestionMultipleChoice() const;
 
+	void StageChooseBase();
+	void StageChoseRegion();
+
 private:
 	Map m_map;
 	std::vector<Question> m_questions;

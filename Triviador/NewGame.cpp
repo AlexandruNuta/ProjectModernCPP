@@ -119,3 +119,139 @@ Question NewGame::GetQuestionMultipleChoice() const
 	srand(time(NULL));
 	return m_questions[rand() % numberQuestionMultipleChoice];
 }
+
+template <typename T>
+T AskForInput(std::shared_ptr<Player> player)
+{
+	T answer;
+	std::cout << player << ", please input your answer: ";
+	std::cin >> answer;
+	return answer;
+}
+
+std::tuple<uint16_t, uint16_t, uint16_t> IndexAnswerTime(const Question& question, std::shared_ptr<Player> player, const uint16_t& index)
+{
+	int answer;
+	float time;
+	std::cout << question;
+
+	using Clock = std::chrono::high_resolution_clock;
+	auto start = Clock::now();
+	answer = AskForInput<int>(player);
+	auto end = Clock::now();
+
+	answer = answer - std::stoi(question.GetCorrectAnswer());
+	answer = std::abs(answer);
+
+	time = std::chrono::duration_cast<std::chrono::seconds>(end - start).count();
+	return std::make_tuple(index, answer, time);
+}
+
+bool compareTuples(const std::tuple<uint16_t, uint16_t, uint16_t>& a, const std::tuple<uint16_t, uint16_t, uint16_t>& b)
+{
+	if (std::get<1>(a) == std::get<1>(b))
+	{
+		return std::get<2>(a) <= std::get<2>(b);
+	}
+	return std::get<1>(a) < std::get<1>(b);
+}
+
+void TopPlayersForOneQuestion(const Question& question, std::vector<std::shared_ptr<Player>>& players)
+{
+	std::vector<std::tuple<uint16_t, uint16_t, uint16_t>> forSorting;
+
+	for (int index = 0; index < players.size(); index++)
+		forSorting.push_back(IndexAnswerTime(question, players[index], index));
+	std::sort(forSorting.begin(), forSorting.end(), compareTuples);
+
+	std::vector<std::shared_ptr<Player>> sortedPlayers;
+
+	for (int i = 0; i < forSorting.size(); i++)
+		sortedPlayers.push_back(players[std::get<0>(forSorting[i])]);
+	players = sortedPlayers;
+}
+
+void ReadCoordinates(uint16_t& coordinate1, uint16_t& coordinate2)
+{
+	std::cout << "Introduce first coordinate: ";
+	std::cin >> coordinate1;
+	std::cout << "Introduce second coordinate: ";
+	std::cin >> coordinate2;
+}
+void NewGame::StageChooseBase()
+{
+	std::cout << std::endl << std::endl << "STAGE 1: CHOOSE BASES" << std::endl << std::endl;
+	auto copyPlayers = std::make_unique<std::vector<std::shared_ptr<Player>>>(m_players);
+	Question question = GetNumericalQuestion();
+	TopPlayersForOneQuestion(question, *copyPlayers);
+	std::cout << std::endl << "Correct Answer: " << question.GetCorrectAnswer() << std::endl;
+	for (auto player : *copyPlayers)
+	{
+		uint16_t coordinate1 = 0, coordinate2 = 0;
+		std::cout << m_map;
+		std::cout << player << ", choose region based on coordinates." << std::endl;
+		ReadCoordinates(coordinate1, coordinate2);
+
+		while (coordinate1 > m_map.size().first - 1 || coordinate2 > m_map.size().second - 1)
+		{
+			std::cout << "The region does not exist. Please choose a valid region based on coordinates." << std::endl;
+			ReadCoordinates(coordinate1, coordinate2);
+		}
+		while (m_map.GetMap()[coordinate1][coordinate2]->GetOwned())
+		{
+			std::cout << "Base already occupied. Please choose an unocuppied region based on coordinates." << std::endl;
+			ReadCoordinates(coordinate1, coordinate2);
+		}
+		std::shared_ptr<Region> region = m_map.GetMap()[coordinate1][coordinate2];
+		region->SetBase(player->GetIndexVector() + 1);
+		player->AddRegion(region);
+		std::cout << "Base initialised with succes!" << std::endl << std::endl;
+	}
+	std::cout << "All the bases have been chosen!" << std::endl << std::endl << "Final map:";
+	std::cout << m_map << std::endl << std::endl;
+}
+
+void NewGame::StageChoseRegion()
+{
+	std::cout << std::endl << std::endl << "STAGE 2: CHOOSE REGIONS" << std::endl << std::endl;
+	while (m_map.CheckIfEmptyRegions())
+	{
+		Question question = GetNumericalQuestion();
+		TopPlayersForOneQuestion(question, m_players);
+		std::cout << std::endl << "Correct Answer: " << question.GetCorrectAnswer() << std::endl << std::endl;
+
+		uint16_t placeRanking = 0;
+		for (auto player : m_players)
+		{
+			uint16_t numberOfRegionsToBeSelected = m_players.size() - placeRanking;
+
+			while (numberOfRegionsToBeSelected && m_map.CheckIfEmptyRegions())
+			{
+				uint16_t coordinate1 = 0, coordinate2 = 0;
+
+				std::cout << m_map;
+				std::cout << player << ", choose region based on coordinates." << std::endl;
+				ReadCoordinates(coordinate1, coordinate2);
+				while (coordinate1 > m_map.size().first - 1 || coordinate2 > m_map.size().second - 1)
+				{
+					std::cout << "The region does not exist. Please choose a valid region based on coordinates." << std::endl;
+					ReadCoordinates(coordinate1, coordinate2);
+				}
+				while (m_map.GetMap()[coordinate1][coordinate2]->GetOwned())
+				{
+					std::cout << "Region already occupied. Please choose an unocuppied region based on coordinates." << std::endl;
+					ReadCoordinates(coordinate1, coordinate2);
+
+				}
+				std::shared_ptr<Region> region = m_map.GetMap()[coordinate1][coordinate2];
+				region->SetOwned(player->GetIndexVector() + 1);
+				player->AddRegion(region);
+				std::cout << "Region added with succes!" << std::endl << std::endl;
+				numberOfRegionsToBeSelected--;
+			}
+			placeRanking++;
+		}
+	}
+	std::cout << "All regions are owned!" << std::endl << "Final map:" << std::endl;
+	std::cout << m_map << std::endl << std::endl;
+}
