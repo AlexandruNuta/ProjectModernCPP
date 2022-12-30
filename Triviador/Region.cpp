@@ -1,12 +1,10 @@
 #include "Region.h"
-Region::Region()
-	:m_isBase(false)
-	, m_score(100)
-	, m_owned(false)
-	, m_North(nullptr)
-	, m_East(nullptr)
-	, m_South(nullptr)
-	, m_West(nullptr)
+
+Region::Region(const std::pair<uint16_t, uint16_t>& coordinates)
+	:m_isBase(false),
+	m_score(100),
+	m_owned(false),
+	m_coordinates(coordinates)
 {
 }
 
@@ -15,7 +13,7 @@ bool Region::GetIsBase() const
 	return m_isBase;
 }
 
-bool Region::GetOwned() const
+uint16_t Region::GetOwned() const
 {
 	return m_owned;
 }
@@ -25,70 +23,47 @@ uint16_t Region::GetScore() const
 	return m_score;
 }
 
-void Region::MakeItBase()
+std::pair<uint16_t, uint16_t> Region::GetCoordinates() const
 {
+	return m_coordinates;
+}
+
+void Region::SetOwned(const uint16_t& index)
+{
+	m_owned = index;
+}
+
+void Region::SetBase(const uint16_t& index)
+{
+	const uint16_t increment = 300;
 	if (!m_isBase)
 	{
-		this->m_isBase = true;
-		this->m_score = 300;
-		this->m_owned = true;
+		m_owned = index;
+		m_isBase = true;
+		m_score = increment;
 	}
 }
 
-void Region::ChangeOwned()
+void Region::SetIsNotBase()
 {
-	if (!m_owned)
-	{
-		this->m_owned = true;
-	}
+	m_isBase = false;
 }
 
 void Region::IncrementScore()
 {
-	this->m_score += 100;
+	const uint16_t increment = 100;
+	m_score += 100;
 }
 
 void Region::DecrementScore()
 {
-	this->m_score -= 100;
+	const uint16_t decrement = 100;
+	m_score -= decrement;
 }
 
-Region* Region::getNorthNeighbour()
+bool Region::operator==(Region region)
 {
-	return m_North;
-}
-
-Region* Region::getEastNeighbour()
-{
-	return m_East;
-}
-
-Region* Region::getSouthNeighbour()
-{
-	return m_South;
-}
-
-Region* Region::getWestNeighbour()
-{
-	return m_West;
-}
-
-void Region::setNorthNeighbour(Region* reg)
-{
-	m_North = reg;
-}
-
-void Region::setEasthNeighbour(Region* reg)
-{
-	m_East = reg;
-}
-
-void Region::setSouthhNeighbour(Region* reg)
-{
-	m_South = reg;
-}
-
-void Region::setWesthNeighbour(Region* reg)
-{
-	m_West = reg;
+	if (this->m_coordinates == region.GetCoordinates())
+		return true;
+	return false;
 }

@@ -1,35 +1,31 @@
 #pragma once
+
+#include <iostream>
 #include <cstdint>
 
 class Region
 {
 public:
-	Region();
-	bool GetIsBase() const;
-	bool GetOwned() const;
-	uint16_t GetScore() const;
+	Region() = default;
+	Region(const std::pair<uint16_t, uint16_t>& coordinates);
 
-public:
-	void MakeItBase();
-	void ChangeOwned();
+	bool GetIsBase() const;
+	uint16_t GetOwned() const;
+	uint16_t GetScore() const;
+	std::pair<uint16_t, uint16_t> GetCoordinates() const;
+
+	void SetOwned(const uint16_t& index);
+	void SetBase(const uint16_t& index);
+	void SetIsNotBase();
 	void IncrementScore();
 	void DecrementScore();
-	Region* getNorthNeighbour();
-	Region* getEastNeighbour();
-	Region* getSouthNeighbour();
-	Region* getWestNeighbour();
-	void setNorthNeighbour(Region* reg);
-	void setEasthNeighbour(Region* reg);
-	void setSouthhNeighbour(Region* reg);
-	void setWesthNeighbour(Region* reg);
+
+	bool operator==(Region region);
 
 private:
 	bool m_isBase;
-	bool m_owned;
+	uint16_t m_owned;
 	uint16_t m_score;
-	Region* m_North;
-	Region* m_East;
-	Region* m_South;
-	Region* m_West;
+	std::pair<uint16_t, uint16_t> m_coordinates;
 };
 
