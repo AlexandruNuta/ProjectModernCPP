@@ -365,3 +365,33 @@ void NewGame::StageDuels()
 		currentRound++;
 	}
 }
+
+void SortScores(std::vector<std::shared_ptr<Player>>& m_players)
+{
+	for (int i = 1; i < m_players.size(); i++)
+	{
+		uint16_t iInitial = i;
+		for (int j = i - 1; j >= 0; j--)
+			if (m_players[i]->TotalScore() > m_players[j]->TotalScore())
+			{
+				std::swap(m_players[i], m_players[j]);
+				i--;
+			}
+			else
+			{
+				i = iInitial;
+				break;
+			}
+		i = iInitial;
+	}
+}
+
+void NewGame::Ranking()
+{
+	SortScores(m_players);
+	std::cout << std::endl << "GAME OVER" << std::endl;
+	std::cout << m_players[0] << " won the game!" << std::endl << std::endl;
+	std::cout << "RANKING" << std::endl;
+	for (int i = 0; i < m_players.size(); i++)
+		std::cout << i + 1 << ". " << m_players[i] << " - " << m_players[i]->TotalScore() << std::endl;
+}

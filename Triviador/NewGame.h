@@ -22,6 +22,8 @@ public:
 	void DetermineWinner(std::shared_ptr<Player> player, std::shared_ptr<Region> region);
 	void StageDuels();
 
+	void Ranking();
+
 private:
 	Map m_map;
 	std::vector<Question> m_questions;
