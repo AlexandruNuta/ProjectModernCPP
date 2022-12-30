@@ -1,22 +1,23 @@
 #pragma once
-#include <string>
+
+#include <iostream>
 #include <vector>
-#include <ostream>
+
 class Question
 {
 public:
-	Question(const std::string& question,const std::vector<std::string>& answers, const int& correctAnswer);
-public:
-	std::string getQuestion();
-	std::vector<std::string> getAnswers();
-	int getCorrectAnswer();
-	friend std::ostream& operator<<(std::ostream& out, Question game);
-	bool isNumerical();
-	int IndexCorrectAnswer() const;
+	Question(const std::string& question, const std::vector<std::string>& answers, const uint16_t& correctAnswer);
+
+	std::string GetQuestion() const;
+	std::vector<std::string> GetAnswers() const;
+	std::string GetCorrectAnswer() const;
+	uint16_t GetIndexCorrectAnswer() const;
+
+	friend std::ostream& operator<<(std::ostream& out, const Question& question);
+
 private:
 	std::string m_question;
 	std::vector<std::string> m_answers;
-	int m_correctAnswer;
+	uint16_t m_correctAnswer;
 };
-
 
