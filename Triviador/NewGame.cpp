@@ -255,3 +255,113 @@ void NewGame::StageChoseRegion()
 	std::cout << "All regions are owned!" << std::endl << "Final map:" << std::endl;
 	std::cout << m_map << std::endl << std::endl;
 }
+
+bool NewGame::VerifyGameContinues() const
+{
+	uint16_t counter = 0;
+	for (const auto& player : m_players)
+	{
+		if (player->GetTerritory().size())
+			counter++;
+		if (counter > 1)
+			return true;
+	}
+	return false;
+}
+
+void NewGame::VerifyAttackCoordinates(std::shared_ptr<Player> player, uint16_t& coordinate1, uint16_t& coordinate2)
+{
+	std::cout << m_map;
+	std::cout << player << ", choose a region in your vecinity to attack, based on coordinates." << std::endl;
+	ReadCoordinates(coordinate1, coordinate2);
+	while (coordinate1 > m_map.size().first - 1 || coordinate2 > m_map.size().second - 1)
+	{
+		std::cout << "The region does not exist. Please choose a valid region based on coordinates." << std::endl;
+		ReadCoordinates(coordinate1, coordinate2);
+	}
+	while (!player->VerifiVecinity(std::make_pair(coordinate1, coordinate2)))
+	{
+		std::cout << "The selected region is not in your vicinity. Please choose a region in your vecinity, based on coordinates." << std::endl;
+		ReadCoordinates(coordinate1, coordinate2);
+	}
+}
+
+bool VerifyAnswer(const char& answer, const Question& question)
+{
+	const uint16_t aASCII = 97;
+	if (int(answer) - aASCII == question.GetIndexCorrectAnswer())
+		return true;
+	return false;
+}
+
+void NewGame::DetermineWinner(std::shared_ptr<Player> player, std::shared_ptr<Region> region)
+{
+	std::shared_ptr<Player> opponent = m_players[region->GetOwned() - 1];
+	Question question = GetQuestionMultipleChoice();
+	std::pair<char, char> answers;
+	std::cout << question;
+	answers.first = AskForInput<char>(player);
+	answers.second = AskForInput<char>(opponent);
+	if (VerifyAnswer(answers.first, question))
+	{
+		std::vector<std::shared_ptr<Player>> players = { player, opponent };
+		if (VerifyAnswer(answers.second, question))
+		{
+			question = GetNumericalQuestion();
+			TopPlayersForOneQuestion(question, players);
+		}
+		if (player == players[0])
+		{
+			std::cout << player << " won the duel and " << opponent << "'s region has been decremented." << std::endl;
+			region->DecrementScore();
+			if (!region->GetScore())
+			{
+				std::cout << player << " conquered the region." << std::endl << std::endl;;
+				region->IncrementScore();
+				region->SetOwned(player->GetIndexVector() + 1);
+				player->AddRegion(region);
+				opponent->RemoveRegion(region);
+			}
+			else
+				player->GetBase()->IncrementScore();
+			if (region->GetIsBase())
+				if (region->GetOwned() - 1 == player->GetIndexVector())
+				{
+					std::cout << player << " conquered " << opponent << "'s base and all his territories.";
+					region->SetIsNotBase();
+					player->Conquering(opponent);
+				}
+				else
+					DetermineWinner(player, region);
+			return;
+		}
+	}
+	if (VerifyAnswer(answers.second, question))
+	{
+		std::cout << opponent << " successfully defended his region and it was increased." << std::endl << std::endl;;
+		region->IncrementScore();
+		return;
+	}
+	std::cout << "No player answered the question correctly." << std::endl << std::endl;;
+}
+
+void NewGame::StageDuels()
+{
+	std::cout << std::endl << std::endl << std::endl << "STAGE 3: DUELS" << std::endl << std::endl;
+	std::vector<std::shared_ptr<Player>> shufflePlayers = m_players;
+	uint16_t currentRound = 1;
+	while (currentRound <= roundsNumber && VerifyGameContinues())
+	{
+		std::cout << std::endl << "ROUND " << currentRound;
+		std::shuffle(std::begin(shufflePlayers), std::end(shufflePlayers), std::random_device{});
+		for (auto player : shufflePlayers)
+			if (player->TotalScore())
+			{
+				uint16_t coordinate1 = 0, coordinate2 = 0;
+				VerifyAttackCoordinates(player, coordinate1, coordinate2);
+				std::shared_ptr<Region> region = m_map.GetMap()[coordinate1][coordinate2];
+				DetermineWinner(player, region);
+			}
+		currentRound++;
+	}
+}

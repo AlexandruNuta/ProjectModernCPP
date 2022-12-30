@@ -17,6 +17,11 @@ public:
 	void StageChooseBase();
 	void StageChoseRegion();
 
+	void VerifyAttackCoordinates(std::shared_ptr<Player> player, uint16_t& coordinate1, uint16_t& coordinate2);
+	bool VerifyGameContinues() const;
+	void DetermineWinner(std::shared_ptr<Player> player, std::shared_ptr<Region> region);
+	void StageDuels();
+
 private:
 	Map m_map;
 	std::vector<Question> m_questions;
