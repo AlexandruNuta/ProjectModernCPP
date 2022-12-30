@@ -104,3 +104,18 @@ void NewGame::InitializeGame()
 	InitializeMapAndRounds(numberPlayers);
 	Login(m_players, numberPlayers);
 }
+
+Question NewGame::GetNumericalQuestion() const
+{
+	const uint16_t numberNumericalQuestion = 50;
+	const uint16_t numberQuestionMultipleChoice = 50;
+	srand(time(NULL));
+	return m_questions[rand() % numberNumericalQuestion + numberQuestionMultipleChoice];
+}
+
+Question NewGame::GetQuestionMultipleChoice() const
+{
+	const uint16_t numberQuestionMultipleChoice = 50;
+	srand(time(NULL));
+	return m_questions[rand() % numberQuestionMultipleChoice];
+}

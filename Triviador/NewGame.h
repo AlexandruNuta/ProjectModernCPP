@@ -11,6 +11,9 @@ public:
 	void InitializeMapAndRounds(const uint16_t& numberPlayers);
 	void InitializeGame();
 
+	Question GetNumericalQuestion() const;
+	Question GetQuestionMultipleChoice() const;
+
 private:
 	Map m_map;
 	std::vector<Question> m_questions;
