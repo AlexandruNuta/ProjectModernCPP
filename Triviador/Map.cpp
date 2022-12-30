@@ -2,70 +2,29 @@
 
 Map::Map(const uint8_t& rows, const uint8_t& columns)
 {
-	m_nrRows = rows;
-	m_nrColumns = columns;
-	m_map.resize(rows, std::vector<Region>(columns));
+	m_map.resize(rows, std::vector<std::shared_ptr<Region>>(columns));
+	for (int i = 0; i < rows; i++)
+		for (int j = 0; j < columns; j++)
+			m_map[i][j] = std::make_shared<Region>(std::make_pair(i, j));
 }
 
-std::vector<std::vector<Region>> Map::GetMap() const
+std::vector<std::vector<std::shared_ptr<Region>>> Map::GetMap() const
 {
 	return m_map;
 }
 
-uint16_t Map::getScore(const std::pair<int, int>& indexes)
+std::pair<uint16_t, uint16_t> Map::size() const
 {
-	return m_map[indexes.first][indexes.second].GetScore();
+	return std::make_pair(m_map.size(), m_map[0].size());
 }
 
-void Map::InitializeBase(const std::pair<int, int>& index)
-{
-	m_map[index.first][index.second].MakeItBase();
-}
-
-void Map::ChangeOwn(const std::pair<int, int>& index)
-{
-	m_map[index.first][index.second].ChangeOwned();
-}
-
-void Map::IncrementRegion(const std::pair<int, int>& index)
-{
-	m_map[index.first][index.second].IncrementScore();
-}
-
-void Map::DecrementRegion(const std::pair<int, int>& index)
-{
-	m_map[index.first][index.second].DecrementScore();
-}
-
-bool Map::IsOwned(std::pair<int, int> coord)
-{
-	return m_map[coord.first][coord.second].GetOwned();
-}
-
-std::pair<int, int> Map::size()
-{
-	int rows = sizeof m_map / sizeof m_map[0];
-	int cols = sizeof m_map[0] / sizeof(int);
-	return std::make_pair(rows, cols);
-}
-
-uint8_t Map::getNrRows()
-{
-	return m_nrRows;
-}
-
-uint8_t Map::getNrColumns()
-{
-	return m_nrColumns;
-}
-
-bool Map::checkIfEmptyRegions()
+bool Map::CheckIfEmptyRegions() const
 {
 	for (int i = 0; i < m_map.size(); i++)
 	{
 		for (int j = 0; j < m_map[i].size(); j++)
 		{
-			if (!m_map[i][j].GetOwned())
+			if (!m_map[i][j]->GetOwned())
 			{
 				return true;
 			}
@@ -84,13 +43,13 @@ std::ostream& operator<<(std::ostream& out, Map map)
 		for (auto column = 0; column < map.m_map[row].size(); column++)
 		{
 			out << "R:" << row << column;
-			out << " B:" << map.m_map[row][column].GetIsBase();
-			out << " S:" << map.m_map[row][column].GetScore();
-			out << " O:" << map.m_map[row][column].GetOwned();
+			out << " B:" << map.m_map[row][column]->GetIsBase();
+			out << " S:" << map.m_map[row][column]->GetScore();
+			out << " O:" << map.m_map[row][column]->GetOwned();
 			out << "  ";
 		}
 		out << std::endl;
 	}
-	out << std::endl << std::endl;
+	out << std::endl;
 	return out;
 }
