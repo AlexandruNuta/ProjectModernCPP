@@ -8,12 +8,17 @@
 
 int main()
 {
-	cpr::Response numericQuestions = cpr::Get(cpr::Url{
+	/*cpr::Response numericQuestions = cpr::Get(cpr::Url{
 		"http://localhost:18080/Questions" });
 	cpr::Response multipleAnswerQuestions = cpr::Get(cpr::Url{
 		"http://localhost:18080/QuestionMultipleAnswer" });
 	std::cout << "Please Login:\n";
 	std::cout << "Introduce your username and password:\n";
-	std::string 
+	std::string */
+
+	auto res = cpr::Get(cpr::Url{
+		"http://localhost:18080/NumberOfplayers"
+		});
+	std::cout << "Welcome to the game!";
 
 }
