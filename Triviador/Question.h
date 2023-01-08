@@ -12,6 +12,7 @@ public:
 	std::vector<std::string> GetAnswers() const;
 	std::string GetCorrectAnswer() const;
 	uint16_t GetIndexCorrectAnswer() const;
+	bool GetPrint();
 
 	friend std::ostream& operator<<(std::ostream& out, const Question& question);
 
@@ -19,5 +20,6 @@ private:
 	std::string m_question;
 	std::vector<std::string> m_answers;
 	uint16_t m_correctAnswer;
+	bool m_print;
 };
 

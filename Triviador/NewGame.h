@@ -3,6 +3,7 @@
 #include "Question.h"
 #include "Player.h"
 #include "Map.h"
+#include "Avantage.h"
 
 class NewGame
 {

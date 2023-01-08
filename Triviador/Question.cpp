@@ -3,7 +3,8 @@
 Question::Question(const std::string& question, const std::vector<std::string>& answers, const uint16_t& correctAnswer)
 	:m_question(question),
 	m_answers(answers),
-	m_correctAnswer(correctAnswer)
+	m_correctAnswer(correctAnswer),
+	print(false)
 {
 }
 std::string Question::GetQuestion() const
@@ -26,6 +27,16 @@ uint16_t Question::GetIndexCorrectAnswer() const
 	return m_correctAnswer;
 }
 
+bool Question::GetPrint()
+{
+	if (!m_print)
+	{
+		m_print = true;
+		return false;
+	}
+	return true;
+}
+
 std::ostream& operator<<(std::ostream& out, const Question& question)
 {
 	if (question.GetAnswers().size() == 1)
@@ -38,5 +49,6 @@ std::ostream& operator<<(std::ostream& out, const Question& question)
 		out << "c. " << answers[2] << "   d. " << answers[3] << std::endl;
 		out << std::endl;
 	}
+	out << "If you want to choose an advantage, press the '+' key." << std::endl;
 	return out;
 }

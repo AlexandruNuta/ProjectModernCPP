@@ -110,22 +110,39 @@ Question NewGame::GetNumericalQuestion() const
 	const uint16_t numberNumericalQuestion = 50;
 	const uint16_t numberQuestionMultipleChoice = 50;
 	srand(time(NULL));
-	return m_questions[rand() % numberNumericalQuestion + numberQuestionMultipleChoice];
+	uint16_t index;
+	do
+	{
+		index = rand() % numberNumericalQuestion + numberQuestionMultipleChoice;
+	} while (m_questions[index].GetPrint());
+	return m_questions[index];
 }
 
 Question NewGame::GetQuestionMultipleChoice() const
 {
 	const uint16_t numberQuestionMultipleChoice = 50;
 	srand(time(NULL));
-	return m_questions[rand() % numberQuestionMultipleChoice];
+	uint16_t index;
+	do
+	{
+		index = rand() % numberQuestionMultipleChoice;
+	} while (m_questions[index].GetPrint());
+	return m_questions[index];
 }
 
 template <typename T>
-T AskForInput(std::shared_ptr<Player> player)
+T AskForInput(std::shared_ptr<Player> player, const Question& question)
 {
 	T answer;
 	std::cout << player << ", please input your answer: ";
 	std::cin >> answer;
+	if (answer == "+")
+	{
+		Avantage avantage;
+		avantage.Menu(question);
+		std::cout << player << ", please input your answer: ";
+		std::cin >> answer;
+	}
 	return answer;
 }
 
@@ -133,11 +150,10 @@ std::tuple<uint16_t, uint16_t, uint16_t> IndexAnswerTime(const Question& questio
 {
 	int answer;
 	float time;
-	std::cout << question;
 
 	using Clock = std::chrono::high_resolution_clock;
 	auto start = Clock::now();
-	answer = AskForInput<int>(player);
+	answer = AskForInput<int>(player, question);
 	auto end = Clock::now();
 
 	answer = answer - std::stoi(question.GetCorrectAnswer());
@@ -159,7 +175,7 @@ bool compareTuples(const std::tuple<uint16_t, uint16_t, uint16_t>& a, const std:
 void TopPlayersForOneQuestion(const Question& question, std::vector<std::shared_ptr<Player>>& players)
 {
 	std::vector<std::tuple<uint16_t, uint16_t, uint16_t>> forSorting;
-
+	std::cout << question;
 	for (int index = 0; index < players.size(); index++)
 		forSorting.push_back(IndexAnswerTime(question, players[index], index));
 	std::sort(forSorting.begin(), forSorting.end(), compareTuples);
@@ -300,8 +316,8 @@ void NewGame::DetermineWinner(std::shared_ptr<Player> player, std::shared_ptr<Re
 	Question question = GetQuestionMultipleChoice();
 	std::pair<char, char> answers;
 	std::cout << question;
-	answers.first = AskForInput<char>(player);
-	answers.second = AskForInput<char>(opponent);
+	answers.first = AskForInput<char>(player, question);
+	answers.second = AskForInput<char>(opponent, question);
 	if (VerifyAnswer(answers.first, question))
 	{
 		std::vector<std::shared_ptr<Player>> players = { player, opponent };
