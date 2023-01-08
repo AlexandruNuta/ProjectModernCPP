@@ -1,0 +1,23 @@
+# ninja log v5
+2	1797	6948618746018469	Client_autogen/timestamp	654517c4f1d3fa1f
+2	1797	6948618746018469	Client_autogen/mocs_compilation.cpp	654517c4f1d3fa1f
+2	1797	6948618746018469	C:/Facultate/ProjectModernCpp/build-Client-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/Client_autogen/timestamp	654517c4f1d3fa1f
+2	1797	6948618746018469	C:/Facultate/ProjectModernCpp/build-Client-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/Client_autogen/mocs_compilation.cpp	654517c4f1d3fa1f
+1798	6080	6948618792359988	CMakeFiles/Client.dir/Client_autogen/mocs_compilation.cpp.obj	b22de14400373a65
+1805	6220	6948618793720212	CMakeFiles/Client.dir/main.cpp.obj	7b414618b932918e
+1801	6363	6948618795254004	CMakeFiles/Client.dir/mainwindow.cpp.obj	f7f1fc6c7519881
+6364	6679	6948618798328995	Client.exe	b7f36b3c360a8fd5
+41	563	6948619345295084	Client_autogen/timestamp	654517c4f1d3fa1f
+41	563	6948619345295084	Client_autogen/mocs_compilation.cpp	654517c4f1d3fa1f
+41	563	6948619345295084	C:/Facultate/ProjectModernCpp/build-Client-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/Client_autogen/timestamp	654517c4f1d3fa1f
+41	563	6948619345295084	C:/Facultate/ProjectModernCpp/build-Client-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/Client_autogen/mocs_compilation.cpp	654517c4f1d3fa1f
+590	5089	6948619390630287	CMakeFiles/Client.dir/mainwindow.cpp.obj	f7f1fc6c7519881
+5090	5431	6948619394071097	Client.exe	b7f36b3c360a8fd5
+13	3284	6948622570773903	Client_autogen/timestamp	654517c4f1d3fa1f
+13	3284	6948622570773903	Client_autogen/mocs_compilation.cpp	654517c4f1d3fa1f
+13	3284	6948622570773903	C:/Facultate/ProjectModernCpp/build-Client-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/Client_autogen/timestamp	654517c4f1d3fa1f
+13	3284	6948622570773903	C:/Facultate/ProjectModernCpp/build-Client-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/Client_autogen/mocs_compilation.cpp	654517c4f1d3fa1f
+3285	7959	6948622620260275	CMakeFiles/Client.dir/Client_autogen/mocs_compilation.cpp.obj	b22de14400373a65
+3312	7980	6948622620416483	CMakeFiles/Client.dir/mainwindow.cpp.obj	f7f1fc6c7519881
+3309	7983	6948622620416483	CMakeFiles/Client.dir/main.cpp.obj	7b414618b932918e
+7983	8550	6948622626390592	Client.exe	b7f36b3c360a8fd5
