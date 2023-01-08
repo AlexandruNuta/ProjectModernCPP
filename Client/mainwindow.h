@@ -17,8 +17,6 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_goto_page_1_clicked();
-
     void on_pushButton_Login_clicked();
 
     void on_pushButton_SignIn_clicked();
@@ -37,7 +35,11 @@ private slots:
 
     void on_pushButton_Play_clicked();
 
-    void Load_Question();
+    void Load_MA_Question();
+
+    void Load_NA_Question();
+
+    void on_pushButton_SubmitAnswer_clicked();
 
 private:
     Ui::MainWindow *ui;

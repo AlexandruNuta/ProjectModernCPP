@@ -18,11 +18,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_goto_page_1_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(0);
-}
-
 void MainWindow::on_pushButton_Login_clicked()
 {
     QString username = ui->usernameField->text();
@@ -43,9 +38,9 @@ void MainWindow::on_pushButton_Login_clicked()
     }
 }
 
-void MainWindow::Load_Question()
+void MainWindow::Load_MA_Question()
 {
-    ui->questionLabel->setText("");
+    ui->MultipleAnswerQuestionLabel->setText("");
     ui->answerButton1->setText("");
     ui->answerButton2->setText("");
     ui->answerButton3->setText("");
@@ -59,11 +54,21 @@ void MainWindow::Load_Question()
     answers.append("");
     answers.append("");
 
-    ui->questionLabel->setText(question);
+    ui->MultipleAnswerQuestionLabel->setText(question);
     ui->answerButton1->setText(answers.at(0));
     ui->answerButton2->setText(answers.at(1));
     ui->answerButton3->setText(answers.at(2));
     ui->answerButton4->setText(answers.at(3));
+}
+
+void MainWindow::Load_NA_Question()
+{
+    ui->NumericalAnswerQuestionLabel->setText("");
+
+    QString question = "";
+    QString correctAnswer = "1";
+
+    ui->NumericalAnswerQuestionLabel->setText(question);
 }
 
 void MainWindow::on_pushButton_SignIn_clicked()
@@ -124,3 +129,19 @@ void MainWindow::on_pushButton_Play_clicked()
 {
     ui->stackedWidget->setCurrentIndex(5);
 }
+
+void MainWindow::on_pushButton_SubmitAnswer_clicked()
+{
+    int correctAnswer;
+    bool ok;
+    int answer = ui->NumericalAnswerField->text().toInt(&ok);
+    if (ok)
+    {
+        //
+    }
+    else
+    {
+        QMessageBox::warning(this, "Error", "Please enter a valid answer");
+    }
+}
+

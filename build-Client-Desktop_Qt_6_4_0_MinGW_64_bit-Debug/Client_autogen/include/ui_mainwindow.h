@@ -74,9 +74,8 @@ public:
     QPushButton *pushButton_OptionsPage_Back;
     QWidget *page_6;
     QLabel *label;
-    QPushButton *pushButton_goto_page_1;
     QGroupBox *groupBox_4;
-    QLabel *questionLabel;
+    QLabel *MultipleAnswerQuestionLabel;
     QGroupBox *groupBox_5;
     QVBoxLayout *verticalLayout_4;
     QHBoxLayout *horizontalLayout_7;
@@ -87,6 +86,14 @@ public:
     QPushButton *answerButton3;
     QSpacerItem *verticalSpacer_3;
     QPushButton *answerButton4;
+    QWidget *page_7;
+    QLabel *label_9;
+    QGroupBox *groupBox_6;
+    QLabel *NumericalAnswerQuestionLabel;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout_5;
+    QLineEdit *NumericalAnswerField;
+    QPushButton *pushButton_SubmitAnswer;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -263,15 +270,12 @@ public:
         label = new QLabel(page_6);
         label->setObjectName("label");
         label->setGeometry(QRect(350, 20, 49, 16));
-        pushButton_goto_page_1 = new QPushButton(page_6);
-        pushButton_goto_page_1->setObjectName("pushButton_goto_page_1");
-        pushButton_goto_page_1->setGeometry(QRect(30, 10, 75, 24));
         groupBox_4 = new QGroupBox(page_6);
         groupBox_4->setObjectName("groupBox_4");
-        groupBox_4->setGeometry(QRect(40, 70, 681, 61));
-        questionLabel = new QLabel(groupBox_4);
-        questionLabel->setObjectName("questionLabel");
-        questionLabel->setGeometry(QRect(10, 10, 661, 41));
+        groupBox_4->setGeometry(QRect(40, 40, 681, 61));
+        MultipleAnswerQuestionLabel = new QLabel(groupBox_4);
+        MultipleAnswerQuestionLabel->setObjectName("MultipleAnswerQuestionLabel");
+        MultipleAnswerQuestionLabel->setGeometry(QRect(10, 10, 661, 41));
         groupBox_5 = new QGroupBox(page_6);
         groupBox_5->setObjectName("groupBox_5");
         groupBox_5->setGeometry(QRect(40, 140, 681, 171));
@@ -316,6 +320,34 @@ public:
         verticalLayout_4->addLayout(horizontalLayout_8);
 
         stackedWidget->addWidget(page_6);
+        page_7 = new QWidget();
+        page_7->setObjectName("page_7");
+        label_9 = new QLabel(page_7);
+        label_9->setObjectName("label_9");
+        label_9->setGeometry(QRect(350, 20, 49, 16));
+        groupBox_6 = new QGroupBox(page_7);
+        groupBox_6->setObjectName("groupBox_6");
+        groupBox_6->setGeometry(QRect(40, 40, 681, 61));
+        NumericalAnswerQuestionLabel = new QLabel(groupBox_6);
+        NumericalAnswerQuestionLabel->setObjectName("NumericalAnswerQuestionLabel");
+        NumericalAnswerQuestionLabel->setGeometry(QRect(10, 10, 661, 41));
+        widget = new QWidget(page_7);
+        widget->setObjectName("widget");
+        widget->setGeometry(QRect(310, 170, 101, 51));
+        verticalLayout_5 = new QVBoxLayout(widget);
+        verticalLayout_5->setObjectName("verticalLayout_5");
+        verticalLayout_5->setContentsMargins(0, 0, 0, 0);
+        NumericalAnswerField = new QLineEdit(widget);
+        NumericalAnswerField->setObjectName("NumericalAnswerField");
+
+        verticalLayout_5->addWidget(NumericalAnswerField);
+
+        pushButton_SubmitAnswer = new QPushButton(widget);
+        pushButton_SubmitAnswer->setObjectName("pushButton_SubmitAnswer");
+
+        verticalLayout_5->addWidget(pushButton_SubmitAnswer);
+
+        stackedWidget->addWidget(page_7);
 
         verticalLayout->addWidget(stackedWidget);
 
@@ -330,7 +362,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(5);
+        stackedWidget->setCurrentIndex(6);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -360,14 +392,17 @@ public:
         label_8->setText(QCoreApplication::translate("MainWindow", "Not Available Yet", nullptr));
         pushButton_OptionsPage_Back->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "page 6", nullptr));
-        pushButton_goto_page_1->setText(QCoreApplication::translate("MainWindow", "Go to page 1", nullptr));
         groupBox_4->setTitle(QString());
-        questionLabel->setText(QCoreApplication::translate("MainWindow", "Question", nullptr));
+        MultipleAnswerQuestionLabel->setText(QCoreApplication::translate("MainWindow", "Question", nullptr));
         groupBox_5->setTitle(QString());
         answerButton1->setText(QCoreApplication::translate("MainWindow", "answer1", nullptr));
         answerButton2->setText(QCoreApplication::translate("MainWindow", "answer2", nullptr));
         answerButton3->setText(QCoreApplication::translate("MainWindow", "answer3", nullptr));
         answerButton4->setText(QCoreApplication::translate("MainWindow", "answer4", nullptr));
+        label_9->setText(QCoreApplication::translate("MainWindow", "Page 7", nullptr));
+        groupBox_6->setTitle(QString());
+        NumericalAnswerQuestionLabel->setText(QCoreApplication::translate("MainWindow", "Question", nullptr));
+        pushButton_SubmitAnswer->setText(QCoreApplication::translate("MainWindow", "Submit answer", nullptr));
     } // retranslateUi
 
 };
