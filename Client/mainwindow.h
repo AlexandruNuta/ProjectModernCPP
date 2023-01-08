@@ -17,11 +17,13 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_goto_page_2_clicked();
-
     void on_pushButton_goto_page_1_clicked();
 
     void on_pushButton_goto_page_3_clicked();
+
+    void on_pushButton_Login_clicked();
+
+    void on_pushButton_SignIn_clicked();
 
 private:
     Ui::MainWindow *ui;

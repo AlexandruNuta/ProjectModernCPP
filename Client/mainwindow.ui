@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>757</width>
-    <height>365</height>
+    <width>753</width>
+    <height>366</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,36 +18,105 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
-      <widget class="QWidget" name="page">
-       <widget class="QLabel" name="label_3">
+      <widget class="QWidget" name="page_4">
+       <widget class="QGroupBox" name="groupBox_2">
         <property name="geometry">
          <rect>
-          <x>350</x>
-          <y>20</y>
-          <width>49</width>
-          <height>16</height>
+          <x>210</x>
+          <y>60</y>
+          <width>311</width>
+          <height>191</height>
          </rect>
         </property>
-        <property name="text">
-         <string>page 1</string>
+        <property name="title">
+         <string>Welcome to Login page!</string>
         </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_goto_page_2">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>10</y>
-          <width>75</width>
-          <height>24</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Go to page 2</string>
-        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QPushButton" name="pushButton_SignIn">
+           <property name="text">
+            <string>Sign in</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_2">
+           <property name="text">
+            <string>Sign up</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </widget>
+      <widget class="QWidget" name="page">
+       <widget class="QGroupBox" name="groupBox">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>60</y>
+          <width>271</width>
+          <height>181</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>LogIn</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>Username: </string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="usernameField"/>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QLabel" name="label_4">
+             <property name="text">
+              <string>Password:  </string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="passwordField"/>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_Login">
+           <property name="text">
+            <string>Login</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_5"/>
       <widget class="QWidget" name="page_2">
        <widget class="QLabel" name="label_2">
         <property name="geometry">
@@ -113,7 +182,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>757</width>
+     <width>753</width>
      <height>22</height>
     </rect>
    </property>
