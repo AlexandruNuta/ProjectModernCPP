@@ -43,6 +43,28 @@ void MainWindow::on_pushButton_Login_clicked()
     }
 }
 
+void MainWindow::Load_Question()
+{
+    ui->questionLabel->setText("");
+    ui->answerButton1->setText("");
+    ui->answerButton2->setText("");
+    ui->answerButton3->setText("");
+    ui->answerButton4->setText("");
+
+    QString question = "";
+    QString correctAnswer = "";
+    QStringList answers;
+    answers.append("");
+    answers.append("");
+    answers.append("");
+    answers.append("");
+
+    ui->questionLabel->setText(question);
+    ui->answerButton1->setText(answers.at(0));
+    ui->answerButton2->setText(answers.at(1));
+    ui->answerButton3->setText(answers.at(2));
+    ui->answerButton4->setText(answers.at(3));
+}
 
 void MainWindow::on_pushButton_SignIn_clicked()
 {
@@ -102,4 +124,3 @@ void MainWindow::on_pushButton_Play_clicked()
 {
     ui->stackedWidget->setCurrentIndex(5);
 }
-

@@ -75,6 +75,18 @@ public:
     QWidget *page_6;
     QLabel *label;
     QPushButton *pushButton_goto_page_1;
+    QGroupBox *groupBox_4;
+    QLabel *questionLabel;
+    QGroupBox *groupBox_5;
+    QVBoxLayout *verticalLayout_4;
+    QHBoxLayout *horizontalLayout_7;
+    QPushButton *answerButton1;
+    QSpacerItem *verticalSpacer_2;
+    QPushButton *answerButton2;
+    QHBoxLayout *horizontalLayout_8;
+    QPushButton *answerButton3;
+    QSpacerItem *verticalSpacer_3;
+    QPushButton *answerButton4;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -254,6 +266,55 @@ public:
         pushButton_goto_page_1 = new QPushButton(page_6);
         pushButton_goto_page_1->setObjectName("pushButton_goto_page_1");
         pushButton_goto_page_1->setGeometry(QRect(30, 10, 75, 24));
+        groupBox_4 = new QGroupBox(page_6);
+        groupBox_4->setObjectName("groupBox_4");
+        groupBox_4->setGeometry(QRect(40, 70, 681, 61));
+        questionLabel = new QLabel(groupBox_4);
+        questionLabel->setObjectName("questionLabel");
+        questionLabel->setGeometry(QRect(10, 10, 661, 41));
+        groupBox_5 = new QGroupBox(page_6);
+        groupBox_5->setObjectName("groupBox_5");
+        groupBox_5->setGeometry(QRect(40, 140, 681, 171));
+        verticalLayout_4 = new QVBoxLayout(groupBox_5);
+        verticalLayout_4->setObjectName("verticalLayout_4");
+        horizontalLayout_7 = new QHBoxLayout();
+        horizontalLayout_7->setObjectName("horizontalLayout_7");
+        answerButton1 = new QPushButton(groupBox_5);
+        answerButton1->setObjectName("answerButton1");
+
+        horizontalLayout_7->addWidget(answerButton1);
+
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        horizontalLayout_7->addItem(verticalSpacer_2);
+
+        answerButton2 = new QPushButton(groupBox_5);
+        answerButton2->setObjectName("answerButton2");
+
+        horizontalLayout_7->addWidget(answerButton2);
+
+
+        verticalLayout_4->addLayout(horizontalLayout_7);
+
+        horizontalLayout_8 = new QHBoxLayout();
+        horizontalLayout_8->setObjectName("horizontalLayout_8");
+        answerButton3 = new QPushButton(groupBox_5);
+        answerButton3->setObjectName("answerButton3");
+
+        horizontalLayout_8->addWidget(answerButton3);
+
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        horizontalLayout_8->addItem(verticalSpacer_3);
+
+        answerButton4 = new QPushButton(groupBox_5);
+        answerButton4->setObjectName("answerButton4");
+
+        horizontalLayout_8->addWidget(answerButton4);
+
+
+        verticalLayout_4->addLayout(horizontalLayout_8);
+
         stackedWidget->addWidget(page_6);
 
         verticalLayout->addWidget(stackedWidget);
@@ -269,7 +330,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(3);
+        stackedWidget->setCurrentIndex(5);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -300,6 +361,13 @@ public:
         pushButton_OptionsPage_Back->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "page 6", nullptr));
         pushButton_goto_page_1->setText(QCoreApplication::translate("MainWindow", "Go to page 1", nullptr));
+        groupBox_4->setTitle(QString());
+        questionLabel->setText(QCoreApplication::translate("MainWindow", "Question", nullptr));
+        groupBox_5->setTitle(QString());
+        answerButton1->setText(QCoreApplication::translate("MainWindow", "answer1", nullptr));
+        answerButton2->setText(QCoreApplication::translate("MainWindow", "answer2", nullptr));
+        answerButton3->setText(QCoreApplication::translate("MainWindow", "answer3", nullptr));
+        answerButton4->setText(QCoreApplication::translate("MainWindow", "answer4", nullptr));
     } // retranslateUi
 
 };

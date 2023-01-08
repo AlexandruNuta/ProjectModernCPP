@@ -37,6 +37,8 @@ private slots:
 
     void on_pushButton_Play_clicked();
 
+    void Load_Question();
+
 private:
     Ui::MainWindow *ui;
 };
