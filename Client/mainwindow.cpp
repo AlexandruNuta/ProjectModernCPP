@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    connect(ui->pushButton_Exit, &QPushButton::clicked, this, &QWidget::close);
     setWindowTitle("Triviador");
     ui->stackedWidget->setCurrentIndex(0);
 }
@@ -21,13 +22,6 @@ void MainWindow::on_pushButton_goto_page_1_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
-
-
-void MainWindow::on_pushButton_goto_page_3_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(4);
-}
-
 
 void MainWindow::on_pushButton_Login_clicked()
 {
@@ -89,5 +83,23 @@ void MainWindow::on_pushButton_LoginPage_Back_clicked()
 void MainWindow::on_pushButton_RegisterPage_Back_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
+}
+
+
+void MainWindow::on_pushButton_Options_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4);
+}
+
+
+void MainWindow::on_pushButton_OptionsPage_Back_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
+
+void MainWindow::on_pushButton_Play_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(5);
 }
 

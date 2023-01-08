@@ -18,9 +18,9 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>3</number>
       </property>
-      <widget class="QWidget" name="page_4">
+      <widget class="QWidget" name="page_1">
        <widget class="QGroupBox" name="groupBox_2">
         <property name="geometry">
          <rect>
@@ -64,7 +64,7 @@
         </layout>
        </widget>
       </widget>
-      <widget class="QWidget" name="page">
+      <widget class="QWidget" name="page_2">
        <widget class="QGroupBox" name="groupBox">
         <property name="geometry">
          <rect>
@@ -118,7 +118,7 @@
        <widget class="QPushButton" name="pushButton_LoginPage_Back">
         <property name="geometry">
          <rect>
-          <x>20</x>
+          <x>30</x>
           <y>20</y>
           <width>75</width>
           <height>24</height>
@@ -129,7 +129,7 @@
         </property>
        </widget>
       </widget>
-      <widget class="QWidget" name="page_5">
+      <widget class="QWidget" name="page_3">
        <widget class="QGroupBox" name="groupBox_3">
         <property name="geometry">
          <rect>
@@ -221,7 +221,7 @@
         </property>
        </widget>
       </widget>
-      <widget class="QWidget" name="page_2">
+      <widget class="QWidget" name="page_4">
        <widget class="QLabel" name="label_2">
         <property name="geometry">
          <rect>
@@ -232,10 +232,64 @@
          </rect>
         </property>
         <property name="text">
-         <string>page 2</string>
+         <string>Menu</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_goto_page_3">
+       <widget class="QPushButton" name="pushButton_Play">
+        <property name="geometry">
+         <rect>
+          <x>290</x>
+          <y>80</y>
+          <width>141</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Play</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_Options">
+        <property name="geometry">
+         <rect>
+          <x>290</x>
+          <y>130</y>
+          <width>141</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Options</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_Exit">
+        <property name="geometry">
+         <rect>
+          <x>290</x>
+          <y>180</y>
+          <width>141</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Exit game</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_5">
+       <widget class="QLabel" name="label_8">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>70</y>
+          <width>101</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Not Available Yet</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_OptionsPage_Back">
         <property name="geometry">
          <rect>
           <x>30</x>
@@ -245,11 +299,11 @@
          </rect>
         </property>
         <property name="text">
-         <string>Go to page 3</string>
+         <string>Back</string>
         </property>
        </widget>
       </widget>
-      <widget class="QWidget" name="page_3">
+      <widget class="QWidget" name="page_6">
        <widget class="QLabel" name="label">
         <property name="geometry">
          <rect>
@@ -260,7 +314,7 @@
          </rect>
         </property>
         <property name="text">
-         <string>page 3</string>
+         <string>page 6</string>
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_goto_page_1">

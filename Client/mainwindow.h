@@ -19,8 +19,6 @@ public:
 private slots:
     void on_pushButton_goto_page_1_clicked();
 
-    void on_pushButton_goto_page_3_clicked();
-
     void on_pushButton_Login_clicked();
 
     void on_pushButton_SignIn_clicked();
@@ -32,6 +30,12 @@ private slots:
     void on_pushButton_LoginPage_Back_clicked();
 
     void on_pushButton_RegisterPage_Back_clicked();
+
+    void on_pushButton_Options_clicked();
+
+    void on_pushButton_OptionsPage_Back_clicked();
+
+    void on_pushButton_Play_clicked();
 
 private:
     Ui::MainWindow *ui;

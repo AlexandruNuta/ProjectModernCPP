@@ -32,13 +32,13 @@ public:
     QWidget *centralwidget;
     QVBoxLayout *verticalLayout;
     QStackedWidget *stackedWidget;
-    QWidget *page_4;
+    QWidget *page_1;
     QGroupBox *groupBox_2;
     QHBoxLayout *horizontalLayout_3;
     QPushButton *pushButton_SignIn;
     QSpacerItem *verticalSpacer;
     QPushButton *pushButton_SignUp;
-    QWidget *page;
+    QWidget *page_2;
     QGroupBox *groupBox;
     QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout;
@@ -49,7 +49,7 @@ public:
     QLineEdit *passwordField;
     QPushButton *pushButton_Login;
     QPushButton *pushButton_LoginPage_Back;
-    QWidget *page_5;
+    QWidget *page_3;
     QGroupBox *groupBox_3;
     QVBoxLayout *verticalLayout_3;
     QHBoxLayout *horizontalLayout_4;
@@ -64,10 +64,15 @@ public:
     QLineEdit *ConfirmPasswordField;
     QPushButton *pushButton_Register;
     QPushButton *pushButton_RegisterPage_Back;
-    QWidget *page_2;
+    QWidget *page_4;
     QLabel *label_2;
-    QPushButton *pushButton_goto_page_3;
-    QWidget *page_3;
+    QPushButton *pushButton_Play;
+    QPushButton *pushButton_Options;
+    QPushButton *pushButton_Exit;
+    QWidget *page_5;
+    QLabel *label_8;
+    QPushButton *pushButton_OptionsPage_Back;
+    QWidget *page_6;
     QLabel *label;
     QPushButton *pushButton_goto_page_1;
     QMenuBar *menubar;
@@ -84,9 +89,9 @@ public:
         verticalLayout->setObjectName("verticalLayout");
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName("stackedWidget");
-        page_4 = new QWidget();
-        page_4->setObjectName("page_4");
-        groupBox_2 = new QGroupBox(page_4);
+        page_1 = new QWidget();
+        page_1->setObjectName("page_1");
+        groupBox_2 = new QGroupBox(page_1);
         groupBox_2->setObjectName("groupBox_2");
         groupBox_2->setGeometry(QRect(210, 60, 311, 191));
         horizontalLayout_3 = new QHBoxLayout(groupBox_2);
@@ -105,10 +110,10 @@ public:
 
         horizontalLayout_3->addWidget(pushButton_SignUp);
 
-        stackedWidget->addWidget(page_4);
-        page = new QWidget();
-        page->setObjectName("page");
-        groupBox = new QGroupBox(page);
+        stackedWidget->addWidget(page_1);
+        page_2 = new QWidget();
+        page_2->setObjectName("page_2");
+        groupBox = new QGroupBox(page_2);
         groupBox->setObjectName("groupBox");
         groupBox->setGeometry(QRect(230, 60, 271, 181));
         verticalLayout_2 = new QVBoxLayout(groupBox);
@@ -148,13 +153,13 @@ public:
 
         verticalLayout_2->addWidget(pushButton_Login);
 
-        pushButton_LoginPage_Back = new QPushButton(page);
+        pushButton_LoginPage_Back = new QPushButton(page_2);
         pushButton_LoginPage_Back->setObjectName("pushButton_LoginPage_Back");
-        pushButton_LoginPage_Back->setGeometry(QRect(20, 20, 75, 24));
-        stackedWidget->addWidget(page);
-        page_5 = new QWidget();
-        page_5->setObjectName("page_5");
-        groupBox_3 = new QGroupBox(page_5);
+        pushButton_LoginPage_Back->setGeometry(QRect(30, 20, 75, 24));
+        stackedWidget->addWidget(page_2);
+        page_3 = new QWidget();
+        page_3->setObjectName("page_3");
+        groupBox_3 = new QGroupBox(page_3);
         groupBox_3->setObjectName("groupBox_3");
         groupBox_3->setGeometry(QRect(200, 40, 331, 241));
         verticalLayout_3 = new QVBoxLayout(groupBox_3);
@@ -213,28 +218,43 @@ public:
 
         verticalLayout_3->addWidget(pushButton_Register);
 
-        pushButton_RegisterPage_Back = new QPushButton(page_5);
+        pushButton_RegisterPage_Back = new QPushButton(page_3);
         pushButton_RegisterPage_Back->setObjectName("pushButton_RegisterPage_Back");
         pushButton_RegisterPage_Back->setGeometry(QRect(30, 20, 75, 24));
-        stackedWidget->addWidget(page_5);
-        page_2 = new QWidget();
-        page_2->setObjectName("page_2");
-        label_2 = new QLabel(page_2);
+        stackedWidget->addWidget(page_3);
+        page_4 = new QWidget();
+        page_4->setObjectName("page_4");
+        label_2 = new QLabel(page_4);
         label_2->setObjectName("label_2");
         label_2->setGeometry(QRect(350, 20, 49, 16));
-        pushButton_goto_page_3 = new QPushButton(page_2);
-        pushButton_goto_page_3->setObjectName("pushButton_goto_page_3");
-        pushButton_goto_page_3->setGeometry(QRect(30, 20, 75, 24));
-        stackedWidget->addWidget(page_2);
-        page_3 = new QWidget();
-        page_3->setObjectName("page_3");
-        label = new QLabel(page_3);
+        pushButton_Play = new QPushButton(page_4);
+        pushButton_Play->setObjectName("pushButton_Play");
+        pushButton_Play->setGeometry(QRect(290, 80, 141, 24));
+        pushButton_Options = new QPushButton(page_4);
+        pushButton_Options->setObjectName("pushButton_Options");
+        pushButton_Options->setGeometry(QRect(290, 130, 141, 24));
+        pushButton_Exit = new QPushButton(page_4);
+        pushButton_Exit->setObjectName("pushButton_Exit");
+        pushButton_Exit->setGeometry(QRect(290, 180, 141, 24));
+        stackedWidget->addWidget(page_4);
+        page_5 = new QWidget();
+        page_5->setObjectName("page_5");
+        label_8 = new QLabel(page_5);
+        label_8->setObjectName("label_8");
+        label_8->setGeometry(QRect(330, 70, 101, 16));
+        pushButton_OptionsPage_Back = new QPushButton(page_5);
+        pushButton_OptionsPage_Back->setObjectName("pushButton_OptionsPage_Back");
+        pushButton_OptionsPage_Back->setGeometry(QRect(30, 20, 75, 24));
+        stackedWidget->addWidget(page_5);
+        page_6 = new QWidget();
+        page_6->setObjectName("page_6");
+        label = new QLabel(page_6);
         label->setObjectName("label");
         label->setGeometry(QRect(350, 20, 49, 16));
-        pushButton_goto_page_1 = new QPushButton(page_3);
+        pushButton_goto_page_1 = new QPushButton(page_6);
         pushButton_goto_page_1->setObjectName("pushButton_goto_page_1");
         pushButton_goto_page_1->setGeometry(QRect(30, 10, 75, 24));
-        stackedWidget->addWidget(page_3);
+        stackedWidget->addWidget(page_6);
 
         verticalLayout->addWidget(stackedWidget);
 
@@ -249,7 +269,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -272,9 +292,13 @@ public:
         label_7->setText(QCoreApplication::translate("MainWindow", "Confirm Password:", nullptr));
         pushButton_Register->setText(QCoreApplication::translate("MainWindow", "Register", nullptr));
         pushButton_RegisterPage_Back->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
-        label_2->setText(QCoreApplication::translate("MainWindow", "page 2", nullptr));
-        pushButton_goto_page_3->setText(QCoreApplication::translate("MainWindow", "Go to page 3", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", "page 3", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "Menu", nullptr));
+        pushButton_Play->setText(QCoreApplication::translate("MainWindow", "Play", nullptr));
+        pushButton_Options->setText(QCoreApplication::translate("MainWindow", "Options", nullptr));
+        pushButton_Exit->setText(QCoreApplication::translate("MainWindow", "Exit game", nullptr));
+        label_8->setText(QCoreApplication::translate("MainWindow", "Not Available Yet", nullptr));
+        pushButton_OptionsPage_Back->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "page 6", nullptr));
         pushButton_goto_page_1->setText(QCoreApplication::translate("MainWindow", "Go to page 1", nullptr));
     } // retranslateUi
 
