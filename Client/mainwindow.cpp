@@ -55,3 +55,39 @@ void MainWindow::on_pushButton_SignIn_clicked()
     ui->stackedWidget->setCurrentIndex(1);
 }
 
+
+void MainWindow::on_pushButton_Register_clicked()
+{
+    QString username = ui->UsernameRegisterField->text();
+    QString password = ui->PasswordRegisterField->text();
+    QString confirmPassword = ui->ConfirmPasswordField->text();
+
+    if (password == confirmPassword)
+    {
+        QMessageBox::information(this, "Success", "You have successfully signed up!");
+        ui->stackedWidget->setCurrentIndex(0);
+    }
+    else
+    {
+        QMessageBox::warning(this, "Error", "The passwords do not match");
+    }
+}
+
+
+void MainWindow::on_pushButton_SignUp_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+}
+
+
+void MainWindow::on_pushButton_LoginPage_Back_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+
+void MainWindow::on_pushButton_RegisterPage_Back_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
