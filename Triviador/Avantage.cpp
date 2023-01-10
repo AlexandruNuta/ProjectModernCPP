@@ -8,7 +8,7 @@ void Avantage::Menu(const Question& question)
 	{
 		std::cout << "1. Receives 4 answers, one of which is correct." << std::endl;
 		std::cout << "2. Receives a value close to the correct answer." << std::endl;
-		std::cout << "Press any other key to exit the menu." << std::endl;
+		std::cout << "3. Exit" << std::endl;
 		std::cin >> x;
 		switch (x)
 		{
@@ -21,7 +21,7 @@ void Avantage::Menu(const Question& question)
 	else
 	{
 		std::cout << "1. Eliminate 2 wrong answers." << std::endl;
-		std::cout << "Press any other key to exit the menu." << std::endl;
+		std::cout << "2. Exit" << std::endl;
 		std::cin >> x;
 		switch (x)
 		{

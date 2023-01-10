@@ -7,45 +7,45 @@
 
 #include "NewGame.h"
 
-//void NewGame::ReadQuestion()
-//{
-//	std::ifstream f("Questions.txt");
-//	std::string question, answer;
-//	std::vector<std::string> answers;
-//	uint16_t m_correctAnswer;
-//	const uint16_t questionMultipleChoice = 300;
-//	const uint16_t numericalQuestion = 400;
-//	uint16_t lineCounter = 0;
-//	while (lineCounter < questionMultipleChoice)
-//	{
-//		const uint16_t numberAnswers = 4;
-//		const uint16_t nextQuestion = 6;
-//		std::getline(f, question);
-//		for (int i = 0; i < numberAnswers; i++)
-//		{
-//			std::getline(f, answer);
-//			answers.push_back(answer);
-//		}
-//		std::getline(f, answer);
-//		Question questionObject(question, answers, std::stoi(answer));
-//		m_questions.push_back(questionObject);
-//		lineCounter = lineCounter + nextQuestion;
-//		answers.clear();
-//	}
-//	while (lineCounter < numericalQuestion)
-//	{
-//		const uint16_t indexCorrectAnswer = 0;
-//		const uint16_t nextQuestion = 2;
-//		std::getline(f, question);
-//		std::getline(f, answer);
-//		answers.push_back(answer);
-//		Question questionObject(question, answers, indexCorrectAnswer);
-//		m_questions.push_back(questionObject);
-//		lineCounter = lineCounter + nextQuestion;
-//		answers.clear();
-//	}
-//	f.close();
-//}
+void NewGame::ReadQuestion()
+{
+	std::ifstream f("Questions.txt");
+	std::string question, answer;
+	std::vector<std::string> answers;
+	uint16_t m_correctAnswer;
+	const uint16_t questionMultipleChoice = 300;
+	const uint16_t numericalQuestion = 400;
+	uint16_t lineCounter = 0;
+	while (lineCounter < questionMultipleChoice)
+	{
+		const uint16_t numberAnswers = 4;
+		const uint16_t nextQuestion = 6;
+		std::getline(f, question);
+		for (int i = 0; i < numberAnswers; i++)
+		{
+			std::getline(f, answer);
+			answers.push_back(answer);
+		}
+		std::getline(f, answer);
+		Question questionObject(question, answers, std::stoi(answer));
+		m_questions.push_back(questionObject);
+		lineCounter = lineCounter + nextQuestion;
+		answers.clear();
+	}
+	while (lineCounter < numericalQuestion)
+	{
+		const uint16_t indexCorrectAnswer = 0;
+		const uint16_t nextQuestion = 2;
+		std::getline(f, question);
+		std::getline(f, answer);
+		answers.push_back(answer);
+		Question questionObject(question, answers, indexCorrectAnswer);
+		m_questions.push_back(questionObject);
+		lineCounter = lineCounter + nextQuestion;
+		answers.clear();
+	}
+	f.close();
+}
 
 void VerifyNumberPlayers(uint16_t& numberPlayers)
 {
@@ -79,21 +79,21 @@ void NewGame::InitializeMapAndRounds(const uint16_t& numberPlayers)
 		break;
 	}
 }
-//void Login(std::vector<std::shared_ptr<Player>>& m_players, const uint16_t& numberPlayers)
-//{
-//	std::string username, password;
-//	for (int i = 0; i < numberPlayers; i++)
-//	{
-//		std::cout << "LOGIN" << std::endl;
-//		std::cout << "Username: ";
-//		std::cin >> username;
-//		std::cout << "Password: ";
-//		std::cin >> password;
-//		std::shared_ptr<Player> player = std::make_shared<Player>(username, password, i);
-//		m_players.push_back(player);
-//		std::cout << std::endl;
-//	}
-//}
+void Login(std::vector<std::shared_ptr<Player>>& m_players, const uint16_t& numberPlayers)
+{
+	std::string username, password;
+	for (int i = 0; i < numberPlayers; i++)
+	{
+		std::cout << "LOGIN" << std::endl;
+		std::cout << "Username: ";
+		std::cin >> username;
+		std::cout << "Password: ";
+		std::cin >> password;
+		std::shared_ptr<Player> player = std::make_shared<Player>(username, password, i);
+		m_players.push_back(player);
+		std::cout << std::endl;
+	}
+}
 
 void NewGame::InitializeGame()
 {
@@ -102,10 +102,10 @@ void NewGame::InitializeGame()
 	std::cin >> numberPlayers;
 	VerifyNumberPlayers(numberPlayers);
 	InitializeMapAndRounds(numberPlayers);
-	//Login(m_players, numberPlayers);
+	Login(m_players, numberPlayers);
 }
 
-Question NewGame::GetNumericalQuestion() const
+Question NewGame::GetNumericalQuestion()
 {
 	const uint16_t numberNumericalQuestion = 50;
 	const uint16_t numberQuestionMultipleChoice = 50;
@@ -118,7 +118,7 @@ Question NewGame::GetNumericalQuestion() const
 	return m_questions[index];
 }
 
-Question NewGame::GetQuestionMultipleChoice() const
+Question NewGame::GetQuestionMultipleChoice()
 {
 	const uint16_t numberQuestionMultipleChoice = 50;
 	srand(time(NULL));
@@ -133,7 +133,39 @@ Question NewGame::GetQuestionMultipleChoice() const
 template <typename T>
 T AskForInput(std::shared_ptr<Player> player, const Question& question)
 {
-	T answer;
+	T answer=NULL;
+	std::cout << player << ", please input your answer: ";
+	std::cin >> answer;
+	if (answer)
+	{
+		Avantage avantage;
+		avantage.Menu(question);
+		std::cout << player << ", please input your answer: ";
+		std::cin >> answer;
+	}
+	return answer;
+}
+
+template <>
+int AskForInput(std::shared_ptr<Player> player, const Question& question)
+{
+	int answer;
+	std::cout << player << ", please input your answer: ";
+	std::cin >> answer;
+	if (answer == -1)
+	{
+		Avantage avantage;
+		avantage.Menu(question);
+		std::cout << player << ", please input your answer: ";
+		std::cin >> answer;
+	}
+	return answer;
+}
+
+template <>
+std::string AskForInput(std::shared_ptr<Player> player, const Question& question)
+{
+	std::string answer;
 	std::cout << player << ", please input your answer: ";
 	std::cin >> answer;
 	if (answer == "+")

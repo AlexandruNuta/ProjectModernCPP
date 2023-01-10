@@ -4,7 +4,7 @@ Question::Question(const std::string& question, const std::vector<std::string>& 
 	:m_question(question),
 	m_answers(answers),
 	m_correctAnswer(correctAnswer),
-	print(false)
+	m_print(false)
 {
 }
 std::string Question::GetQuestion() const
@@ -34,7 +34,7 @@ bool Question::GetPrint()
 		m_print = true;
 		return false;
 	}
-	return true;
+	return m_print;
 }
 
 std::ostream& operator<<(std::ostream& out, const Question& question)
@@ -49,6 +49,6 @@ std::ostream& operator<<(std::ostream& out, const Question& question)
 		out << "c. " << answers[2] << "   d. " << answers[3] << std::endl;
 		out << std::endl;
 	}
-	out << "If you want to choose an advantage, press the '+' key." << std::endl;
+	out << "If you want to choose an advantage, type '-1' for numerical questions or '+' for questions with multiple answers." << std::endl;
 	return out;
 }

@@ -3,6 +3,7 @@
 
 class Avantage
 {
+public:
 	void Menu(const Question& question);
 };
 
