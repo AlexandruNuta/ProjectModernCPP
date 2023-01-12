@@ -3,16 +3,17 @@
 #include "Question.h"
 #include "Player.h"
 #include "Map.h"
+#include "Avantage.h"
 
 class NewGame
 {
 public:
-	//void ReadQuestion();
+	void ReadQuestion();
 	void InitializeMapAndRounds(const uint16_t& numberPlayers);
 	void InitializeGame();
 
-	Question GetNumericalQuestion() const;
-	Question GetQuestionMultipleChoice() const;
+	Question GetNumericalQuestion();
+	Question GetQuestionMultipleChoice();
 
 	void StageChooseBase();
 	void StageChoseRegion();

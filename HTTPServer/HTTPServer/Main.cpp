@@ -13,7 +13,7 @@ namespace sql = sqlite_orm;
 
 int main()
 {
-	Lobby lobby;
+	/*Lobby lobby;*/
 
 	const std::string db_file = "game_database.sqlite";
 	Storage db = createStorage(db_file);
@@ -33,7 +33,7 @@ int main()
 				{"id", match.id},
 				{"name", match.name},
 				{"wins", match.wins}
-			}
+			}	
 		);
 	}
 	return crow::json::wvalue(MatchesJson);
@@ -132,16 +132,16 @@ int main()
 		});
 
 
-	CROW_ROUTE(app, "/CreateNewRoom/<int>").methods("POST"_method)([&db](const crow::request& req,int number) {
-		auto data = crow::json::load(req.body);
-	
-		});
+	//CROW_ROUTE(app, "/CreateNewRoom/<int>").methods("POST"_method)([&db](const crow::request& req,int number) {
+	//	auto data = crow::json::load(req.body);
+	//
+	//	});
 
-	CROW_ROUTE(app, "/NumberOfPlayers")([&lobby]() {
-		return crow::json::wvalue{ {"numberofplayers",lobby.GetNumberOfPlayers()}};
-		});
+	//CROW_ROUTE(app, "/NumberOfPlayers")([&lobby]() {
+	//	return crow::json::wvalue{ {"numberofplayers",lobby.GetNumberOfPlayers()}};
+	//	});
 
-	CROW_ROUTE(app,"/game/<int>/<int>")
+	////CROW_ROUTE(app,"/game/<int>/<int>")
 	
 	app.port(18080).multithreaded().run();
 }

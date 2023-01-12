@@ -128,21 +128,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ClientMain.cpp" />
-    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Avantage.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="NewGame.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Question.cpp" />
     <ClCompile Include="Region.cpp" />
     <ClCompile Include="Triviador.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Avantage.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="NewGame.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Question.h" />
     <ClInclude Include="Region.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="XDD.txt" />
+    <Text Include="Questions.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
