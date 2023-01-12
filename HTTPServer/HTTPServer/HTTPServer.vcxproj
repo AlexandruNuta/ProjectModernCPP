@@ -136,6 +136,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Question.cpp" />
     <ClCompile Include="Region.cpp" />
+    <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Lobby.h" />
@@ -144,6 +145,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Question.h" />
     <ClInclude Include="Region.h" />
+    <ClInclude Include="utils.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Questions.txt" />
