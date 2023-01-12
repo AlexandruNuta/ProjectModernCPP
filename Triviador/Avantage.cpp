@@ -3,7 +3,7 @@
 void Avantage::Menu(const Question& question)
 {
 	uint16_t x;
-	std::cout << "AVANTAJE" << std::endl;
+	std::cout << std::endl << "AVANTAJE" << std::endl;
 	if (question.GetAnswers().size() == 1)
 	{
 		std::cout << "1. Receives 4 answers, one of which is correct." << std::endl;

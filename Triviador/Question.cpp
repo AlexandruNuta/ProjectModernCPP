@@ -49,6 +49,6 @@ std::ostream& operator<<(std::ostream& out, const Question& question)
 		out << "c. " << answers[2] << "   d. " << answers[3] << std::endl;
 		out << std::endl;
 	}
-	out << "If you want to choose an advantage, type '-1' for numerical questions or '+' for questions with multiple answers." << std::endl;
+	out << "If you want to choose an advantage, press the '+' key." << std::endl;
 	return out;
 }
