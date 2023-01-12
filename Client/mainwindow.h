@@ -39,9 +39,10 @@ private slots:
 
     void Load_NA_Question();
 
-    void on_pushButton_SubmitAnswer_clicked();
+    void on_pushButton_SubmitAnswer_clicked();   
 
 private:
     Ui::MainWindow *ui;
+
 };
 #endif // MAINWINDOW_H

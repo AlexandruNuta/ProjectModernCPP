@@ -2,15 +2,26 @@
 #include "./ui_mainwindow.h"
 #include <QMessageBox>
 #include <QErrorMessage>
+#include <QResizeEvent>
+#include <QScreen>
+#include <QWindowStateChangeEvent>
+#include <QWindow>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
     connect(ui->pushButton_Exit, &QPushButton::clicked, this, &QWidget::close);
     setWindowTitle("Triviador");
     ui->stackedWidget->setCurrentIndex(0);
+
+//    ui->stackedWidget->widget(0)->setStyleSheet("QWidget {"
+//                                                " background-image: url(:/image/image1.jpg);"
+//                                                " background-color: rgba(255, 255, 255, 0.2);"
+//                                                "}");
+    //ui->stackedWidget->widget(0)->setStyleSheet("QWidget {background-color: rgba(255, 255, 255, 0.5); }");
 }
 
 MainWindow::~MainWindow()
