@@ -133,39 +133,8 @@ Question NewGame::GetQuestionMultipleChoice()
 template <typename T>
 T AskForInput(std::shared_ptr<Player> player, const Question& question)
 {
-	T answer=NULL;
-	std::cout << player << ", please input your answer: ";
-	std::cin >> answer;
-	if (answer)
-	{
-		Avantage avantage;
-		avantage.Menu(question);
-		std::cout << player << ", please input your answer: ";
-		std::cin >> answer;
-	}
-	return answer;
-}
-
-template <>
-int AskForInput(std::shared_ptr<Player> player, const Question& question)
-{
-	int answer;
-	std::cout << player << ", please input your answer: ";
-	std::cin >> answer;
-	if (answer == -1)
-	{
-		Avantage avantage;
-		avantage.Menu(question);
-		std::cout << player << ", please input your answer: ";
-		std::cin >> answer;
-	}
-	return answer;
-}
-
-template <>
-std::string AskForInput(std::shared_ptr<Player> player, const Question& question)
-{
 	std::string answer;
+	T newAnswer;
 	std::cout << player << ", please input your answer: ";
 	std::cin >> answer;
 	if (answer == "+")
@@ -173,9 +142,14 @@ std::string AskForInput(std::shared_ptr<Player> player, const Question& question
 		Avantage avantage;
 		avantage.Menu(question);
 		std::cout << player << ", please input your answer: ";
-		std::cin >> answer;
+		std::cin >> newAnswer;
 	}
-	return answer;
+	else
+		if (question.GetAnswers().size() == 1)
+			newAnswer = std::stoi(answer);
+		else
+			newAnswer = answer[0];
+	return newAnswer;
 }
 
 std::tuple<uint16_t, uint16_t, uint16_t> IndexAnswerTime(const Question& question, std::shared_ptr<Player> player, const uint16_t& index)
