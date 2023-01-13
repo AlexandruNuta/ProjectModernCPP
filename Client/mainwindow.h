@@ -41,6 +41,22 @@ private slots:
 
     void on_pushButton_SubmitAnswer_clicked();   
 
+    void on_pushButton_JoinRoom_clicked();
+
+    void on_pushButton_Join_clicked();
+
+    void on_pushButton_CreateRoom_clicked();
+
+    void on_pushButton_Create_clicked();
+
+    void on_pushButton_CreateRoomBack_clicked();
+
+    void on_pushButton_JoinRoomBack_clicked();
+
+    void on_pushButton_RoomBack_clicked();
+
+    void on_pushButton_ExitRoom_clicked();
+
 private:
     Ui::MainWindow *ui;
 

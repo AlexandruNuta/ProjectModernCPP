@@ -31,16 +31,16 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QVBoxLayout *verticalLayout;
+    QGridLayout *gridLayout_6;
     QStackedWidget *stackedWidget;
-    QWidget *page_1;
+    QWidget *page_LoginMenu;
     QGridLayout *gridLayout_3;
     QGroupBox *groupBox_2;
     QHBoxLayout *horizontalLayout_3;
     QPushButton *pushButton_SignIn;
     QSpacerItem *verticalSpacer;
     QPushButton *pushButton_SignUp;
-    QWidget *page_2;
+    QWidget *page_Login;
     QGridLayout *gridLayout_2;
     QSpacerItem *horizontalSpacer_2;
     QGroupBox *groupBox;
@@ -59,7 +59,7 @@ public:
     QSpacerItem *horizontalSpacer_3;
     QSpacerItem *verticalSpacer_6;
     QSpacerItem *horizontalSpacer_7;
-    QWidget *page_3;
+    QWidget *page_Register;
     QGridLayout *gridLayout;
     QSpacerItem *horizontalSpacer_9;
     QSpacerItem *verticalSpacer_5;
@@ -82,7 +82,7 @@ public:
     QSpacerItem *verticalSpacer_4;
     QSpacerItem *horizontalSpacer_4;
     QSpacerItem *horizontalSpacer_5;
-    QWidget *page_4;
+    QWidget *page_GameMenu;
     QGridLayout *gridLayout_4;
     QGroupBox *groupBox_7;
     QVBoxLayout *verticalLayout_6;
@@ -100,10 +100,76 @@ public:
     QSpacerItem *verticalSpacer_8;
     QSpacerItem *horizontalSpacer_16;
     QLabel *label_2;
-    QWidget *page_5;
+    QWidget *page_Options;
     QLabel *label_8;
     QPushButton *pushButton_OptionsPage_Back;
-    QWidget *page_6;
+    QWidget *page_RoomMenu;
+    QGridLayout *gridLayout_7;
+    QSpacerItem *verticalSpacer_2;
+    QSpacerItem *horizontalSpacer_28;
+    QVBoxLayout *verticalLayout;
+    QPushButton *pushButton_CreateRoom;
+    QPushButton *pushButton_JoinRoom;
+    QSpacerItem *verticalSpacer_3;
+    QSpacerItem *horizontalSpacer_29;
+    QPushButton *pushButton_RoomBack;
+    QWidget *page_CreatedRoom;
+    QGridLayout *gridLayout_13;
+    QSpacerItem *verticalSpacer_17;
+    QGroupBox *groupBox_10;
+    QGridLayout *gridLayout_12;
+    QSpacerItem *horizontalSpacer_32;
+    QHBoxLayout *horizontalLayout_11;
+    QLabel *label_11;
+    QLabel *label_12;
+    QPushButton *pushButton;
+    QPushButton *pushButton_ExitRoom;
+    QSpacerItem *horizontalSpacer_22;
+    QSpacerItem *verticalSpacer_15;
+    QSpacerItem *horizontalSpacer_30;
+    QSpacerItem *verticalSpacer_16;
+    QSpacerItem *horizontalSpacer_31;
+    QWidget *page_CreateRoom;
+    QGridLayout *gridLayout_10;
+    QSpacerItem *verticalSpacer_14;
+    QSpacerItem *verticalSpacer_13;
+    QSpacerItem *horizontalSpacer_23;
+    QSpacerItem *horizontalSpacer_24;
+    QPushButton *pushButton_CreateRoomBack;
+    QGroupBox *groupBox_4;
+    QGridLayout *gridLayout_9;
+    QVBoxLayout *verticalLayout_11;
+    QHBoxLayout *horizontalLayout_12;
+    QLabel *label_14;
+    QLineEdit *EnterPlayerNumberField;
+    QSpacerItem *horizontalSpacer_20;
+    QHBoxLayout *horizontalLayout_14;
+    QSpacerItem *horizontalSpacer_18;
+    QPushButton *pushButton_Create;
+    QSpacerItem *horizontalSpacer_19;
+    QLabel *label_13;
+    QSpacerItem *horizontalSpacer_25;
+    QWidget *page_JoinRoom;
+    QGridLayout *gridLayout_8;
+    QHBoxLayout *horizontalLayout_16;
+    QSpacerItem *horizontalSpacer_27;
+    QPushButton *pushButton_JoinRoomBack;
+    QSpacerItem *horizontalSpacer_26;
+    QSpacerItem *verticalSpacer_12;
+    QSpacerItem *horizontalSpacer_15;
+    QSpacerItem *horizontalSpacer_10;
+    QSpacerItem *verticalSpacer_11;
+    QGroupBox *groupBox_9;
+    QGridLayout *gridLayout_11;
+    QVBoxLayout *verticalLayout_10;
+    QHBoxLayout *horizontalLayout_10;
+    QLabel *label;
+    QLineEdit *JoinRoomIDField;
+    QPushButton *pushButton_Join;
+    QLabel *label_10;
+    QHBoxLayout *horizontalLayout_15;
+    QSpacerItem *horizontalSpacer_21;
+    QWidget *page_MAQScreen;
     QGridLayout *gridLayout_5;
     QGroupBox *groupBox_8;
     QVBoxLayout *verticalLayout_9;
@@ -113,11 +179,10 @@ public:
     QHBoxLayout *horizontalLayout_7;
     QPushButton *answerButton1;
     QPushButton *answerButton2;
-    QSpacerItem *verticalSpacer_3;
     QHBoxLayout *horizontalLayout_8;
     QPushButton *answerButton3;
     QPushButton *answerButton4;
-    QWidget *page_7;
+    QWidget *page_NAQScreen;
     QLabel *label_9;
     QGroupBox *groupBox_6;
     QLabel *NumericalAnswerQuestionLabel;
@@ -125,7 +190,6 @@ public:
     QVBoxLayout *verticalLayout_5;
     QLineEdit *NumericalAnswerField;
     QPushButton *pushButton_SubmitAnswer;
-    QSpacerItem *verticalSpacer_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -133,25 +197,25 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(756, 377);
+        MainWindow->resize(748, 364);
         MainWindow->setMinimumSize(QSize(0, 0));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
-        verticalLayout = new QVBoxLayout(centralwidget);
-        verticalLayout->setObjectName("verticalLayout");
+        gridLayout_6 = new QGridLayout(centralwidget);
+        gridLayout_6->setObjectName("gridLayout_6");
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName("stackedWidget");
         stackedWidget->setStyleSheet(QString::fromUtf8("QStackedWidget {\n"
 "    background-color: rgba(255, 255, 255, 0.1);\n"
 "}\n"
 ""));
-        page_1 = new QWidget();
-        page_1->setObjectName("page_1");
-        gridLayout_3 = new QGridLayout(page_1);
+        page_LoginMenu = new QWidget();
+        page_LoginMenu->setObjectName("page_LoginMenu");
+        gridLayout_3 = new QGridLayout(page_LoginMenu);
         gridLayout_3->setSpacing(0);
         gridLayout_3->setObjectName("gridLayout_3");
         gridLayout_3->setContentsMargins(0, 0, 0, 0);
-        groupBox_2 = new QGroupBox(page_1);
+        groupBox_2 = new QGroupBox(page_LoginMenu);
         groupBox_2->setObjectName("groupBox_2");
         groupBox_2->setLayoutDirection(Qt::LeftToRight);
         groupBox_2->setAutoFillBackground(false);
@@ -182,10 +246,10 @@ public:
 
         gridLayout_3->addWidget(groupBox_2, 0, 0, 1, 1);
 
-        stackedWidget->addWidget(page_1);
-        page_2 = new QWidget();
-        page_2->setObjectName("page_2");
-        gridLayout_2 = new QGridLayout(page_2);
+        stackedWidget->addWidget(page_LoginMenu);
+        page_Login = new QWidget();
+        page_Login->setObjectName("page_Login");
+        gridLayout_2 = new QGridLayout(page_Login);
         gridLayout_2->setSpacing(0);
         gridLayout_2->setObjectName("gridLayout_2");
         gridLayout_2->setContentsMargins(0, 0, 0, 0);
@@ -193,7 +257,7 @@ public:
 
         gridLayout_2->addItem(horizontalSpacer_2, 1, 0, 1, 1);
 
-        groupBox = new QGroupBox(page_2);
+        groupBox = new QGroupBox(page_Login);
         groupBox->setObjectName("groupBox");
         verticalLayout_2 = new QVBoxLayout(groupBox);
         verticalLayout_2->setObjectName("verticalLayout_2");
@@ -221,6 +285,7 @@ public:
 
         passwordField = new QLineEdit(groupBox);
         passwordField->setObjectName("passwordField");
+        passwordField->setContextMenuPolicy(Qt::DefaultContextMenu);
 
         horizontalLayout_2->addWidget(passwordField);
 
@@ -265,10 +330,10 @@ public:
 
         gridLayout_2->addItem(horizontalSpacer_7, 1, 3, 1, 1);
 
-        stackedWidget->addWidget(page_2);
-        page_3 = new QWidget();
-        page_3->setObjectName("page_3");
-        gridLayout = new QGridLayout(page_3);
+        stackedWidget->addWidget(page_Login);
+        page_Register = new QWidget();
+        page_Register->setObjectName("page_Register");
+        gridLayout = new QGridLayout(page_Register);
         gridLayout->setObjectName("gridLayout");
         horizontalSpacer_9 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -282,7 +347,7 @@ public:
 
         gridLayout->addItem(horizontalSpacer_8, 1, 0, 1, 1);
 
-        groupBox_3 = new QGroupBox(page_3);
+        groupBox_3 = new QGroupBox(page_Register);
         groupBox_3->setObjectName("groupBox_3");
         verticalLayout_3 = new QVBoxLayout(groupBox_3);
         verticalLayout_3->setObjectName("verticalLayout_3");
@@ -365,13 +430,13 @@ public:
 
         gridLayout->addItem(horizontalSpacer_5, 1, 3, 1, 1);
 
-        stackedWidget->addWidget(page_3);
-        page_4 = new QWidget();
-        page_4->setObjectName("page_4");
-        gridLayout_4 = new QGridLayout(page_4);
+        stackedWidget->addWidget(page_Register);
+        page_GameMenu = new QWidget();
+        page_GameMenu->setObjectName("page_GameMenu");
+        gridLayout_4 = new QGridLayout(page_GameMenu);
         gridLayout_4->setObjectName("gridLayout_4");
         gridLayout_4->setContentsMargins(-1, -1, -1, 25);
-        groupBox_7 = new QGroupBox(page_4);
+        groupBox_7 = new QGroupBox(page_GameMenu);
         groupBox_7->setObjectName("groupBox_7");
         groupBox_7->setFlat(true);
         verticalLayout_6 = new QVBoxLayout(groupBox_7);
@@ -435,27 +500,359 @@ public:
 
         gridLayout_4->addItem(horizontalSpacer_16, 3, 0, 1, 1);
 
-        label_2 = new QLabel(page_4);
+        label_2 = new QLabel(page_GameMenu);
         label_2->setObjectName("label_2");
         label_2->setAlignment(Qt::AlignCenter);
 
         gridLayout_4->addWidget(label_2, 2, 1, 1, 1);
 
-        stackedWidget->addWidget(page_4);
-        page_5 = new QWidget();
-        page_5->setObjectName("page_5");
-        label_8 = new QLabel(page_5);
+        stackedWidget->addWidget(page_GameMenu);
+        page_Options = new QWidget();
+        page_Options->setObjectName("page_Options");
+        label_8 = new QLabel(page_Options);
         label_8->setObjectName("label_8");
         label_8->setGeometry(QRect(330, 70, 101, 16));
-        pushButton_OptionsPage_Back = new QPushButton(page_5);
+        pushButton_OptionsPage_Back = new QPushButton(page_Options);
         pushButton_OptionsPage_Back->setObjectName("pushButton_OptionsPage_Back");
         pushButton_OptionsPage_Back->setGeometry(QRect(30, 20, 75, 24));
-        stackedWidget->addWidget(page_5);
-        page_6 = new QWidget();
-        page_6->setObjectName("page_6");
-        gridLayout_5 = new QGridLayout(page_6);
+        stackedWidget->addWidget(page_Options);
+        page_RoomMenu = new QWidget();
+        page_RoomMenu->setObjectName("page_RoomMenu");
+        gridLayout_7 = new QGridLayout(page_RoomMenu);
+        gridLayout_7->setObjectName("gridLayout_7");
+        gridLayout_7->setContentsMargins(25, 25, 25, 25);
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_7->addItem(verticalSpacer_2, 1, 0, 1, 1);
+
+        horizontalSpacer_28 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_7->addItem(horizontalSpacer_28, 0, 1, 1, 1);
+
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName("verticalLayout");
+        pushButton_CreateRoom = new QPushButton(page_RoomMenu);
+        pushButton_CreateRoom->setObjectName("pushButton_CreateRoom");
+
+        verticalLayout->addWidget(pushButton_CreateRoom);
+
+        pushButton_JoinRoom = new QPushButton(page_RoomMenu);
+        pushButton_JoinRoom->setObjectName("pushButton_JoinRoom");
+
+        verticalLayout->addWidget(pushButton_JoinRoom);
+
+
+        gridLayout_7->addLayout(verticalLayout, 1, 1, 1, 1);
+
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_7->addItem(verticalSpacer_3, 1, 2, 1, 1);
+
+        horizontalSpacer_29 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_7->addItem(horizontalSpacer_29, 2, 1, 1, 1);
+
+        pushButton_RoomBack = new QPushButton(page_RoomMenu);
+        pushButton_RoomBack->setObjectName("pushButton_RoomBack");
+        pushButton_RoomBack->setAcceptDrops(false);
+        pushButton_RoomBack->setAutoFillBackground(true);
+        pushButton_RoomBack->setAutoDefault(false);
+        pushButton_RoomBack->setFlat(false);
+
+        gridLayout_7->addWidget(pushButton_RoomBack, 0, 0, 1, 1, Qt::AlignLeft);
+
+        gridLayout_7->setColumnStretch(0, 1);
+        gridLayout_7->setColumnStretch(1, 1);
+        gridLayout_7->setColumnStretch(2, 1);
+        stackedWidget->addWidget(page_RoomMenu);
+        page_CreatedRoom = new QWidget();
+        page_CreatedRoom->setObjectName("page_CreatedRoom");
+        gridLayout_13 = new QGridLayout(page_CreatedRoom);
+        gridLayout_13->setObjectName("gridLayout_13");
+        verticalSpacer_17 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_13->addItem(verticalSpacer_17, 1, 2, 1, 1);
+
+        groupBox_10 = new QGroupBox(page_CreatedRoom);
+        groupBox_10->setObjectName("groupBox_10");
+        gridLayout_12 = new QGridLayout(groupBox_10);
+        gridLayout_12->setObjectName("gridLayout_12");
+        horizontalSpacer_32 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_12->addItem(horizontalSpacer_32, 4, 0, 1, 1);
+
+        horizontalLayout_11 = new QHBoxLayout();
+        horizontalLayout_11->setObjectName("horizontalLayout_11");
+        label_11 = new QLabel(groupBox_10);
+        label_11->setObjectName("label_11");
+        label_11->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        horizontalLayout_11->addWidget(label_11);
+
+        label_12 = new QLabel(groupBox_10);
+        label_12->setObjectName("label_12");
+        label_12->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+
+        horizontalLayout_11->addWidget(label_12);
+
+
+        gridLayout_12->addLayout(horizontalLayout_11, 0, 0, 1, 1);
+
+        pushButton = new QPushButton(groupBox_10);
+        pushButton->setObjectName("pushButton");
+
+        gridLayout_12->addWidget(pushButton, 2, 0, 1, 1);
+
+        pushButton_ExitRoom = new QPushButton(groupBox_10);
+        pushButton_ExitRoom->setObjectName("pushButton_ExitRoom");
+
+        gridLayout_12->addWidget(pushButton_ExitRoom, 6, 0, 1, 1);
+
+        horizontalSpacer_22 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_12->addItem(horizontalSpacer_22, 1, 0, 1, 1);
+
+        verticalSpacer_15 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_12->addItem(verticalSpacer_15, 5, 0, 1, 1);
+
+        gridLayout_12->setRowStretch(0, 1);
+
+        gridLayout_13->addWidget(groupBox_10, 1, 1, 1, 1);
+
+        horizontalSpacer_30 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_13->addItem(horizontalSpacer_30, 0, 1, 1, 1);
+
+        verticalSpacer_16 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_13->addItem(verticalSpacer_16, 1, 0, 1, 1);
+
+        horizontalSpacer_31 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_13->addItem(horizontalSpacer_31, 2, 1, 1, 1);
+
+        gridLayout_13->setRowStretch(0, 1);
+        gridLayout_13->setRowStretch(1, 1);
+        gridLayout_13->setRowStretch(2, 1);
+        gridLayout_13->setColumnStretch(0, 1);
+        gridLayout_13->setColumnStretch(1, 1);
+        gridLayout_13->setColumnStretch(2, 1);
+        stackedWidget->addWidget(page_CreatedRoom);
+        page_CreateRoom = new QWidget();
+        page_CreateRoom->setObjectName("page_CreateRoom");
+        gridLayout_10 = new QGridLayout(page_CreateRoom);
+        gridLayout_10->setObjectName("gridLayout_10");
+        gridLayout_10->setContentsMargins(25, 25, 25, 25);
+        verticalSpacer_14 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_10->addItem(verticalSpacer_14, 1, 2, 1, 1);
+
+        verticalSpacer_13 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_10->addItem(verticalSpacer_13, 1, 0, 1, 1);
+
+        horizontalSpacer_23 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_10->addItem(horizontalSpacer_23, 0, 1, 1, 1);
+
+        horizontalSpacer_24 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_10->addItem(horizontalSpacer_24, 2, 1, 1, 1);
+
+        pushButton_CreateRoomBack = new QPushButton(page_CreateRoom);
+        pushButton_CreateRoomBack->setObjectName("pushButton_CreateRoomBack");
+
+        gridLayout_10->addWidget(pushButton_CreateRoomBack, 0, 0, 1, 1, Qt::AlignLeft);
+
+        groupBox_4 = new QGroupBox(page_CreateRoom);
+        groupBox_4->setObjectName("groupBox_4");
+        groupBox_4->setFlat(true);
+        gridLayout_9 = new QGridLayout(groupBox_4);
+        gridLayout_9->setObjectName("gridLayout_9");
+        verticalLayout_11 = new QVBoxLayout();
+        verticalLayout_11->setObjectName("verticalLayout_11");
+        horizontalLayout_12 = new QHBoxLayout();
+        horizontalLayout_12->setSpacing(0);
+        horizontalLayout_12->setObjectName("horizontalLayout_12");
+        horizontalLayout_12->setContentsMargins(50, -1, 50, -1);
+        label_14 = new QLabel(groupBox_4);
+        label_14->setObjectName("label_14");
+
+        horizontalLayout_12->addWidget(label_14);
+
+        EnterPlayerNumberField = new QLineEdit(groupBox_4);
+        EnterPlayerNumberField->setObjectName("EnterPlayerNumberField");
+        EnterPlayerNumberField->setFrame(true);
+        EnterPlayerNumberField->setDragEnabled(false);
+        EnterPlayerNumberField->setReadOnly(false);
+        EnterPlayerNumberField->setClearButtonEnabled(false);
+
+        horizontalLayout_12->addWidget(EnterPlayerNumberField);
+
+        horizontalLayout_12->setStretch(0, 6);
+
+        verticalLayout_11->addLayout(horizontalLayout_12);
+
+        horizontalSpacer_20 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        verticalLayout_11->addItem(horizontalSpacer_20);
+
+        horizontalLayout_14 = new QHBoxLayout();
+        horizontalLayout_14->setObjectName("horizontalLayout_14");
+        horizontalSpacer_18 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_14->addItem(horizontalSpacer_18);
+
+        pushButton_Create = new QPushButton(groupBox_4);
+        pushButton_Create->setObjectName("pushButton_Create");
+
+        horizontalLayout_14->addWidget(pushButton_Create);
+
+        horizontalSpacer_19 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_14->addItem(horizontalSpacer_19);
+
+        horizontalLayout_14->setStretch(0, 1);
+        horizontalLayout_14->setStretch(1, 2);
+        horizontalLayout_14->setStretch(2, 1);
+
+        verticalLayout_11->addLayout(horizontalLayout_14);
+
+        verticalLayout_11->setStretch(0, 1);
+        verticalLayout_11->setStretch(1, 1);
+        verticalLayout_11->setStretch(2, 1);
+
+        gridLayout_9->addLayout(verticalLayout_11, 3, 0, 1, 1);
+
+        label_13 = new QLabel(groupBox_4);
+        label_13->setObjectName("label_13");
+        label_13->setAlignment(Qt::AlignCenter);
+
+        gridLayout_9->addWidget(label_13, 1, 0, 1, 1);
+
+        horizontalSpacer_25 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_9->addItem(horizontalSpacer_25, 2, 0, 1, 1);
+
+        gridLayout_9->setRowStretch(2, 1);
+
+        gridLayout_10->addWidget(groupBox_4, 1, 1, 1, 1);
+
+        gridLayout_10->setRowStretch(0, 1);
+        gridLayout_10->setRowStretch(1, 2);
+        gridLayout_10->setRowStretch(2, 1);
+        gridLayout_10->setColumnStretch(0, 1);
+        gridLayout_10->setColumnStretch(1, 1);
+        gridLayout_10->setColumnStretch(2, 1);
+        stackedWidget->addWidget(page_CreateRoom);
+        page_JoinRoom = new QWidget();
+        page_JoinRoom->setObjectName("page_JoinRoom");
+        gridLayout_8 = new QGridLayout(page_JoinRoom);
+        gridLayout_8->setObjectName("gridLayout_8");
+        gridLayout_8->setContentsMargins(25, 25, 25, 25);
+        horizontalLayout_16 = new QHBoxLayout();
+        horizontalLayout_16->setObjectName("horizontalLayout_16");
+        horizontalSpacer_27 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_16->addItem(horizontalSpacer_27);
+
+        pushButton_JoinRoomBack = new QPushButton(page_JoinRoom);
+        pushButton_JoinRoomBack->setObjectName("pushButton_JoinRoomBack");
+
+        horizontalLayout_16->addWidget(pushButton_JoinRoomBack);
+
+        horizontalSpacer_26 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_16->addItem(horizontalSpacer_26);
+
+        horizontalLayout_16->setStretch(0, 1);
+        horizontalLayout_16->setStretch(1, 2);
+        horizontalLayout_16->setStretch(2, 1);
+
+        gridLayout_8->addLayout(horizontalLayout_16, 0, 0, 1, 1);
+
+        verticalSpacer_12 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_8->addItem(verticalSpacer_12, 2, 3, 1, 1);
+
+        horizontalSpacer_15 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_8->addItem(horizontalSpacer_15, 0, 2, 1, 1);
+
+        horizontalSpacer_10 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_8->addItem(horizontalSpacer_10, 3, 2, 1, 1);
+
+        verticalSpacer_11 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_8->addItem(verticalSpacer_11, 2, 0, 1, 1);
+
+        groupBox_9 = new QGroupBox(page_JoinRoom);
+        groupBox_9->setObjectName("groupBox_9");
+        gridLayout_11 = new QGridLayout(groupBox_9);
+        gridLayout_11->setObjectName("gridLayout_11");
+        verticalLayout_10 = new QVBoxLayout();
+        verticalLayout_10->setSpacing(15);
+        verticalLayout_10->setObjectName("verticalLayout_10");
+        verticalLayout_10->setContentsMargins(95, 75, 95, 25);
+        horizontalLayout_10 = new QHBoxLayout();
+        horizontalLayout_10->setObjectName("horizontalLayout_10");
+        label = new QLabel(groupBox_9);
+        label->setObjectName("label");
+
+        horizontalLayout_10->addWidget(label);
+
+        JoinRoomIDField = new QLineEdit(groupBox_9);
+        JoinRoomIDField->setObjectName("JoinRoomIDField");
+
+        horizontalLayout_10->addWidget(JoinRoomIDField, 0, Qt::AlignRight);
+
+
+        verticalLayout_10->addLayout(horizontalLayout_10);
+
+        pushButton_Join = new QPushButton(groupBox_9);
+        pushButton_Join->setObjectName("pushButton_Join");
+
+        verticalLayout_10->addWidget(pushButton_Join, 0, Qt::AlignHCenter);
+
+
+        gridLayout_11->addLayout(verticalLayout_10, 2, 0, 1, 1);
+
+        label_10 = new QLabel(groupBox_9);
+        label_10->setObjectName("label_10");
+        label_10->setAlignment(Qt::AlignCenter);
+
+        gridLayout_11->addWidget(label_10, 0, 0, 1, 1);
+
+        horizontalLayout_15 = new QHBoxLayout();
+        horizontalLayout_15->setObjectName("horizontalLayout_15");
+
+        gridLayout_11->addLayout(horizontalLayout_15, 1, 0, 1, 1);
+
+        gridLayout_11->setRowStretch(0, 1);
+        gridLayout_11->setRowStretch(1, 2);
+        gridLayout_11->setRowStretch(2, 1);
+
+        gridLayout_8->addWidget(groupBox_9, 2, 2, 1, 1);
+
+        horizontalSpacer_21 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_8->addItem(horizontalSpacer_21, 1, 2, 1, 1);
+
+        gridLayout_8->setRowStretch(0, 1);
+        gridLayout_8->setRowStretch(1, 1);
+        gridLayout_8->setRowStretch(2, 1);
+        gridLayout_8->setRowStretch(3, 1);
+        gridLayout_8->setColumnStretch(0, 1);
+        gridLayout_8->setColumnStretch(1, 1);
+        gridLayout_8->setColumnStretch(3, 2);
+        stackedWidget->addWidget(page_JoinRoom);
+        page_MAQScreen = new QWidget();
+        page_MAQScreen->setObjectName("page_MAQScreen");
+        gridLayout_5 = new QGridLayout(page_MAQScreen);
         gridLayout_5->setObjectName("gridLayout_5");
-        groupBox_8 = new QGroupBox(page_6);
+        groupBox_8 = new QGroupBox(page_MAQScreen);
         groupBox_8->setObjectName("groupBox_8");
         verticalLayout_9 = new QVBoxLayout(groupBox_8);
         verticalLayout_9->setObjectName("verticalLayout_9");
@@ -486,10 +883,6 @@ public:
 
         verticalLayout_4->addLayout(horizontalLayout_7);
 
-        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_4->addItem(verticalSpacer_3);
-
         horizontalLayout_8 = new QHBoxLayout();
         horizontalLayout_8->setSpacing(200);
         horizontalLayout_8->setObjectName("horizontalLayout_8");
@@ -512,19 +905,19 @@ public:
 
         gridLayout_5->addWidget(groupBox_8, 0, 0, 1, 1);
 
-        stackedWidget->addWidget(page_6);
-        page_7 = new QWidget();
-        page_7->setObjectName("page_7");
-        label_9 = new QLabel(page_7);
+        stackedWidget->addWidget(page_MAQScreen);
+        page_NAQScreen = new QWidget();
+        page_NAQScreen->setObjectName("page_NAQScreen");
+        label_9 = new QLabel(page_NAQScreen);
         label_9->setObjectName("label_9");
         label_9->setGeometry(QRect(350, 20, 49, 16));
-        groupBox_6 = new QGroupBox(page_7);
+        groupBox_6 = new QGroupBox(page_NAQScreen);
         groupBox_6->setObjectName("groupBox_6");
         groupBox_6->setGeometry(QRect(40, 40, 681, 61));
         NumericalAnswerQuestionLabel = new QLabel(groupBox_6);
         NumericalAnswerQuestionLabel->setObjectName("NumericalAnswerQuestionLabel");
         NumericalAnswerQuestionLabel->setGeometry(QRect(10, 10, 661, 41));
-        layoutWidget = new QWidget(page_7);
+        layoutWidget = new QWidget(page_NAQScreen);
         layoutWidget->setObjectName("layoutWidget");
         layoutWidget->setGeometry(QRect(310, 170, 101, 54));
         verticalLayout_5 = new QVBoxLayout(layoutWidget);
@@ -540,18 +933,14 @@ public:
 
         verticalLayout_5->addWidget(pushButton_SubmitAnswer);
 
-        stackedWidget->addWidget(page_7);
+        stackedWidget->addWidget(page_NAQScreen);
 
-        verticalLayout->addWidget(stackedWidget);
-
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer_2);
+        gridLayout_6->addWidget(stackedWidget, 0, 0, 1, 1);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 756, 22));
+        menubar->setGeometry(QRect(0, 0, 748, 22));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -559,7 +948,8 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(5);
+        stackedWidget->setCurrentIndex(6);
+        pushButton_RoomBack->setDefault(false);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -589,6 +979,24 @@ public:
         label_2->setText(QCoreApplication::translate("MainWindow", "Menu", nullptr));
         label_8->setText(QCoreApplication::translate("MainWindow", "Not Available Yet", nullptr));
         pushButton_OptionsPage_Back->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
+        pushButton_CreateRoom->setText(QCoreApplication::translate("MainWindow", "Create Room", nullptr));
+        pushButton_JoinRoom->setText(QCoreApplication::translate("MainWindow", "Join Room", nullptr));
+        pushButton_RoomBack->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
+        groupBox_10->setTitle(QString());
+        label_11->setText(QCoreApplication::translate("MainWindow", "Players:", nullptr));
+        label_12->setText(QCoreApplication::translate("MainWindow", "Nr_Players", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainWindow", "Ready", nullptr));
+        pushButton_ExitRoom->setText(QCoreApplication::translate("MainWindow", "Exit room", nullptr));
+        pushButton_CreateRoomBack->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
+        groupBox_4->setTitle(QString());
+        label_14->setText(QCoreApplication::translate("MainWindow", "Enter number of players:  ", nullptr));
+        pushButton_Create->setText(QCoreApplication::translate("MainWindow", "Create", nullptr));
+        label_13->setText(QCoreApplication::translate("MainWindow", "Create Room", nullptr));
+        pushButton_JoinRoomBack->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
+        groupBox_9->setTitle(QString());
+        label->setText(QCoreApplication::translate("MainWindow", "Room ID:", nullptr));
+        pushButton_Join->setText(QCoreApplication::translate("MainWindow", "Join", nullptr));
+        label_10->setText(QCoreApplication::translate("MainWindow", "Join Room", nullptr));
         groupBox_8->setTitle(QString());
         groupBox_5->setTitle(QString());
         MultipleAnswerQuestionLabel->setText(QCoreApplication::translate("MainWindow", "Question", nullptr));

@@ -6,6 +6,8 @@
 #include <QScreen>
 #include <QWindowStateChangeEvent>
 #include <QWindow>
+#include <QTimer>
+#include <QTime>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -15,7 +17,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->pushButton_Exit, &QPushButton::clicked, this, &QWidget::close);
     setWindowTitle("Triviador");
-    ui->stackedWidget->setCurrentIndex(0);
+    //ui->stackedWidget->setCurrentIndex(0);
+
+    ui->stackedWidget->setCurrentWidget(ui->page_CreatedRoom);
+
+    ui->passwordField->setEchoMode(QLineEdit::Password);
 
 //    ui->stackedWidget->widget(0)->setStyleSheet("QWidget {"
 //                                                " background-image: url(:/image/image1.jpg);"
@@ -156,3 +162,70 @@ void MainWindow::on_pushButton_SubmitAnswer_clicked()
     }
 }
 
+
+void MainWindow::on_pushButton_JoinRoom_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->page_JoinRoom);
+}
+
+
+void MainWindow::on_pushButton_Join_clicked()
+{
+    auto room_id = ui->JoinRoomIDField->text();
+    if(room_id.length()==0)
+    {
+        QMessageBox::warning(this, "Error", "Please enter the room ID");
+    }
+    else if(true)
+    {
+        ui->stackedWidget->setCurrentWidget(ui->page_CreatedRoom);
+    }
+    else
+    {
+        QMessageBox::warning(this, "Error", "Invalid room ID");
+    }
+}
+
+
+void MainWindow::on_pushButton_CreateRoom_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->page_CreateRoom);
+}
+
+
+void MainWindow::on_pushButton_Create_clicked()
+{
+    auto entered_nr_players = ui->EnterPlayerNumberField->text().toInt();
+    if(entered_nr_players==2 || entered_nr_players==3 || entered_nr_players==4)
+    {
+        ui->stackedWidget->setCurrentWidget(ui->page_CreatedRoom);
+    }
+    else
+    {
+        QMessageBox::warning(this, "Error", "The number of players should be 2, 3 or 4");
+    }
+}
+
+
+void MainWindow::on_pushButton_CreateRoomBack_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->page_RoomMenu);
+}
+
+
+void MainWindow::on_pushButton_JoinRoomBack_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->page_RoomMenu);
+}
+
+
+void MainWindow::on_pushButton_RoomBack_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->page_GameMenu);
+}
+
+
+void MainWindow::on_pushButton_ExitRoom_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->page_RoomMenu);
+}
