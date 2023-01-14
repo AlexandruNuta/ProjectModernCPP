@@ -15,11 +15,19 @@ public:
 	Question GetNumericalQuestion();
 	Question GetQuestionMultipleChoice();
 
+	void VerifyAvantageCoordinates(std::shared_ptr<Player> player, uint16_t& coordinate1, uint16_t& coordinate2);
+	void UseAvantage(std::shared_ptr<Player> player, const Question& question);
+	
+	template <typename T>
+	T AskForInput(std::shared_ptr<Player> player, const Question& question);
+	std::tuple<uint16_t, uint16_t, uint16_t> IndexAnswerTime(const Question& question, std::shared_ptr<Player> player, const uint16_t& index);
+	void TopPlayersForOneQuestion(const Question& question, std::vector<std::shared_ptr<Player>>& players);
+	
 	void StageChooseBase();
 	void StageChoseRegion();
 
-	void VerifyAttackCoordinates(std::shared_ptr<Player> player, uint16_t& coordinate1, uint16_t& coordinate2);
 	bool VerifyGameContinues() const;
+	void VerifyAttackCoordinates(std::shared_ptr<Player> player, uint16_t& coordinate1, uint16_t& coordinate2);
 	void DetermineWinner(std::shared_ptr<Player> player, std::shared_ptr<Region> region);
 	void StageDuels();
 

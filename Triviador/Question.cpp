@@ -37,6 +37,11 @@ bool Question::GetPrint()
 	return m_print;
 }
 
+void Question::RemoveAnswer(const uint16_t& index)
+{
+	m_answers[index] = "";
+}
+
 std::ostream& operator<<(std::ostream& out, const Question& question)
 {
 	if (question.GetAnswers().size() == 1)

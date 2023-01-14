@@ -16,7 +16,9 @@ public:
 
 	void AddRegion(std::shared_ptr<Region> region);
 	void RemoveRegion(std::shared_ptr<Region> region);
-	bool VerifiVecinity(const std::pair<uint16_t, uint16_t>& coordinates);
+	bool VerifyVecinity(const std::pair<uint16_t, uint16_t>& indexes);
+	bool VerifyRegion(const std::pair<uint16_t, uint16_t>& indexes) const;
+	bool EligibleForAvantages() const;
 
 	void Conquering(std::shared_ptr<Player> opponent);
 	void Elimination();

@@ -130,8 +130,52 @@ Question NewGame::GetQuestionMultipleChoice()
 	return m_questions[index];
 }
 
+void ReadCoordinates(uint16_t& coordinate1, uint16_t& coordinate2)
+{
+	std::cout << "Introduce first coordinate: ";
+	std::cin >> coordinate1;
+	std::cout << "Introduce second coordinate: ";
+	std::cin >> coordinate2;
+}
+
+void NewGame::VerifyAvantageCoordinates(std::shared_ptr<Player> player, uint16_t& coordinate1, uint16_t& coordinate2)
+{
+	std::cout << m_map;
+	std::cout << player << ", choose a region, based on coordinates, that you want to decrement to be able to use an advantage." << std::endl;
+	ReadCoordinates(coordinate1, coordinate2);
+	while (coordinate1 > m_map.size().first - 1 || coordinate2 > m_map.size().second - 1)
+	{
+		std::cout << "The region does not exist. Please choose a valid region based on coordinates." << std::endl;
+		ReadCoordinates(coordinate1, coordinate2);
+	}
+	while (!player->VerifyRegion(std::make_pair(coordinate1, coordinate2)))
+	{
+		std::cout << "The selected region is not yours. Please choose a region which is yours, based on coordinates." << std::endl;
+		ReadCoordinates(coordinate1, coordinate2);
+	}
+	while (m_map.GetMap()[coordinate1][coordinate2]->GetScore() < 200)
+	{
+		std::cout << "The selected region doesn't have a high enough score. Please choose a region which has at least a score of 200, based on coordinates." << std::endl;
+		ReadCoordinates(coordinate1, coordinate2);
+	}
+}
+
+void NewGame::UseAvantage(std::shared_ptr<Player> player, const Question& question)
+{
+	if (player->EligibleForAvantages())
+	{
+		uint16_t coordinate1, coordinate2;
+		VerifyAvantageCoordinates(player, coordinate1, coordinate2);
+		m_map.GetMap()[coordinate1][coordinate2]->DecrementScore();
+		Avantage avantage;
+		avantage.Menu(question);
+	}
+	else
+		std::cout << "You don't have at least one region that has enough score to be able to use the advantages." << std::endl;
+}
+
 template <typename T>
-T AskForInput(std::shared_ptr<Player> player, const Question& question)
+T NewGame::AskForInput(std::shared_ptr<Player> player, const Question& question)
 {
 	std::string answer;
 	T newAnswer;
@@ -139,8 +183,7 @@ T AskForInput(std::shared_ptr<Player> player, const Question& question)
 	std::cin >> answer;
 	if (answer == "+")
 	{
-		Avantage avantage;
-		avantage.Menu(question);
+		UseAvantage(player, question);
 		std::cout << player << ", please input your answer: ";
 		std::cin >> newAnswer;
 	}
@@ -152,7 +195,7 @@ T AskForInput(std::shared_ptr<Player> player, const Question& question)
 	return newAnswer;
 }
 
-std::tuple<uint16_t, uint16_t, uint16_t> IndexAnswerTime(const Question& question, std::shared_ptr<Player> player, const uint16_t& index)
+std::tuple<uint16_t, uint16_t, uint16_t> NewGame::IndexAnswerTime(const Question& question, std::shared_ptr<Player> player, const uint16_t& index)
 {
 	int answer;
 	float time;
@@ -178,7 +221,7 @@ bool compareTuples(const std::tuple<uint16_t, uint16_t, uint16_t>& a, const std:
 	return std::get<1>(a) < std::get<1>(b);
 }
 
-void TopPlayersForOneQuestion(const Question& question, std::vector<std::shared_ptr<Player>>& players)
+void NewGame::TopPlayersForOneQuestion(const Question& question, std::vector<std::shared_ptr<Player>>& players)
 {
 	std::vector<std::tuple<uint16_t, uint16_t, uint16_t>> forSorting;
 	std::cout << question;
@@ -193,13 +236,6 @@ void TopPlayersForOneQuestion(const Question& question, std::vector<std::shared_
 	players = sortedPlayers;
 }
 
-void ReadCoordinates(uint16_t& coordinate1, uint16_t& coordinate2)
-{
-	std::cout << "Introduce first coordinate: ";
-	std::cin >> coordinate1;
-	std::cout << "Introduce second coordinate: ";
-	std::cin >> coordinate2;
-}
 void NewGame::StageChooseBase()
 {
 	std::cout << std::endl << std::endl << "STAGE 1: CHOOSE BASES" << std::endl << std::endl;
@@ -236,14 +272,15 @@ void NewGame::StageChooseBase()
 void NewGame::StageChoseRegion()
 {
 	std::cout << std::endl << std::endl << "STAGE 2: CHOOSE REGIONS" << std::endl << std::endl;
-	while (m_map.CheckIfEmptyRegions())
+	do
 	{
+		auto copyPlayers = std::make_unique<std::vector<std::shared_ptr<Player>>>(m_players);
 		Question question = GetNumericalQuestion();
-		TopPlayersForOneQuestion(question, m_players);
+		TopPlayersForOneQuestion(question, *copyPlayers);
 		std::cout << std::endl << "Correct Answer: " << question.GetCorrectAnswer() << std::endl << std::endl;
 
 		uint16_t placeRanking = 0;
-		for (auto player : m_players)
+		for (auto player : *copyPlayers)
 		{
 			uint16_t numberOfRegionsToBeSelected = m_players.size() - placeRanking;
 
@@ -273,7 +310,7 @@ void NewGame::StageChoseRegion()
 			}
 			placeRanking++;
 		}
-	}
+	} while (m_map.CheckIfEmptyRegions());
 	std::cout << "All regions are owned!" << std::endl << "Final map:" << std::endl;
 	std::cout << m_map << std::endl << std::endl;
 }
@@ -301,7 +338,7 @@ void NewGame::VerifyAttackCoordinates(std::shared_ptr<Player> player, uint16_t& 
 		std::cout << "The region does not exist. Please choose a valid region based on coordinates." << std::endl;
 		ReadCoordinates(coordinate1, coordinate2);
 	}
-	while (!player->VerifiVecinity(std::make_pair(coordinate1, coordinate2)))
+	while (!player->VerifyVecinity(std::make_pair(coordinate1, coordinate2)))
 	{
 		std::cout << "The selected region is not in your vicinity. Please choose a region in your vecinity, based on coordinates." << std::endl;
 		ReadCoordinates(coordinate1, coordinate2);
