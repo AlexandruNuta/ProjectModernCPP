@@ -63,6 +63,8 @@ private slots:
 
     void on_pushButton_ExitRoom_clicked();
 
+    void on_regionButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 

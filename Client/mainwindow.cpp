@@ -294,3 +294,26 @@ void MainWindow::GenerateMap(int cols, int rows)
             scene->addWidget(regionButton);
         }
 }
+
+void MainWindow::on_regionButton_clicked()
+{
+    int playerNr = 1;
+    QPushButton* regionButton = qobject_cast<QPushButton*>(sender());
+
+    if(playerNr==1)
+    {
+        regionButton->setStyleSheet("background-color: red;");
+    }
+    else if(playerNr==2)
+    {
+        regionButton->setStyleSheet("background-color: blue;");
+    }
+    else if(playerNr==3)
+    {
+        regionButton->setStyleSheet("background-color: green;");
+    }
+    else if(playerNr==4)
+    {
+        regionButton->setStyleSheet("background-color: yellow;");
+    }
+}
