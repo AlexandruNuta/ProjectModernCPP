@@ -22,7 +22,7 @@ public:
 
 	void Conquering(std::shared_ptr<Player> opponent);
 	void Elimination();
-	
+
 	friend std::ostream& operator<< (std::ostream& out, std::shared_ptr<Player> player);
 
 private:
