@@ -59,6 +59,8 @@ private slots:
 
     void on_pushButton_Windowed_clicked();
 
+    void updateLoadingPoints();
+
 private:
     Ui::MainWindow *ui;
 

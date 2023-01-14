@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 
+#include <QTimer>
 #include <QMessageBox>
 #include <QErrorMessage>
 #include <QWindow>
@@ -21,6 +22,9 @@ MainWindow::MainWindow(QWidget *parent)
     setWindowTitle("Triviador");
     ui->stackedWidget->setCurrentIndex(0);
     ui->passwordField->setEchoMode(QLineEdit::Password);
+    QTimer *timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(updateLoadingPoints()));
+    timer->start(150);
 }
 
 MainWindow::~MainWindow()
@@ -226,4 +230,27 @@ void MainWindow::on_pushButton_Fullscreen_clicked()
 void MainWindow::on_pushButton_Windowed_clicked()
 {
     this->showMaximized();
+}
+
+void MainWindow::updateLoadingPoints()
+{
+    static int currentPoint = 1;
+    if (currentPoint == 1) {
+        ui->point1->setVisible(true);
+        ui->point2->setVisible(false);
+        ui->point3->setVisible(false);
+    } else if (currentPoint == 2) {
+        ui->point1->setVisible(false);
+        ui->point2->setVisible(true);
+        ui->point3->setVisible(false);
+    } else {
+        ui->point1->setVisible(false);
+        ui->point2->setVisible(false);
+        ui->point3->setVisible(true);
+    }
+    currentPoint++;
+    if (currentPoint > 3) {
+        currentPoint = 1;
+    }
+    update();
 }

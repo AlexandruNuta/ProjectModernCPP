@@ -1,0 +1,12 @@
+# ninja log v5
+2	1112	6954155942168755	Client_autogen/timestamp	a88764e414954b31
+2	1112	6954155942168755	Client_autogen/mocs_compilation.cpp	a88764e414954b31
+2	1112	6954155942168755	C:/anul2/ProjectModernCpp/build-Client-Desktop_Qt_6_4_0_MinGW_64_bit-Release/Client_autogen/timestamp	a88764e414954b31
+2	1112	6954155942168755	C:/anul2/ProjectModernCpp/build-Client-Desktop_Qt_6_4_0_MinGW_64_bit-Release/Client_autogen/mocs_compilation.cpp	a88764e414954b31
+1113	1195	6954155944753186	Client_autogen/EWIEGA46WW/qrc_Resources.cpp	f9932886eba7f519
+1113	1195	6954155944753186	C:/anul2/ProjectModernCpp/build-Client-Desktop_Qt_6_4_0_MinGW_64_bit-Release/Client_autogen/EWIEGA46WW/qrc_Resources.cpp	f9932886eba7f519
+1203	1715	6954155949998759	CMakeFiles/Client.dir/Client_autogen/EWIEGA46WW/qrc_Resources.cpp.obj	5c652f2e34bc6740
+1195	3527	6954155968110130	CMakeFiles/Client.dir/Client_autogen/mocs_compilation.cpp.obj	6a3e073ebad434dc
+1206	3581	6954155968672442	CMakeFiles/Client.dir/main.cpp.obj	ca46cba77389fb7a
+1199	5428	6954155987121743	CMakeFiles/Client.dir/mainwindow.cpp.obj	26f2822da1f0792a
+5429	5652	6954155989327734	Client.exe	469283684ac43b9d
