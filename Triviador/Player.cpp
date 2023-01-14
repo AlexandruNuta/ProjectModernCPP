@@ -41,7 +41,7 @@ void Player::RemoveRegion(std::shared_ptr<Region> region)
 	m_territory.erase(std::find(m_territory.begin(), m_territory.end(), region));
 }
 
-bool Player::VerifiVecinity(const std::pair<uint16_t, uint16_t>& indexes)
+bool Player::VerifyVecinity(const std::pair<uint16_t, uint16_t>& indexes)
 {
 	std::pair<uint16_t, uint16_t> difference;
 	for (const auto& region : m_territory)
@@ -54,6 +54,14 @@ bool Player::VerifiVecinity(const std::pair<uint16_t, uint16_t>& indexes)
 		if (std::abs(indexes.first - region->GetCoordinates().first) == 1 && std::abs(indexes.second - region->GetCoordinates().second) == 0)
 			return true;
 	}
+	return false;
+}
+
+bool Player::VerifyRegion(const std::pair<uint16_t, uint16_t>& indexes) const
+{
+	for (const auto& region : m_territory)
+		if (region->GetCoordinates() == indexes && !region->GetIsBase())
+			return true;
 	return false;
 }
 
