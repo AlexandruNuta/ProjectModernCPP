@@ -16,6 +16,7 @@ public:
 	void SetNumberOfRounds(uint16_t numberOfRounds);
 	void SetMap(Map map);
 	void SetPlayers(std::vector<Player> players);
+	void addPlayer(const std::string& name, const std::string& password);
 private:
 	uint16_t m_numberOfPlayers;
 	uint16_t m_numberOfRounds;

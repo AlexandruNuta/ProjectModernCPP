@@ -142,6 +142,12 @@ int main()
 	res.write("Lobby created!");
 			});
 
+	CROW_ROUTE(app, "/AddPlayerToLobby/<string>/<string>").methods("POST"_method)([&lobby](const crow::request& req, crow::response& res, const std::string& name, const std::string& password) {
+		lobby.addPlayer(name, password);
+	res.write("Player added to lobby!");
+	crow::response(200);
+		});
+
 	
 	//CROW_ROUTE(app, "/NumberOfPlayers")([&lobby]() {
 	//	return crow::json::wvalue{ {"numberofplayers",lobby.GetNumberOfPlayers()}};

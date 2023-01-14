@@ -57,3 +57,9 @@ void Lobby::SetPlayers(std::vector<Player> players)
 {
 	m_players = players;
 }
+
+void Lobby::addPlayer(const std::string& name, const std::string& password)
+{
+	Player player(name, password, m_players.size());
+	m_players.push_back(player);
+}

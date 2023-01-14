@@ -7,6 +7,13 @@ Player::Player(const std::string& username, const std::string& password, const u
 {
 }
 
+Player::Player(const std::string& username, const std::string& password)
+	:m_username(username)
+	,m_password(m_password)
+{
+
+}
+
 std::shared_ptr<Region> Player::GetBase() const
 {
 	const uint16_t baseIndex = 0;
