@@ -15,10 +15,12 @@ void Avantage::Menu(const Question& question)
 		std::cout << "1. Receives 4 answers, one of which is correct." << std::endl;
 		std::cout << "2. Receives a value close to the correct answer." << std::endl;
 		std::cout << "3. Exit" << std::endl;
+		std::cout << "Choose an option: ";
 		std::cin >> x;
 		switch (x)
 		{
 		case 1:
+			MultipleChoice(question);
 			break;
 		case 2:
 			CloseValue(question);
@@ -39,29 +41,7 @@ void Avantage::Menu(const Question& question)
 	}
 }
 
-void Avantage::RemoveWrongAnswers(Question question)
-{
-	uint16_t answersRemoved = 0;
-	std::vector<uint16_t> indexQuestions = { 0, 1, 2, 3 };
-	std::shuffle(indexQuestions.begin(), indexQuestions.end(), std::mt19937{ std::random_device{}() });
-	for (int i = 0; i < indexQuestions.size(); i++)
-	{
-		if (indexQuestions[i] != question.GetIndexCorrectAnswer())
-		{
-			question.RemoveAnswer(indexQuestions[i]);
-			answersRemoved++;
-		}
-		if (answersRemoved == 2)
-			break;
-	}
-	std::cout << std::endl << question.GetQuestion() << std::endl;
-	for (int i = 0; i < question.GetAnswers().size(); i++)
-		if (question.GetAnswers()[i] != "")
-			std::cout << (char)(i + 97) << ". " << question.GetAnswers()[i] << "   ";
-	std::cout << std::endl;
-}
-
-void Avantage::CloseValue(Question question)
+void Avantage::MultipleChoice(Question question)
 {
 	int answer = std::stoi(question.GetAnswers()[0]);
 	uint16_t nrDigits = std::floor(std::log10(answer) + 1);
@@ -93,4 +73,41 @@ void Avantage::CloseValue(Question question)
 	question.SetAnswers(answers);
 	question.SetCorrectAnswer(std::find(answers.begin(), answers.end(), randomAnswer) - answers.begin());
 	std::cout << std::endl << question;
+}
+
+void Avantage::CloseValue(Question question)
+{
+	int answer = std::stoi(question.GetAnswers()[0]);
+	uint16_t nrDigits = std::floor(std::log10(answer) + 1);
+	int difference = answer / (2 * nrDigits);
+	int min = answer - difference;
+	int max = answer + difference;
+	while (max - min < 3)
+		max++;
+	std::mt19937 generator(std::random_device{}());
+	std::uniform_int_distribution<int> distribution(min, max);
+	std::cout << std::endl << question.GetQuestion();
+	std::cout << "This is a value close to the correct answer: " << distribution(generator) << std::endl;
+}
+
+void Avantage::RemoveWrongAnswers(Question question)
+{
+	uint16_t answersRemoved = 0;
+	std::vector<uint16_t> indexQuestions = { 0, 1, 2, 3 };
+	std::shuffle(indexQuestions.begin(), indexQuestions.end(), std::mt19937{ std::random_device{}() });
+	for (int i = 0; i < indexQuestions.size(); i++)
+	{
+		if (indexQuestions[i] != question.GetIndexCorrectAnswer())
+		{
+			question.RemoveAnswer(indexQuestions[i]);
+			answersRemoved++;
+		}
+		if (answersRemoved == 2)
+			break;
+	}
+	std::cout << std::endl << question.GetQuestion() << std::endl;
+	for (int i = 0; i < question.GetAnswers().size(); i++)
+		if (question.GetAnswers()[i] != "")
+			std::cout << (char)(i + 97) << ". " << question.GetAnswers()[i] << "   ";
+	std::cout << std::endl;
 }
