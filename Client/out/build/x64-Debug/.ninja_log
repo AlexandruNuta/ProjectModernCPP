@@ -1,0 +1,13 @@
+# ninja log v5
+15	229	6953363831932706	C:/Facultate/ProjectModernCpp/Client/out/build/x64-Debug/Client_autogen/mocs_compilation.cpp	da2648ac50da5c75
+15	229	6953363831932706	Client_autogen/timestamp	da2648ac50da5c75
+2053	2233	6953353011814715	C:/Facultate/ProjectModernCpp/Client/out/build/x64-Debug/Client_autogen/EWIEGA46WW/qrc_Resources.cpp	faf39f23e3a8144e
+15	229	6953363831932706	Client_autogen/mocs_compilation.cpp	da2648ac50da5c75
+15	229	6953363831932706	C:/Facultate/ProjectModernCpp/Client/out/build/x64-Debug/Client_autogen/timestamp	da2648ac50da5c75
+2234	3660	6953353025817275	CMakeFiles/Client.dir/Client_autogen/EWIEGA46WW/qrc_Resources.cpp.obj	3edf79f6461861ed
+2053	2233	6953353011814715	Client_autogen/EWIEGA46WW/qrc_Resources.cpp	faf39f23e3a8144e
+241	3121	6953363860805502	CMakeFiles/Client.dir/main.cpp.obj	a5d99e774d19bedc
+2246	7009	6953353059666763	CMakeFiles/Client.dir/Client_autogen/mocs_compilation.cpp.obj	e712294ee19a5ab5
+238	3755	6953363867128591	CMakeFiles/Client.dir/mainwindow.cpp.obj	19e299d1102dcb74
+3756	4605	6953363869462353	Client.exe	978b4789edf72813
+21	3738	6953364653844715	build.ninja	97200423312173ac

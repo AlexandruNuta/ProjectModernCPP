@@ -1,13 +1,15 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+
 #include <QMessageBox>
 #include <QErrorMessage>
-#include <QResizeEvent>
-#include <QScreen>
-#include <QWindowStateChangeEvent>
 #include <QWindow>
-#include <QTimer>
-#include <QTime>
+#include <QPalette>
+#include <QPixmap>
+#include <QString>
+#include <QSize>
+#include <QPaintEvent>
+#include <QPainter>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -17,17 +19,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->pushButton_Exit, &QPushButton::clicked, this, &QWidget::close);
     setWindowTitle("Triviador");
-    //ui->stackedWidget->setCurrentIndex(0);
-
-    ui->stackedWidget->setCurrentWidget(ui->page_CreatedRoom);
-
+    ui->stackedWidget->setCurrentIndex(0);
     ui->passwordField->setEchoMode(QLineEdit::Password);
-
-//    ui->stackedWidget->widget(0)->setStyleSheet("QWidget {"
-//                                                " background-image: url(:/image/image1.jpg);"
-//                                                " background-color: rgba(255, 255, 255, 0.2);"
-//                                                "}");
-    //ui->stackedWidget->widget(0)->setStyleSheet("QWidget {background-color: rgba(255, 255, 255, 0.5); }");
 }
 
 MainWindow::~MainWindow()
@@ -224,8 +217,13 @@ void MainWindow::on_pushButton_RoomBack_clicked()
     ui->stackedWidget->setCurrentWidget(ui->page_GameMenu);
 }
 
-
-void MainWindow::on_pushButton_ExitRoom_clicked()
+void MainWindow::on_pushButton_Fullscreen_clicked()
 {
-    ui->stackedWidget->setCurrentWidget(ui->page_RoomMenu);
+    this->showFullScreen();
+}
+
+
+void MainWindow::on_pushButton_Windowed_clicked()
+{
+    this->showMaximized();
 }

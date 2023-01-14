@@ -55,10 +55,13 @@ private slots:
 
     void on_pushButton_RoomBack_clicked();
 
-    void on_pushButton_ExitRoom_clicked();
+    void on_pushButton_Fullscreen_clicked();
+
+    void on_pushButton_Windowed_clicked();
 
 private:
     Ui::MainWindow *ui;
 
 };
+
 #endif // MAINWINDOW_H

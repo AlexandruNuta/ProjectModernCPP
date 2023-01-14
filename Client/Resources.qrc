@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/image">
         <file>image1.jpg</file>
+        <file>TriviaIcon2.jpg</file>
     </qresource>
 </RCC>
