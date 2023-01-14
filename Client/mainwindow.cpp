@@ -11,6 +11,9 @@
 #include <QSize>
 #include <QPaintEvent>
 #include <QPainter>
+#include <QGraphicsView>
+#include <QGraphicsScene>
+#include <QBrush>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -270,4 +273,24 @@ void MainWindow::on_pushButton_ExitRoom_clicked()
         ui->stackedWidget->setCurrentWidget(ui->page_RoomMenu);
     } else {
      }
+}
+
+void MainWindow::GenerateMap(int cols, int rows)
+{
+    QGraphicsScene* scene = new QGraphicsScene(this);
+    ui->mapView->setScene(scene);
+
+    for (int i = 0; i < cols; i++)
+        for(int j=0; j< rows; j++)
+        {
+            QPushButton* regionButton = new QPushButton();
+            regionButton->setFixedSize(80, 80);
+            regionButton->setGeometry(i * 80, j * 80, 80, 80);
+            regionButton->setCursor(Qt::PointingHandCursor);
+            regionButton->setMouseTracking(true);
+            regionButton->setStyleSheet("background-color: lightgray;");
+            connect(regionButton, &QPushButton::clicked, this, &MainWindow::on_regionButton_clicked);
+
+            scene->addWidget(regionButton);
+        }
 }

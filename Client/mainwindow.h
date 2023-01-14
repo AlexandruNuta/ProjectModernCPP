@@ -61,12 +61,13 @@ private slots:
 
     void updateLoadingPoints();
 
+    void on_pushButton_ExitRoom_clicked();
+
 private:
     Ui::MainWindow *ui;
 
 public:
-
-    void on_pushButton_ExitRoom_clicked();
+    void GenerateMap(int cols, int rows);
 
 };
 
