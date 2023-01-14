@@ -14,6 +14,8 @@ public:
 	uint16_t GetIndexCorrectAnswer() const;
 	bool GetPrint();
 
+	void RemoveAnswer(const uint16_t& index);
+
 	friend std::ostream& operator<<(std::ostream& out, const Question& question);
 
 private:

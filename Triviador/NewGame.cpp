@@ -236,14 +236,17 @@ void NewGame::StageChooseBase()
 void NewGame::StageChoseRegion()
 {
 	std::cout << std::endl << std::endl << "STAGE 2: CHOOSE REGIONS" << std::endl << std::endl;
-	while (m_map.CheckIfEmptyRegions())
+	//auto copyPlayers = std::make_unique<std::vector<std::shared_ptr<Player>>>(m_players);
+
+	do
 	{
+		auto copyPlayers = std::make_unique<std::vector<std::shared_ptr<Player>>>(m_players);
 		Question question = GetNumericalQuestion();
-		TopPlayersForOneQuestion(question, m_players);
+		TopPlayersForOneQuestion(question, *copyPlayers);
 		std::cout << std::endl << "Correct Answer: " << question.GetCorrectAnswer() << std::endl << std::endl;
 
 		uint16_t placeRanking = 0;
-		for (auto player : m_players)
+		for (auto player : *copyPlayers)
 		{
 			uint16_t numberOfRegionsToBeSelected = m_players.size() - placeRanking;
 
@@ -273,7 +276,7 @@ void NewGame::StageChoseRegion()
 			}
 			placeRanking++;
 		}
-	}
+	} while (m_map.CheckIfEmptyRegions());
 	std::cout << "All regions are owned!" << std::endl << "Final map:" << std::endl;
 	std::cout << m_map << std::endl << std::endl;
 }

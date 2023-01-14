@@ -1,3 +1,7 @@
+#include <vector>
+#include <algorithm>
+#include <random>
+
 #include "Avantage.h"
 
 void Avantage::Menu(const Question& question)
@@ -26,7 +30,30 @@ void Avantage::Menu(const Question& question)
 		switch (x)
 		{
 		case 1:
+			RemoveWrongAnswers(question);
 			break;
 		}
 	}
+}
+
+void Avantage::RemoveWrongAnswers(Question question)
+{
+	uint16_t answersRemoved = 0;
+	std::vector<uint16_t> indexQuestions = { 0, 1, 2, 3 };
+	std::shuffle(indexQuestions.begin(), indexQuestions.end(), std::mt19937{ std::random_device{}() });
+	for (int i = 0; i < indexQuestions.size(); i++)
+	{
+		if (indexQuestions[i] != question.GetIndexCorrectAnswer())
+		{
+			question.RemoveAnswer(indexQuestions[i]);
+			answersRemoved++;
+		}
+		if (answersRemoved == 2)
+			break;
+	}
+	std::cout << std::endl << question.GetQuestion() << std::endl;
+	for (int i = 0; i < question.GetAnswers().size(); i++)
+		if (question.GetAnswers()[i] != "")
+			std::cout << (char)(i + 97) << ". " << question.GetAnswers()[i] << "   ";
+	std::cout << std::endl;
 }
