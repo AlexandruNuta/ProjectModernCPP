@@ -254,3 +254,20 @@ void MainWindow::updateLoadingPoints()
     }
     update();
 }
+
+void MainWindow::on_pushButton_ExitRoom_clicked()
+{
+    QMessageBox msgBox;
+
+    msgBox.setText("Are you sure you want to exit this room?");
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+
+    msgBox.setDefaultButton(QMessageBox::No);
+
+    int ret = msgBox.exec();
+
+    if (ret == QMessageBox::Yes) {
+        ui->stackedWidget->setCurrentWidget(ui->page_RoomMenu);
+    } else {
+     }
+}

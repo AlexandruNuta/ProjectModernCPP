@@ -64,6 +64,10 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
+public:
+
+    void on_pushButton_ExitRoom_clicked();
+
 };
 
 #endif // MAINWINDOW_H
