@@ -57,6 +57,14 @@ bool Player::VerifiVecinity(const std::pair<uint16_t, uint16_t>& indexes)
 	return false;
 }
 
+bool Player::EligibleForAvantages() const
+{
+	for (const auto& region : m_territory)
+		if (region->GetScore() >= 200 && !region->GetIsBase())
+			return true;
+	return false;
+}
+
 void Player::Conquering(std::shared_ptr<Player> opponent)
 {
 	for (auto region : opponent->GetTerritory())
