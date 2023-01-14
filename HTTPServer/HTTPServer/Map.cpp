@@ -6,6 +6,33 @@ Map::Map(const uint8_t& rows, const uint8_t& columns)
 	for (int i = 0; i < rows; i++)
 		for (int j = 0; j < columns; j++)
 			m_map[i][j] = std::make_shared<Region>(std::make_pair(i, j));
+
+}
+
+Map::Map(const uint16_t& numberOfPlayers)
+{
+	uint8_t rows;
+	uint8_t columns;
+	
+		if (numberOfPlayers == 2)
+		{
+			rows = 3;
+			columns = 3;
+		}
+		else if (numberOfPlayers == 3)
+		{
+			rows = 5;
+			columns = 3;
+		}
+		else if (numberOfPlayers == 4)
+		{
+			rows = 6;
+			columns = 4;
+		}
+		m_map.resize(rows, std::vector<std::shared_ptr<Region>>(columns));
+	for (int i = 0; i < rows; i++)
+		for (int j = 0; j < columns; j++)
+			m_map[i][j] = std::make_shared<Region>(std::make_pair(i, j));
 }
 
 std::vector<std::vector<std::shared_ptr<Region>>> Map::GetMap() const

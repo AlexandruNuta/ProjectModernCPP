@@ -28,5 +28,5 @@ private:
 	Map m_map;
 	std::vector<Question> m_questions;
 	std::vector<std::shared_ptr<Player>> m_players;
-	uint16_t roundsNumber;
+	uint16_t m_numberOfRounds;
 };
