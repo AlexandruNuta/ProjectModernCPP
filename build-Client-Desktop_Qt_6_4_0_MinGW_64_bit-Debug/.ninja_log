@@ -71,3 +71,11 @@
 11	449	6955191923921423	C:/Facultate/ProjectModernCpp/build-Client-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/Client_autogen/mocs_compilation.cpp	654517c4f1d3fa1f
 473	5715	6955191976539310	CMakeFiles/Client.dir/mainwindow.cpp.obj	f7f1fc6c7519881
 5716	6203	6955191981447872	Client.exe	5b9f64b15b115b0a
+7	1107	6955211453939707	Client_autogen/timestamp	654517c4f1d3fa1f
+7	1107	6955211453939707	Client_autogen/mocs_compilation.cpp	654517c4f1d3fa1f
+7	1107	6955211453939707	C:/Facultate/ProjectModernCpp/build-Client-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/Client_autogen/timestamp	654517c4f1d3fa1f
+7	1107	6955211453939707	C:/Facultate/ProjectModernCpp/build-Client-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/Client_autogen/mocs_compilation.cpp	654517c4f1d3fa1f
+1108	5051	6955211495499086	CMakeFiles/Client.dir/Client_autogen/mocs_compilation.cpp.obj	b22de14400373a65
+1110	5061	6955211495598827	CMakeFiles/Client.dir/main.cpp.obj	7b414618b932918e
+1114	6008	6955211505035840	CMakeFiles/Client.dir/mainwindow.cpp.obj	f7f1fc6c7519881
+6008	6705	6955211512068773	Client.exe	5b9f64b15b115b0a
