@@ -95,6 +95,7 @@ public:
     QSpacerItem *horizontalSpacer_12;
     QPushButton *pushButton_Options;
     QSpacerItem *horizontalSpacer_11;
+    QPushButton *pushButton_Profile;
     QSpacerItem *horizontalSpacer_14;
     QPushButton *pushButton_Exit;
     QSpacerItem *verticalSpacer_9;
@@ -102,6 +103,14 @@ public:
     QSpacerItem *verticalSpacer_8;
     QSpacerItem *horizontalSpacer_16;
     QLabel *label_2;
+    QWidget *page_Profile;
+    QGridLayout *gridLayout_18;
+    QVBoxLayout *verticalLayout_14;
+    QHBoxLayout *horizontalLayout_19;
+    QPushButton *pushButton_Profile_Back;
+    QSpacerItem *horizontalSpacer_42;
+    QLabel *label_17;
+    QLabel *label_18;
     QWidget *page_Options;
     QGridLayout *gridLayout_17;
     QSpacerItem *horizontalSpacer_36;
@@ -213,9 +222,9 @@ public:
     QLabel *NumericalAnswerQuestionLabel;
     QWidget *page_Map;
     QGridLayout *gridLayout_12;
-    QGraphicsView *MapView;
+    QGraphicsView *mapView;
     QWidget *page_Results;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout_13;
     QLabel *label_8;
     QSpacerItem *horizontalSpacer_38;
@@ -231,7 +240,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(747, 408);
+        MainWindow->resize(786, 484);
         MainWindow->setMinimumSize(QSize(0, 0));
         QPalette palette;
         QBrush brush(QColor(229, 229, 229, 255));
@@ -567,6 +576,12 @@ public:
 
         verticalLayout_7->addItem(horizontalSpacer_11);
 
+        pushButton_Profile = new QPushButton(groupBox_7);
+        pushButton_Profile->setObjectName("pushButton_Profile");
+        pushButton_Profile->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(96, 199, 82, 255), stop:1 rgba(255, 255, 255, 255));"));
+
+        verticalLayout_7->addWidget(pushButton_Profile);
+
         horizontalSpacer_14 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         verticalLayout_7->addItem(horizontalSpacer_14);
@@ -608,6 +623,47 @@ public:
         gridLayout_4->addWidget(label_2, 2, 1, 1, 1);
 
         stackedWidget->addWidget(page_GameMenu);
+        page_Profile = new QWidget();
+        page_Profile->setObjectName("page_Profile");
+        gridLayout_18 = new QGridLayout(page_Profile);
+        gridLayout_18->setObjectName("gridLayout_18");
+        verticalLayout_14 = new QVBoxLayout();
+        verticalLayout_14->setObjectName("verticalLayout_14");
+        verticalLayout_14->setContentsMargins(-1, -1, -1, 50);
+        horizontalLayout_19 = new QHBoxLayout();
+        horizontalLayout_19->setObjectName("horizontalLayout_19");
+        pushButton_Profile_Back = new QPushButton(page_Profile);
+        pushButton_Profile_Back->setObjectName("pushButton_Profile_Back");
+        pushButton_Profile_Back->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(96, 199, 82, 255), stop:1 rgba(255, 255, 255, 255));"));
+
+        horizontalLayout_19->addWidget(pushButton_Profile_Back);
+
+        horizontalSpacer_42 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_19->addItem(horizontalSpacer_42);
+
+
+        verticalLayout_14->addLayout(horizontalLayout_19);
+
+        label_17 = new QLabel(page_Profile);
+        label_17->setObjectName("label_17");
+        label_17->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_14->addWidget(label_17);
+
+        label_18 = new QLabel(page_Profile);
+        label_18->setObjectName("label_18");
+        label_18->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_14->addWidget(label_18);
+
+        verticalLayout_14->setStretch(0, 1);
+        verticalLayout_14->setStretch(1, 5);
+        verticalLayout_14->setStretch(2, 6);
+
+        gridLayout_18->addLayout(verticalLayout_14, 0, 0, 1, 1);
+
+        stackedWidget->addWidget(page_Profile);
         page_Options = new QWidget();
         page_Options->setObjectName("page_Options");
         gridLayout_17 = new QGridLayout(page_Options);
@@ -1208,22 +1264,22 @@ public:
         page_Map->setObjectName("page_Map");
         gridLayout_12 = new QGridLayout(page_Map);
         gridLayout_12->setObjectName("gridLayout_12");
-        MapView = new QGraphicsView(page_Map);
-        MapView->setObjectName("MapView");
-        MapView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+        mapView = new QGraphicsView(page_Map);
+        mapView->setObjectName("mapView");
+        mapView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
 
-        gridLayout_12->addWidget(MapView, 0, 0, 1, 1);
+        gridLayout_12->addWidget(mapView, 0, 0, 1, 1);
 
         stackedWidget->addWidget(page_Map);
         page_Results = new QWidget();
         page_Results->setObjectName("page_Results");
-        widget = new QWidget(page_Results);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(60, 70, 72, 182));
-        verticalLayout_13 = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(page_Results);
+        layoutWidget->setObjectName("layoutWidget");
+        layoutWidget->setGeometry(QRect(60, 70, 88, 212));
+        verticalLayout_13 = new QVBoxLayout(layoutWidget);
         verticalLayout_13->setObjectName("verticalLayout_13");
         verticalLayout_13->setContentsMargins(0, 0, 0, 0);
-        label_8 = new QLabel(widget);
+        label_8 = new QLabel(layoutWidget);
         label_8->setObjectName("label_8");
 
         verticalLayout_13->addWidget(label_8);
@@ -1232,7 +1288,7 @@ public:
 
         verticalLayout_13->addItem(horizontalSpacer_38);
 
-        label_9 = new QLabel(widget);
+        label_9 = new QLabel(layoutWidget);
         label_9->setObjectName("label_9");
 
         verticalLayout_13->addWidget(label_9);
@@ -1241,7 +1297,7 @@ public:
 
         verticalLayout_13->addItem(horizontalSpacer_39);
 
-        label_15 = new QLabel(widget);
+        label_15 = new QLabel(layoutWidget);
         label_15->setObjectName("label_15");
 
         verticalLayout_13->addWidget(label_15);
@@ -1250,7 +1306,7 @@ public:
 
         verticalLayout_13->addItem(horizontalSpacer_40);
 
-        label_16 = new QLabel(widget);
+        label_16 = new QLabel(layoutWidget);
         label_16->setObjectName("label_16");
 
         verticalLayout_13->addWidget(label_16);
@@ -1262,7 +1318,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 747, 22));
+        menubar->setGeometry(QRect(0, 0, 786, 25));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -1270,7 +1326,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(11);
+        stackedWidget->setCurrentIndex(4);
         pushButton_RoomBack->setDefault(false);
 
 
@@ -1297,8 +1353,12 @@ public:
         groupBox_7->setTitle(QString());
         pushButton_Play->setText(QCoreApplication::translate("MainWindow", "Play", nullptr));
         pushButton_Options->setText(QCoreApplication::translate("MainWindow", "Options", nullptr));
+        pushButton_Profile->setText(QCoreApplication::translate("MainWindow", "Profile", nullptr));
         pushButton_Exit->setText(QCoreApplication::translate("MainWindow", "Exit game", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Menu", nullptr));
+        pushButton_Profile_Back->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
+        label_17->setText(QCoreApplication::translate("MainWindow", "Match History:", nullptr));
+        label_18->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         groupBox_12->setTitle(QString());
         pushButton_Fullscreen->setText(QCoreApplication::translate("MainWindow", "Fullscreen", nullptr));
         pushButton_Windowed->setText(QCoreApplication::translate("MainWindow", "Windowed", nullptr));

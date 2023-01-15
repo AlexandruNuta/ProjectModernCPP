@@ -65,6 +65,10 @@ private slots:
 
     void on_regionButton_clicked();
 
+    void on_pushButton_Profile_clicked();
+
+    void on_pushButton_Profile_Back_clicked();
+
 private:
     Ui::MainWindow *ui;
 
