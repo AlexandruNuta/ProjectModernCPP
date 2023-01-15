@@ -53,10 +53,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++",
-        "C:\\Facultate\\ProjectModernCpp\\Client\\main.cpp"
+        "C:\\anul2\\ProjectModernCpp\\Client\\main.cpp"
     ],
-    "directory": "C:/Facultate/ProjectModernCpp/build-Client-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Facultate/ProjectModernCpp/Client/main.cpp"
+    "directory": "C:/anul2/ProjectModernCpp/build-Client-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/.qtc_clangd",
+    "file": "C:/anul2/ProjectModernCpp/Client/main.cpp"
 },
 {
     "arguments": [
@@ -112,10 +112,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++",
-        "C:\\Facultate\\ProjectModernCpp\\Client\\mainwindow.cpp"
+        "C:\\anul2\\ProjectModernCpp\\Client\\mainwindow.cpp"
     ],
-    "directory": "C:/Facultate/ProjectModernCpp/build-Client-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Facultate/ProjectModernCpp/Client/mainwindow.cpp"
+    "directory": "C:/anul2/ProjectModernCpp/build-Client-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/.qtc_clangd",
+    "file": "C:/anul2/ProjectModernCpp/Client/mainwindow.cpp"
 },
 {
     "arguments": [
@@ -171,9 +171,9 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\Facultate\\ProjectModernCpp\\Client\\mainwindow.h"
+        "C:\\anul2\\ProjectModernCpp\\Client\\mainwindow.h"
     ],
-    "directory": "C:/Facultate/ProjectModernCpp/build-Client-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Facultate/ProjectModernCpp/Client/mainwindow.h"
+    "directory": "C:/anul2/ProjectModernCpp/build-Client-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/.qtc_clangd",
+    "file": "C:/anul2/ProjectModernCpp/Client/mainwindow.h"
 }
 ]

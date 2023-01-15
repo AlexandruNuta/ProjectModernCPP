@@ -14,8 +14,10 @@ public:
 	uint16_t GetIndexCorrectAnswer() const;
 	bool GetPrint();
 
+	void SetCorrectAnswer(const uint16_t& correctAnswer);
+	void SetAnswers(const std::vector<std::string>& answers);
 	void RemoveAnswer(const uint16_t& index);
-
+	
 	friend std::ostream& operator<<(std::ostream& out, const Question& question);
 
 private:

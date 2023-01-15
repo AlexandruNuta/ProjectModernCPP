@@ -3,7 +3,6 @@
 
 #include <QMainWindow>
 #include <QStackedWidget>
-#include <QMouseEvent>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -60,12 +59,18 @@ private slots:
 
     void on_pushButton_Windowed_clicked();
 
-    void something();
+    void updateLoadingPoints();
+
+    void on_pushButton_ExitRoom_clicked();
+
+    void on_regionButton_clicked();
 
 private:
     Ui::MainWindow *ui;
 
-};
+public:
+    void GenerateMap(int cols, int rows);
 
+};
 
 #endif // MAINWINDOW_H

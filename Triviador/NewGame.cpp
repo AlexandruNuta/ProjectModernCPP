@@ -343,6 +343,7 @@ void NewGame::VerifyAttackCoordinates(std::shared_ptr<Player> player, uint16_t& 
 		std::cout << "The selected region is not in your vicinity. Please choose a region in your vecinity, based on coordinates." << std::endl;
 		ReadCoordinates(coordinate1, coordinate2);
 	}
+	std::cout << std::endl;
 }
 
 bool VerifyAnswer(const char& answer, const Question& question)
@@ -361,13 +362,16 @@ void NewGame::DetermineWinner(std::shared_ptr<Player> player, std::shared_ptr<Re
 	std::cout << question;
 	answers.first = AskForInput<char>(player, question);
 	answers.second = AskForInput<char>(opponent, question);
+	std::cout << std::endl << "Correct Answer: " << question.GetCorrectAnswer() << std::endl;
 	if (VerifyAnswer(answers.first, question))
 	{
 		std::vector<std::shared_ptr<Player>> players = { player, opponent };
 		if (VerifyAnswer(answers.second, question))
 		{
+			std::cout << std::endl;
 			question = GetNumericalQuestion();
 			TopPlayersForOneQuestion(question, players);
+			std::cout << std::endl << "Correct Answer: " << question.GetCorrectAnswer() << std::endl;
 		}
 		if (player == players[0])
 		{

@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 
+#include <QTimer>
 #include <QMessageBox>
 #include <QErrorMessage>
 #include <QWindow>
@@ -10,6 +11,9 @@
 #include <QSize>
 #include <QPaintEvent>
 #include <QPainter>
+#include <QGraphicsView>
+#include <QGraphicsScene>
+#include <QBrush>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -21,6 +25,9 @@ MainWindow::MainWindow(QWidget *parent)
     setWindowTitle("Triviador");
     ui->stackedWidget->setCurrentIndex(0);
     ui->passwordField->setEchoMode(QLineEdit::Password);
+    QTimer *timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(updateLoadingPoints()));
+    timer->start(150);
 }
 
 MainWindow::~MainWindow()
@@ -226,4 +233,87 @@ void MainWindow::on_pushButton_Fullscreen_clicked()
 void MainWindow::on_pushButton_Windowed_clicked()
 {
     this->showMaximized();
+}
+
+void MainWindow::updateLoadingPoints()
+{
+    static int currentPoint = 1;
+    if (currentPoint == 1) {
+        ui->point1->setVisible(true);
+        ui->point2->setVisible(false);
+        ui->point3->setVisible(false);
+    } else if (currentPoint == 2) {
+        ui->point1->setVisible(false);
+        ui->point2->setVisible(true);
+        ui->point3->setVisible(false);
+    } else {
+        ui->point1->setVisible(false);
+        ui->point2->setVisible(false);
+        ui->point3->setVisible(true);
+    }
+    currentPoint++;
+    if (currentPoint > 3) {
+        currentPoint = 1;
+    }
+    update();
+}
+
+void MainWindow::on_pushButton_ExitRoom_clicked()
+{
+    QMessageBox msgBox;
+
+    msgBox.setText("Are you sure you want to exit this room?");
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+
+    msgBox.setDefaultButton(QMessageBox::No);
+
+    int ret = msgBox.exec();
+
+    if (ret == QMessageBox::Yes) {
+        ui->stackedWidget->setCurrentWidget(ui->page_RoomMenu);
+    } else {
+     }
+}
+
+void MainWindow::GenerateMap(int cols, int rows)
+{
+    QGraphicsScene* scene = new QGraphicsScene(this);
+    ui->mapView->setScene(scene);
+
+    for (int i = 0; i < cols; i++)
+        for(int j=0; j< rows; j++)
+        {
+            QPushButton* regionButton = new QPushButton();
+            regionButton->setFixedSize(80, 80);
+            regionButton->setGeometry(i * 80, j * 80, 80, 80);
+            regionButton->setCursor(Qt::PointingHandCursor);
+            regionButton->setMouseTracking(true);
+            regionButton->setStyleSheet("background-color: lightgray;");
+            connect(regionButton, &QPushButton::clicked, this, &MainWindow::on_regionButton_clicked);
+
+            scene->addWidget(regionButton);
+        }
+}
+
+void MainWindow::on_regionButton_clicked()
+{
+    int playerNr = 1;
+    QPushButton* regionButton = qobject_cast<QPushButton*>(sender());
+
+    if(playerNr==1)
+    {
+        regionButton->setStyleSheet("background-color: red;");
+    }
+    else if(playerNr==2)
+    {
+        regionButton->setStyleSheet("background-color: blue;");
+    }
+    else if(playerNr==3)
+    {
+        regionButton->setStyleSheet("background-color: green;");
+    }
+    else if(playerNr==4)
+    {
+        regionButton->setStyleSheet("background-color: yellow;");
+    }
 }

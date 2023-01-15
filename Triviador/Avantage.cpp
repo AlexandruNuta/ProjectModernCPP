@@ -1,6 +1,8 @@
 #include <vector>
 #include <algorithm>
 #include <random>
+#include <string>
+#include <cmath>
 
 #include "Avantage.h"
 
@@ -13,12 +15,15 @@ void Avantage::Menu(const Question& question)
 		std::cout << "1. Receives 4 answers, one of which is correct." << std::endl;
 		std::cout << "2. Receives a value close to the correct answer." << std::endl;
 		std::cout << "3. Exit" << std::endl;
+		std::cout << "Choose an option: ";
 		std::cin >> x;
 		switch (x)
 		{
 		case 1:
+			MultipleChoice(question);
 			break;
 		case 2:
+			CloseValue(question);
 			break;
 		}
 	}
@@ -34,6 +39,55 @@ void Avantage::Menu(const Question& question)
 			break;
 		}
 	}
+}
+
+void Avantage::MultipleChoice(Question question)
+{
+	int answer = std::stoi(question.GetAnswers()[0]);
+	uint16_t nrDigits = std::floor(std::log10(answer) + 1);
+	if (nrDigits % 2 == 1)
+		nrDigits++;
+	nrDigits = nrDigits / 2;
+	int difference = answer / (2 * nrDigits);
+	int min = answer - difference;
+	int max = answer + difference;
+	while (max - min < 3)
+		max++;
+	std::string randomAnswer = std::to_string(answer);
+	std::vector<std::string> answers;
+	answers.push_back(randomAnswer);
+	std::mt19937 generator(std::random_device{}());
+	std::uniform_int_distribution<int> distribution(min, max);
+	while (answers.size() < 4)
+	{
+		do
+		{
+			answer = distribution(generator);
+			randomAnswer = std::to_string(answer);
+		} while (std::find(answers.begin(), answers.end(), randomAnswer) != answers.end());
+		answers.push_back(randomAnswer);
+	}
+	randomAnswer = question.GetAnswers()[0];
+	std::shuffle(answers.begin(), answers.end(), std::mt19937{ std::random_device{}() });
+	answers.push_back("");
+	question.SetAnswers(answers);
+	question.SetCorrectAnswer(std::find(answers.begin(), answers.end(), randomAnswer) - answers.begin());
+	std::cout << std::endl << question;
+}
+
+void Avantage::CloseValue(Question question)
+{
+	int answer = std::stoi(question.GetAnswers()[0]);
+	uint16_t nrDigits = std::floor(std::log10(answer) + 1);
+	int difference = answer / (2 * nrDigits);
+	int min = answer - difference;
+	int max = answer + difference;
+	while (max - min < 3)
+		max++;
+	std::mt19937 generator(std::random_device{}());
+	std::uniform_int_distribution<int> distribution(min, max);
+	std::cout << std::endl << question.GetQuestion();
+	std::cout << "This is a value close to the correct answer: " << distribution(generator) << std::endl;
 }
 
 void Avantage::RemoveWrongAnswers(Question question)
