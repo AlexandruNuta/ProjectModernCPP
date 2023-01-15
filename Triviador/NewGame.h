@@ -20,7 +20,7 @@ public:
 	
 	template <typename T>
 	T AskForInput(std::shared_ptr<Player> player, const Question& question);
-	std::tuple<uint16_t, uint16_t, uint16_t> IndexAnswerTime(const Question& question, std::shared_ptr<Player> player, const uint16_t& index);
+	std::tuple<uint16_t, int, int> IndexAnswerTime(const Question& question, std::shared_ptr<Player> player, const uint16_t& index);
 	void TopPlayersForOneQuestion(const Question& question, std::vector<std::shared_ptr<Player>>& players);
 	
 	void StageChooseBase();
