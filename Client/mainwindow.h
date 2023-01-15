@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QStackedWidget>
+#include <QMouseEvent>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -59,9 +60,12 @@ private slots:
 
     void on_pushButton_Windowed_clicked();
 
+    void something();
+
 private:
     Ui::MainWindow *ui;
 
 };
+
 
 #endif // MAINWINDOW_H
