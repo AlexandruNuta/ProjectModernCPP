@@ -1,5 +1,7 @@
 C:/Facultate/ProjectModernCpp/build-Client-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/Client_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Facultate/ProjectModernCpp/Client/mainwindow.h \
   C:/Facultate/ProjectModernCpp/build-Client-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/Client_autogen/moc_predefs.h \
+  C:/Qt/6.4.0/mingw_64/include/QtCore/QTime \
+  C:/Qt/6.4.0/mingw_64/include/QtCore/QTimer \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qalgorithms.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qanystringview.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qarraydata.h \
@@ -8,11 +10,13 @@ C:/Facultate/ProjectModernCpp/build-Client-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/C
   C:/Qt/6.4.0/mingw_64/include/QtCore/qatomic.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qatomic_cxx11.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qbasicatomic.h \
+  C:/Qt/6.4.0/mingw_64/include/QtCore/qbasictimer.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qbindingstorage.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qbytearray.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qbytearrayalgorithms.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qbytearraylist.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qbytearrayview.h \
+  C:/Qt/6.4.0/mingw_64/include/QtCore/qcalendar.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qchar.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qcompare.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qcompare_impl.h \
@@ -23,6 +27,7 @@ C:/Facultate/ProjectModernCpp/build-Client-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/C
   C:/Qt/6.4.0/mingw_64/include/QtCore/qcontainertools_impl.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qcontiguouscache.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qdatastream.h \
+  C:/Qt/6.4.0/mingw_64/include/QtCore/qdatetime.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qdebug.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qflags.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qforeach.h \
@@ -36,6 +41,7 @@ C:/Facultate/ProjectModernCpp/build-Client-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/C
   C:/Qt/6.4.0/mingw_64/include/QtCore/qiterator.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qline.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qlist.h \
+  C:/Qt/6.4.0/mingw_64/include/QtCore/qlocale.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qlogging.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qmap.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qmargins.h \
@@ -77,6 +83,7 @@ C:/Facultate/ProjectModernCpp/build-Client-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/C
   C:/Qt/6.4.0/mingw_64/include/QtCore/qtcore-config.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qtcoreexports.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qtextstream.h \
+  C:/Qt/6.4.0/mingw_64/include/QtCore/qtimer.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qtmetamacros.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qtypeinfo.h \
   C:/Qt/6.4.0/mingw_64/include/QtCore/qutf8stringview.h \
@@ -220,6 +227,7 @@ C:/Facultate/ProjectModernCpp/build-Client-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/C
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator_args.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/vector.tcc \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cctype \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/chrono \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/clocale \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cmath \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/compare \

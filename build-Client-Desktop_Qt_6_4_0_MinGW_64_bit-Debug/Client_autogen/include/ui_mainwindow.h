@@ -96,7 +96,7 @@ public:
     QSpacerItem *horizontalSpacer_12;
     QPushButton *pushButton_Options;
     QSpacerItem *horizontalSpacer_11;
-    QPushButton *pushButton_2;
+    QPushButton *pushButton_Profile;
     QSpacerItem *horizontalSpacer_14;
     QPushButton *pushButton_Exit;
     QSpacerItem *verticalSpacer_9;
@@ -108,10 +108,10 @@ public:
     QGridLayout *gridLayout_18;
     QVBoxLayout *verticalLayout_14;
     QHBoxLayout *horizontalLayout_19;
-    QPushButton *pushButton_3;
+    QPushButton *pushButton_Profile_Back;
     QSpacerItem *horizontalSpacer_42;
     QLabel *label_17;
-    QLabel *label_18;
+    QLabel *label_Matches_History;
     QWidget *page_Options;
     QGridLayout *gridLayout_17;
     QSpacerItem *horizontalSpacer_36;
@@ -135,24 +135,26 @@ public:
     QPushButton *pushButton_RoomBack;
     QWidget *page_CreatedRoom;
     QGridLayout *gridLayout_13;
-    QSpacerItem *horizontalSpacer_30;
-    QSpacerItem *horizontalSpacer_31;
-    QSpacerItem *verticalSpacer_16;
     QSpacerItem *verticalSpacer_17;
-    QGroupBox *groupBox_10;
-    QVBoxLayout *verticalLayout_12;
-    QHBoxLayout *horizontalLayout_11;
-    QLabel *label_11;
-    QLabel *label_12;
-    QSpacerItem *horizontalSpacer_22;
-    QPushButton *pushButton;
-    QSpacerItem *horizontalSpacer_32;
-    QSpacerItem *verticalSpacer_15;
-    QPushButton *pushButton_ExitRoom;
     QHBoxLayout *horizontalLayout_18;
     QLabel *point1;
     QLabel *point2;
     QLabel *point3;
+    QLabel *label_MatchStarting;
+    QGroupBox *groupBox_10;
+    QVBoxLayout *verticalLayout_12;
+    QHBoxLayout *horizontalLayout_11;
+    QLabel *label_11;
+    QLabel *label_ReadyPlayersNumber;
+    QSpacerItem *horizontalSpacer_22;
+    QPushButton *pushButton_Ready;
+    QSpacerItem *horizontalSpacer_32;
+    QSpacerItem *verticalSpacer_15;
+    QPushButton *pushButton_ExitRoom;
+    QSpacerItem *verticalSpacer_16;
+    QSpacerItem *horizontalSpacer_31;
+    QSpacerItem *horizontalSpacer_30;
+    QLabel *label_MatchStartingTime;
     QWidget *page_CreateRoom;
     QGridLayout *gridLayout_10;
     QSpacerItem *verticalSpacer_14;
@@ -200,6 +202,7 @@ public:
     QVBoxLayout *verticalLayout_9;
     QGroupBox *groupBox_5;
     QVBoxLayout *verticalLayout_4;
+    QLabel *label_MAQuestion_RemainingTime;
     QLabel *MultipleAnswerQuestionLabel;
     QHBoxLayout *horizontalLayout_7;
     QPushButton *answerButton1;
@@ -218,25 +221,37 @@ public:
     QSpacerItem *horizontalSpacer_34;
     QVBoxLayout *verticalLayout_5;
     QLineEdit *NumericalAnswerField;
-    QPushButton *pushButton_SubmitAnswer;
     QSpacerItem *horizontalSpacer_33;
     QLabel *NumericalAnswerQuestionLabel;
+    QLabel *label_NA_QuestionAnsweringRemainingTime;
     QWidget *page_QuestionResults;
     QGridLayout *gridLayout_20;
-    QGraphicsView *graphicsView;
+    QVBoxLayout *verticalLayout_15;
+    QHBoxLayout *horizontalLayout_20;
+    QLabel *label_Player1_answer;
+    QSpacerItem *verticalSpacer_20;
+    QLabel *label_Player2_answer;
+    QSpacerItem *horizontalSpacer_45;
+    QSpacerItem *horizontalSpacer_44;
+    QHBoxLayout *horizontalLayout_21;
+    QLabel *label_Player3_answer;
+    QSpacerItem *verticalSpacer_21;
+    QLabel *label_Player4_answer;
+    QLabel *label_QuestionAnsweringResultsRemainingTime;
     QWidget *page_Map;
     QGridLayout *gridLayout_12;
     QGraphicsView *mapView;
-    QWidget *page_GameResults;
+    QLabel *label_RegionChoosingRemainingTime;
+    QWidget *page_MatchResults;
     QGridLayout *gridLayout_19;
     QVBoxLayout *verticalLayout_13;
-    QLabel *label_8;
+    QLabel *label_Winner;
     QSpacerItem *horizontalSpacer_38;
-    QLabel *label_9;
+    QLabel *label_2ndPlace;
     QSpacerItem *horizontalSpacer_39;
-    QLabel *label_15;
+    QLabel *label_3rdPlace;
     QSpacerItem *horizontalSpacer_40;
-    QLabel *label_16;
+    QLabel *label_4thPlace;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -244,7 +259,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(740, 427);
+        MainWindow->resize(740, 453);
         MainWindow->setMinimumSize(QSize(0, 0));
         QPalette palette;
         QBrush brush(QColor(229, 229, 229, 255));
@@ -276,7 +291,6 @@ public:
         palette1.setBrush(QPalette::Disabled, QPalette::Window, brush2);
         centralwidget->setPalette(palette1);
         centralwidget->setStyleSheet(QString::fromUtf8("font: 12pt \"Tempus Sans ITC\";\n"
-"\n"
 "background-color: rgb(162, 162, 121);"));
         gridLayout_6 = new QGridLayout(centralwidget);
         gridLayout_6->setObjectName("gridLayout_6");
@@ -320,7 +334,9 @@ public:
         pushButton_SignIn = new QPushButton(groupBox_2);
         pushButton_SignIn->setObjectName("pushButton_SignIn");
         pushButton_SignIn->setCursor(QCursor(Qt::PointingHandCursor));
-        pushButton_SignIn->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(196, 204, 170, 255), stop:1 rgba(255, 255, 255, 255));"));
+        pushButton_SignIn->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(196, 204, 170, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"\n"
+""));
 
         horizontalLayout_3->addWidget(pushButton_SignIn);
 
@@ -586,11 +602,12 @@ public:
 
         verticalLayout_7->addItem(horizontalSpacer_11);
 
-        pushButton_2 = new QPushButton(groupBox_7);
-        pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(96, 199, 82, 255), stop:1 rgba(255, 255, 255, 255));"));
+        pushButton_Profile = new QPushButton(groupBox_7);
+        pushButton_Profile->setObjectName("pushButton_Profile");
+        pushButton_Profile->setCursor(QCursor(Qt::PointingHandCursor));
+        pushButton_Profile->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(96, 199, 82, 255), stop:1 rgba(255, 255, 255, 255));"));
 
-        verticalLayout_7->addWidget(pushButton_2);
+        verticalLayout_7->addWidget(pushButton_Profile);
 
         horizontalSpacer_14 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -642,11 +659,11 @@ public:
         verticalLayout_14->setContentsMargins(-1, -1, -1, 50);
         horizontalLayout_19 = new QHBoxLayout();
         horizontalLayout_19->setObjectName("horizontalLayout_19");
-        pushButton_3 = new QPushButton(page_Profile);
-        pushButton_3->setObjectName("pushButton_3");
-        pushButton_3->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(96, 199, 82, 255), stop:1 rgba(255, 255, 255, 255));"));
+        pushButton_Profile_Back = new QPushButton(page_Profile);
+        pushButton_Profile_Back->setObjectName("pushButton_Profile_Back");
+        pushButton_Profile_Back->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(96, 199, 82, 255), stop:1 rgba(255, 255, 255, 255));"));
 
-        horizontalLayout_19->addWidget(pushButton_3);
+        horizontalLayout_19->addWidget(pushButton_Profile_Back);
 
         horizontalSpacer_42 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -661,11 +678,11 @@ public:
 
         verticalLayout_14->addWidget(label_17);
 
-        label_18 = new QLabel(page_Profile);
-        label_18->setObjectName("label_18");
-        label_18->setAlignment(Qt::AlignCenter);
+        label_Matches_History = new QLabel(page_Profile);
+        label_Matches_History->setObjectName("label_Matches_History");
+        label_Matches_History->setAlignment(Qt::AlignCenter);
 
-        verticalLayout_14->addWidget(label_18);
+        verticalLayout_14->addWidget(label_Matches_History);
 
         verticalLayout_14->setStretch(0, 1);
         verticalLayout_14->setStretch(1, 5);
@@ -787,74 +804,10 @@ public:
         page_CreatedRoom->setObjectName("page_CreatedRoom");
         gridLayout_13 = new QGridLayout(page_CreatedRoom);
         gridLayout_13->setObjectName("gridLayout_13");
-        horizontalSpacer_30 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_13->addItem(horizontalSpacer_30, 0, 1, 1, 1);
-
-        horizontalSpacer_31 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_13->addItem(horizontalSpacer_31, 3, 1, 1, 1);
-
-        verticalSpacer_16 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_13->addItem(verticalSpacer_16, 2, 0, 1, 1);
-
+        gridLayout_13->setContentsMargins(-1, -1, -1, 75);
         verticalSpacer_17 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout_13->addItem(verticalSpacer_17, 2, 2, 1, 1);
-
-        groupBox_10 = new QGroupBox(page_CreatedRoom);
-        groupBox_10->setObjectName("groupBox_10");
-        groupBox_10->setFlat(true);
-        verticalLayout_12 = new QVBoxLayout(groupBox_10);
-        verticalLayout_12->setObjectName("verticalLayout_12");
-        horizontalLayout_11 = new QHBoxLayout();
-        horizontalLayout_11->setObjectName("horizontalLayout_11");
-        label_11 = new QLabel(groupBox_10);
-        label_11->setObjectName("label_11");
-        label_11->setStyleSheet(QString::fromUtf8(""));
-        label_11->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        horizontalLayout_11->addWidget(label_11);
-
-        label_12 = new QLabel(groupBox_10);
-        label_12->setObjectName("label_12");
-        label_12->setStyleSheet(QString::fromUtf8(""));
-        label_12->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
-
-        horizontalLayout_11->addWidget(label_12);
-
-
-        verticalLayout_12->addLayout(horizontalLayout_11);
-
-        horizontalSpacer_22 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        verticalLayout_12->addItem(horizontalSpacer_22);
-
-        pushButton = new QPushButton(groupBox_10);
-        pushButton->setObjectName("pushButton");
-        pushButton->setCursor(QCursor(Qt::PointingHandCursor));
-        pushButton->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(96, 199, 82, 255), stop:1 rgba(255, 255, 255, 255));"));
-
-        verticalLayout_12->addWidget(pushButton);
-
-        horizontalSpacer_32 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        verticalLayout_12->addItem(horizontalSpacer_32);
-
-        verticalSpacer_15 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_12->addItem(verticalSpacer_15);
-
-        pushButton_ExitRoom = new QPushButton(groupBox_10);
-        pushButton_ExitRoom->setObjectName("pushButton_ExitRoom");
-        pushButton_ExitRoom->setCursor(QCursor(Qt::PointingHandCursor));
-        pushButton_ExitRoom->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(96, 199, 82, 255), stop:1 rgba(255, 255, 255, 255));"));
-
-        verticalLayout_12->addWidget(pushButton_ExitRoom);
-
-
-        gridLayout_13->addWidget(groupBox_10, 2, 1, 1, 1);
+        gridLayout_13->addItem(verticalSpacer_17, 5, 2, 1, 1);
 
         horizontalLayout_18 = new QHBoxLayout();
         horizontalLayout_18->setObjectName("horizontalLayout_18");
@@ -882,10 +835,90 @@ public:
 
         gridLayout_13->addLayout(horizontalLayout_18, 1, 1, 1, 1);
 
+        label_MatchStarting = new QLabel(page_CreatedRoom);
+        label_MatchStarting->setObjectName("label_MatchStarting");
+        label_MatchStarting->setAlignment(Qt::AlignCenter);
+
+        gridLayout_13->addWidget(label_MatchStarting, 2, 1, 1, 1);
+
+        groupBox_10 = new QGroupBox(page_CreatedRoom);
+        groupBox_10->setObjectName("groupBox_10");
+        groupBox_10->setFlat(true);
+        verticalLayout_12 = new QVBoxLayout(groupBox_10);
+        verticalLayout_12->setObjectName("verticalLayout_12");
+        horizontalLayout_11 = new QHBoxLayout();
+        horizontalLayout_11->setObjectName("horizontalLayout_11");
+        label_11 = new QLabel(groupBox_10);
+        label_11->setObjectName("label_11");
+        label_11->setStyleSheet(QString::fromUtf8(""));
+        label_11->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        horizontalLayout_11->addWidget(label_11);
+
+        label_ReadyPlayersNumber = new QLabel(groupBox_10);
+        label_ReadyPlayersNumber->setObjectName("label_ReadyPlayersNumber");
+        label_ReadyPlayersNumber->setStyleSheet(QString::fromUtf8(""));
+        label_ReadyPlayersNumber->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+
+        horizontalLayout_11->addWidget(label_ReadyPlayersNumber);
+
+
+        verticalLayout_12->addLayout(horizontalLayout_11);
+
+        horizontalSpacer_22 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        verticalLayout_12->addItem(horizontalSpacer_22);
+
+        pushButton_Ready = new QPushButton(groupBox_10);
+        pushButton_Ready->setObjectName("pushButton_Ready");
+        pushButton_Ready->setCursor(QCursor(Qt::PointingHandCursor));
+        pushButton_Ready->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(96, 199, 82, 255), stop:1 rgba(255, 255, 255, 255));"));
+
+        verticalLayout_12->addWidget(pushButton_Ready);
+
+        horizontalSpacer_32 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        verticalLayout_12->addItem(horizontalSpacer_32);
+
+        verticalSpacer_15 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_12->addItem(verticalSpacer_15);
+
+        pushButton_ExitRoom = new QPushButton(groupBox_10);
+        pushButton_ExitRoom->setObjectName("pushButton_ExitRoom");
+        pushButton_ExitRoom->setCursor(QCursor(Qt::PointingHandCursor));
+        pushButton_ExitRoom->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(96, 199, 82, 255), stop:1 rgba(255, 255, 255, 255));"));
+
+        verticalLayout_12->addWidget(pushButton_ExitRoom);
+
+
+        gridLayout_13->addWidget(groupBox_10, 5, 1, 1, 1);
+
+        verticalSpacer_16 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_13->addItem(verticalSpacer_16, 5, 0, 1, 1);
+
+        horizontalSpacer_31 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_13->addItem(horizontalSpacer_31, 6, 1, 1, 1);
+
+        horizontalSpacer_30 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_13->addItem(horizontalSpacer_30, 0, 1, 1, 1);
+
+        label_MatchStartingTime = new QLabel(page_CreatedRoom);
+        label_MatchStartingTime->setObjectName("label_MatchStartingTime");
+        label_MatchStartingTime->setAlignment(Qt::AlignCenter);
+
+        gridLayout_13->addWidget(label_MatchStartingTime, 3, 1, 1, 1);
+
         gridLayout_13->setRowStretch(0, 1);
         gridLayout_13->setRowStretch(1, 1);
         gridLayout_13->setRowStretch(2, 1);
         gridLayout_13->setRowStretch(3, 1);
+        gridLayout_13->setRowStretch(4, 1);
+        gridLayout_13->setRowStretch(5, 1);
+        gridLayout_13->setRowStretch(6, 1);
         gridLayout_13->setColumnStretch(0, 1);
         gridLayout_13->setColumnStretch(1, 1);
         gridLayout_13->setColumnStretch(2, 1);
@@ -1142,6 +1175,13 @@ public:
         groupBox_5->setFlat(true);
         verticalLayout_4 = new QVBoxLayout(groupBox_5);
         verticalLayout_4->setObjectName("verticalLayout_4");
+        label_MAQuestion_RemainingTime = new QLabel(groupBox_5);
+        label_MAQuestion_RemainingTime->setObjectName("label_MAQuestion_RemainingTime");
+        label_MAQuestion_RemainingTime->setStyleSheet(QString::fromUtf8("font: 9pt \"Tempus Sans ITC\";"));
+        label_MAQuestion_RemainingTime->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_4->addWidget(label_MAQuestion_RemainingTime);
+
         MultipleAnswerQuestionLabel = new QLabel(groupBox_5);
         MultipleAnswerQuestionLabel->setObjectName("MultipleAnswerQuestionLabel");
         MultipleAnswerQuestionLabel->setStyleSheet(QString::fromUtf8(""));
@@ -1155,14 +1195,14 @@ public:
         answerButton1 = new QPushButton(groupBox_5);
         answerButton1->setObjectName("answerButton1");
         answerButton1->setCursor(QCursor(Qt::PointingHandCursor));
-        answerButton1->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(96, 199, 82, 255), stop:1 rgba(255, 255, 255, 255));"));
+        answerButton1->setStyleSheet(QString::fromUtf8("background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(179, 171, 171, 255), stop:1 rgba(213, 211, 204, 255));"));
 
         horizontalLayout_7->addWidget(answerButton1);
 
         answerButton2 = new QPushButton(groupBox_5);
         answerButton2->setObjectName("answerButton2");
         answerButton2->setCursor(QCursor(Qt::PointingHandCursor));
-        answerButton2->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(96, 199, 82, 255), stop:1 rgba(255, 255, 255, 255));"));
+        answerButton2->setStyleSheet(QString::fromUtf8("background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(179, 171, 171, 255), stop:1 rgba(213, 211, 204, 255));"));
 
         horizontalLayout_7->addWidget(answerButton2);
 
@@ -1179,14 +1219,14 @@ public:
         answerButton3 = new QPushButton(groupBox_5);
         answerButton3->setObjectName("answerButton3");
         answerButton3->setCursor(QCursor(Qt::PointingHandCursor));
-        answerButton3->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(96, 199, 82, 255), stop:1 rgba(255, 255, 255, 255));"));
+        answerButton3->setStyleSheet(QString::fromUtf8("background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(179, 171, 171, 255), stop:1 rgba(213, 211, 204, 255));"));
 
         horizontalLayout_8->addWidget(answerButton3);
 
         answerButton4 = new QPushButton(groupBox_5);
         answerButton4->setObjectName("answerButton4");
         answerButton4->setCursor(QCursor(Qt::PointingHandCursor));
-        answerButton4->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(96, 199, 82, 255), stop:1 rgba(255, 255, 255, 255));"));
+        answerButton4->setStyleSheet(QString::fromUtf8("background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(179, 171, 171, 255), stop:1 rgba(213, 211, 204, 255));"));
 
         horizontalLayout_8->addWidget(answerButton4);
 
@@ -1230,15 +1270,9 @@ public:
         NumericalAnswerField = new QLineEdit(groupBox_6);
         NumericalAnswerField->setObjectName("NumericalAnswerField");
         NumericalAnswerField->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
+        NumericalAnswerField->setAlignment(Qt::AlignCenter);
 
         verticalLayout_5->addWidget(NumericalAnswerField, 0, Qt::AlignHCenter);
-
-        pushButton_SubmitAnswer = new QPushButton(groupBox_6);
-        pushButton_SubmitAnswer->setObjectName("pushButton_SubmitAnswer");
-        pushButton_SubmitAnswer->setCursor(QCursor(Qt::PointingHandCursor));
-        pushButton_SubmitAnswer->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(96, 199, 82, 255), stop:1 rgba(255, 255, 255, 255));"));
-
-        verticalLayout_5->addWidget(pushButton_SubmitAnswer);
 
 
         horizontalLayout_17->addLayout(verticalLayout_5);
@@ -1264,7 +1298,13 @@ public:
         gridLayout_14->setRowStretch(0, 1);
         gridLayout_14->setRowStretch(1, 1);
 
-        gridLayout_15->addWidget(groupBox_6, 0, 0, 1, 1);
+        gridLayout_15->addWidget(groupBox_6, 1, 0, 1, 1);
+
+        label_NA_QuestionAnsweringRemainingTime = new QLabel(groupBox_11);
+        label_NA_QuestionAnsweringRemainingTime->setObjectName("label_NA_QuestionAnsweringRemainingTime");
+        label_NA_QuestionAnsweringRemainingTime->setAlignment(Qt::AlignCenter);
+
+        gridLayout_15->addWidget(label_NA_QuestionAnsweringRemainingTime, 0, 0, 1, 1);
 
 
         gridLayout_16->addWidget(groupBox_11, 0, 0, 1, 1);
@@ -1274,11 +1314,69 @@ public:
         page_QuestionResults->setObjectName("page_QuestionResults");
         gridLayout_20 = new QGridLayout(page_QuestionResults);
         gridLayout_20->setObjectName("gridLayout_20");
-        gridLayout_20->setContentsMargins(50, 25, 50, 25);
-        graphicsView = new QGraphicsView(page_QuestionResults);
-        graphicsView->setObjectName("graphicsView");
+        gridLayout_20->setContentsMargins(50, 50, 50, 50);
+        verticalLayout_15 = new QVBoxLayout();
+        verticalLayout_15->setObjectName("verticalLayout_15");
+        horizontalLayout_20 = new QHBoxLayout();
+        horizontalLayout_20->setObjectName("horizontalLayout_20");
+        label_Player1_answer = new QLabel(page_QuestionResults);
+        label_Player1_answer->setObjectName("label_Player1_answer");
+        label_Player1_answer->setStyleSheet(QString::fromUtf8(""));
+        label_Player1_answer->setAlignment(Qt::AlignCenter);
 
-        gridLayout_20->addWidget(graphicsView, 0, 0, 1, 1);
+        horizontalLayout_20->addWidget(label_Player1_answer);
+
+        verticalSpacer_20 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        horizontalLayout_20->addItem(verticalSpacer_20);
+
+        label_Player2_answer = new QLabel(page_QuestionResults);
+        label_Player2_answer->setObjectName("label_Player2_answer");
+        label_Player2_answer->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_20->addWidget(label_Player2_answer);
+
+
+        verticalLayout_15->addLayout(horizontalLayout_20);
+
+        horizontalSpacer_45 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        verticalLayout_15->addItem(horizontalSpacer_45);
+
+        horizontalSpacer_44 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        verticalLayout_15->addItem(horizontalSpacer_44);
+
+        horizontalLayout_21 = new QHBoxLayout();
+        horizontalLayout_21->setObjectName("horizontalLayout_21");
+        label_Player3_answer = new QLabel(page_QuestionResults);
+        label_Player3_answer->setObjectName("label_Player3_answer");
+        label_Player3_answer->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_21->addWidget(label_Player3_answer);
+
+        verticalSpacer_21 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        horizontalLayout_21->addItem(verticalSpacer_21);
+
+        label_Player4_answer = new QLabel(page_QuestionResults);
+        label_Player4_answer->setObjectName("label_Player4_answer");
+        label_Player4_answer->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_21->addWidget(label_Player4_answer);
+
+
+        verticalLayout_15->addLayout(horizontalLayout_21);
+
+
+        gridLayout_20->addLayout(verticalLayout_15, 1, 0, 1, 1);
+
+        label_QuestionAnsweringResultsRemainingTime = new QLabel(page_QuestionResults);
+        label_QuestionAnsweringResultsRemainingTime->setObjectName("label_QuestionAnsweringResultsRemainingTime");
+        label_QuestionAnsweringResultsRemainingTime->setStyleSheet(QString::fromUtf8("font: 9pt \"Tempus Sans ITC\";"));
+        label_QuestionAnsweringResultsRemainingTime->setAlignment(Qt::AlignCenter);
+
+        gridLayout_20->addWidget(label_QuestionAnsweringResultsRemainingTime, 0, 0, 1, 1);
 
         stackedWidget->addWidget(page_QuestionResults);
         page_Map = new QWidget();
@@ -1289,51 +1387,63 @@ public:
         mapView->setObjectName("mapView");
         mapView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
 
-        gridLayout_12->addWidget(mapView, 0, 0, 1, 1);
+        gridLayout_12->addWidget(mapView, 1, 0, 1, 1);
+
+        label_RegionChoosingRemainingTime = new QLabel(page_Map);
+        label_RegionChoosingRemainingTime->setObjectName("label_RegionChoosingRemainingTime");
+        label_RegionChoosingRemainingTime->setStyleSheet(QString::fromUtf8("font: 9pt \"Tempus Sans ITC\";"));
+        label_RegionChoosingRemainingTime->setAlignment(Qt::AlignCenter);
+
+        gridLayout_12->addWidget(label_RegionChoosingRemainingTime, 0, 0, 1, 1);
 
         stackedWidget->addWidget(page_Map);
-        page_GameResults = new QWidget();
-        page_GameResults->setObjectName("page_GameResults");
-        gridLayout_19 = new QGridLayout(page_GameResults);
+        page_MatchResults = new QWidget();
+        page_MatchResults->setObjectName("page_MatchResults");
+        gridLayout_19 = new QGridLayout(page_MatchResults);
         gridLayout_19->setObjectName("gridLayout_19");
+        gridLayout_19->setContentsMargins(50, 50, 50, 50);
         verticalLayout_13 = new QVBoxLayout();
         verticalLayout_13->setObjectName("verticalLayout_13");
-        label_8 = new QLabel(page_GameResults);
-        label_8->setObjectName("label_8");
+        label_Winner = new QLabel(page_MatchResults);
+        label_Winner->setObjectName("label_Winner");
+        label_Winner->setAlignment(Qt::AlignCenter);
 
-        verticalLayout_13->addWidget(label_8);
+        verticalLayout_13->addWidget(label_Winner);
 
         horizontalSpacer_38 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         verticalLayout_13->addItem(horizontalSpacer_38);
 
-        label_9 = new QLabel(page_GameResults);
-        label_9->setObjectName("label_9");
+        label_2ndPlace = new QLabel(page_MatchResults);
+        label_2ndPlace->setObjectName("label_2ndPlace");
+        label_2ndPlace->setAlignment(Qt::AlignCenter);
 
-        verticalLayout_13->addWidget(label_9);
+        verticalLayout_13->addWidget(label_2ndPlace);
 
         horizontalSpacer_39 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         verticalLayout_13->addItem(horizontalSpacer_39);
 
-        label_15 = new QLabel(page_GameResults);
-        label_15->setObjectName("label_15");
+        label_3rdPlace = new QLabel(page_MatchResults);
+        label_3rdPlace->setObjectName("label_3rdPlace");
+        label_3rdPlace->setAlignment(Qt::AlignCenter);
 
-        verticalLayout_13->addWidget(label_15);
+        verticalLayout_13->addWidget(label_3rdPlace);
 
         horizontalSpacer_40 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         verticalLayout_13->addItem(horizontalSpacer_40);
 
-        label_16 = new QLabel(page_GameResults);
-        label_16->setObjectName("label_16");
+        label_4thPlace = new QLabel(page_MatchResults);
+        label_4thPlace->setObjectName("label_4thPlace");
+        label_4thPlace->setAlignment(Qt::AlignCenter);
 
-        verticalLayout_13->addWidget(label_16);
+        verticalLayout_13->addWidget(label_4thPlace);
 
 
         gridLayout_19->addLayout(verticalLayout_13, 0, 0, 1, 1);
 
-        stackedWidget->addWidget(page_GameResults);
+        stackedWidget->addWidget(page_MatchResults);
 
         gridLayout_6->addWidget(stackedWidget, 1, 0, 1, 1);
 
@@ -1348,7 +1458,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(7);
         pushButton_RoomBack->setDefault(false);
 
 
@@ -1375,12 +1485,12 @@ public:
         groupBox_7->setTitle(QString());
         pushButton_Play->setText(QCoreApplication::translate("MainWindow", "Play", nullptr));
         pushButton_Options->setText(QCoreApplication::translate("MainWindow", "Options", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("MainWindow", "Profile", nullptr));
+        pushButton_Profile->setText(QCoreApplication::translate("MainWindow", "Profile", nullptr));
         pushButton_Exit->setText(QCoreApplication::translate("MainWindow", "Exit game", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Menu", nullptr));
-        pushButton_3->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
+        pushButton_Profile_Back->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
         label_17->setText(QCoreApplication::translate("MainWindow", "Match History:", nullptr));
-        label_18->setText(QCoreApplication::translate("MainWindow", "Matches", nullptr));
+        label_Matches_History->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         groupBox_12->setTitle(QString());
         pushButton_Fullscreen->setText(QCoreApplication::translate("MainWindow", "Fullscreen", nullptr));
         pushButton_Windowed->setText(QCoreApplication::translate("MainWindow", "Windowed", nullptr));
@@ -1388,14 +1498,16 @@ public:
         pushButton_CreateRoom->setText(QCoreApplication::translate("MainWindow", "Create Room", nullptr));
         pushButton_JoinRoom->setText(QCoreApplication::translate("MainWindow", "Join Room", nullptr));
         pushButton_RoomBack->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
-        groupBox_10->setTitle(QString());
-        label_11->setText(QCoreApplication::translate("MainWindow", "Players:", nullptr));
-        label_12->setText(QCoreApplication::translate("MainWindow", "Nr_Players", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "Ready", nullptr));
-        pushButton_ExitRoom->setText(QCoreApplication::translate("MainWindow", "Exit room", nullptr));
         point1->setText(QCoreApplication::translate("MainWindow", ".", nullptr));
         point2->setText(QCoreApplication::translate("MainWindow", ".", nullptr));
         point3->setText(QCoreApplication::translate("MainWindow", ".", nullptr));
+        label_MatchStarting->setText(QCoreApplication::translate("MainWindow", "Match starting in:", nullptr));
+        groupBox_10->setTitle(QString());
+        label_11->setText(QCoreApplication::translate("MainWindow", "Ready Players:", nullptr));
+        label_ReadyPlayersNumber->setText(QCoreApplication::translate("MainWindow", "Players_Number", nullptr));
+        pushButton_Ready->setText(QCoreApplication::translate("MainWindow", "Ready", nullptr));
+        pushButton_ExitRoom->setText(QCoreApplication::translate("MainWindow", "Exit room", nullptr));
+        label_MatchStartingTime->setText(QCoreApplication::translate("MainWindow", "time", nullptr));
         pushButton_CreateRoomBack->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
         groupBox_4->setTitle(QString());
         label_14->setText(QCoreApplication::translate("MainWindow", "Enter number of players:  ", nullptr));
@@ -1408,6 +1520,7 @@ public:
         label_10->setText(QCoreApplication::translate("MainWindow", "Join Room", nullptr));
         groupBox_8->setTitle(QString());
         groupBox_5->setTitle(QString());
+        label_MAQuestion_RemainingTime->setText(QCoreApplication::translate("MainWindow", "RemainingTime", nullptr));
         MultipleAnswerQuestionLabel->setText(QCoreApplication::translate("MainWindow", "Question", nullptr));
         answerButton1->setText(QCoreApplication::translate("MainWindow", "answer1", nullptr));
         answerButton2->setText(QCoreApplication::translate("MainWindow", "answer2", nullptr));
@@ -1415,12 +1528,18 @@ public:
         answerButton4->setText(QCoreApplication::translate("MainWindow", "answer4", nullptr));
         groupBox_11->setTitle(QString());
         groupBox_6->setTitle(QString());
-        pushButton_SubmitAnswer->setText(QCoreApplication::translate("MainWindow", "Submit answer", nullptr));
         NumericalAnswerQuestionLabel->setText(QCoreApplication::translate("MainWindow", "Question", nullptr));
-        label_8->setText(QCoreApplication::translate("MainWindow", "Winner: ", nullptr));
-        label_9->setText(QCoreApplication::translate("MainWindow", "2st Place: ", nullptr));
-        label_15->setText(QCoreApplication::translate("MainWindow", "3rd Place:", nullptr));
-        label_16->setText(QCoreApplication::translate("MainWindow", "4th Place: ", nullptr));
+        label_NA_QuestionAnsweringRemainingTime->setText(QCoreApplication::translate("MainWindow", "RemainingTime", nullptr));
+        label_Player1_answer->setText(QCoreApplication::translate("MainWindow", "Player1_answer", nullptr));
+        label_Player2_answer->setText(QCoreApplication::translate("MainWindow", "Player2_answer", nullptr));
+        label_Player3_answer->setText(QCoreApplication::translate("MainWindow", "Player3_answer", nullptr));
+        label_Player4_answer->setText(QCoreApplication::translate("MainWindow", "Player4_answer", nullptr));
+        label_QuestionAnsweringResultsRemainingTime->setText(QCoreApplication::translate("MainWindow", "RemainingTime", nullptr));
+        label_RegionChoosingRemainingTime->setText(QCoreApplication::translate("MainWindow", "RemainingTime", nullptr));
+        label_Winner->setText(QCoreApplication::translate("MainWindow", "Winner: ", nullptr));
+        label_2ndPlace->setText(QCoreApplication::translate("MainWindow", "2nd Place: ", nullptr));
+        label_3rdPlace->setText(QCoreApplication::translate("MainWindow", "3rd Place:", nullptr));
+        label_4thPlace->setText(QCoreApplication::translate("MainWindow", "4th Place: ", nullptr));
     } // retranslateUi
 
 };

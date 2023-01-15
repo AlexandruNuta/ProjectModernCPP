@@ -2,6 +2,9 @@
     <qresource prefix="/image">
         <file>image1.jpg</file>
         <file>TriviaIcon2.jpg</file>
+        <file>whiteWallBkg.jpg</file>
+        <file>WhiteWallBkg3.jpg</file>
+        <file>WhiteWallBkg4.jpg</file>
     </qresource>
     <qresource prefix="/sound">
         <file>ui-click-97915.mp3</file>
