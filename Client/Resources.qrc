@@ -3,4 +3,7 @@
         <file>image1.jpg</file>
         <file>TriviaIcon2.jpg</file>
     </qresource>
+    <qresource prefix="/sound">
+        <file>ui-click-97915.mp3</file>
+    </qresource>
 </RCC>

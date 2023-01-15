@@ -23,13 +23,13 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->pushButton_Exit, &QPushButton::clicked, this, &QWidget::close);
     setWindowTitle("Triviador");
-    ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentWidget(ui->page_LoginMenu);
     ui->passwordField->setEchoMode(QLineEdit::Password);
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(updateLoadingPoints()));
     timer->start(150);
-    ui->stackedWidget->setCurrentWidget(ui->page_Map);
     GenerateMap(6,4);
+    //ui->stackedWidget->setCurrentWidget(ui->page_Map);
 }
 
 MainWindow::~MainWindow()
@@ -45,7 +45,7 @@ void MainWindow::on_pushButton_Login_clicked()
     if (username == "ok" && password == "admin")
     {
         QMessageBox::information(this, "Success", "You have successfully logged in");
-        ui->stackedWidget->setCurrentIndex(3);
+        ui->stackedWidget->setCurrentWidget(ui->page_GameMenu);
     }
     else
     {
@@ -92,7 +92,7 @@ void MainWindow::Load_NA_Question()
 
 void MainWindow::on_pushButton_SignIn_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(1);
+    ui->stackedWidget->setCurrentWidget(ui->page_Login);
 }
 
 
@@ -116,19 +116,19 @@ void MainWindow::on_pushButton_Register_clicked()
 
 void MainWindow::on_pushButton_SignUp_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(2);
+    ui->stackedWidget->setCurrentWidget(ui->page_Register);
 }
 
 
 void MainWindow::on_pushButton_LoginPage_Back_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentWidget(ui->page_LoginMenu);
 }
 
 
 void MainWindow::on_pushButton_RegisterPage_Back_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentWidget(ui->page_LoginMenu);
 }
 
 
@@ -140,7 +140,7 @@ void MainWindow::on_pushButton_Options_clicked()
 
 void MainWindow::on_pushButton_OptionsPage_Back_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(3);
+    ui->stackedWidget->setCurrentWidget(ui->page_GameMenu);
 }
 
 

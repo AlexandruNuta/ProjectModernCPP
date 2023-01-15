@@ -273,13 +273,13 @@ background-color: rgb(162, 162, 121);</string>
        <number>1</number>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page_LoginMenu">
        <property name="styleSheet">
         <string notr="true"/>
        </property>
-       <layout class="QGridLayout" name="gridLayout_3">
+       <layout class="QGridLayout" name="gridLayout_3" rowstretch="0">
         <property name="leftMargin">
          <number>0</number>
         </property>
@@ -302,6 +302,9 @@ background-color: rgb(162, 162, 121);</string>
           </property>
           <property name="autoFillBackground">
            <bool>false</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
           </property>
           <property name="title">
            <string>Welcome to Login page!</string>
@@ -363,7 +366,8 @@ background-color: rgb(162, 162, 121);</string>
               <cursorShape>PointingHandCursor</cursorShape>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(196, 204, 170, 255), stop:1 rgba(255, 255, 255, 255));</string>
+              <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(196, 204, 170, 255), stop:1 rgba(255, 255, 255, 255));
+</string>
              </property>
              <property name="text">
               <string>Sign up</string>
@@ -422,7 +426,7 @@ background-color: rgb(162, 162, 121);</string>
                 <string notr="true"/>
                </property>
                <property name="text">
-                <string>Username: </string>
+                <string>Username:</string>
                </property>
               </widget>
              </item>
@@ -608,7 +612,7 @@ background-color: rgb(162, 162, 121);</string>
              <item>
               <widget class="QLabel" name="label_5">
                <property name="text">
-                <string>Enter a Username: </string>
+                <string>Enter a Username:</string>
                </property>
               </widget>
              </item>
@@ -639,7 +643,7 @@ background-color: rgb(162, 162, 121);</string>
              <item>
               <widget class="QLabel" name="label_6">
                <property name="text">
-                <string>Enter a Password:   </string>
+                <string>Enter a Password:  </string>
                </property>
               </widget>
              </item>
@@ -782,6 +786,19 @@ background-color: rgb(162, 162, 121);</string>
              </item>
              <item>
               <spacer name="horizontalSpacer_13">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_43">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
@@ -941,7 +958,7 @@ background-color: rgb(162, 162, 121);</string>
        </layout>
       </widget>
       <widget class="QWidget" name="page_Profile">
-       <layout class="QGridLayout" name="gridLayout_18" columnstretch="0,0">
+       <layout class="QGridLayout" name="gridLayout_18" columnstretch="0">
         <item row="0" column="0">
          <layout class="QVBoxLayout" name="verticalLayout_14" stretch="1,5,6">
           <property name="bottomMargin">
@@ -987,7 +1004,7 @@ background-color: rgb(162, 162, 121);</string>
           <item>
            <widget class="QLabel" name="label_18">
             <property name="text">
-             <string>TextLabel</string>
+             <string>Matches</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -2151,6 +2168,25 @@ background-color: rgb(162, 162, 121);</string>
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="page_QuestionResults">
+       <layout class="QGridLayout" name="gridLayout_20">
+        <property name="leftMargin">
+         <number>50</number>
+        </property>
+        <property name="topMargin">
+         <number>25</number>
+        </property>
+        <property name="rightMargin">
+         <number>50</number>
+        </property>
+        <property name="bottomMargin">
+         <number>25</number>
+        </property>
+        <item row="0" column="0">
+         <widget class="QGraphicsView" name="graphicsView"/>
+        </item>
+       </layout>
+      </widget>
       <widget class="QWidget" name="page_Map">
        <layout class="QGridLayout" name="gridLayout_12">
         <item row="0" column="0">
@@ -2162,86 +2198,80 @@ background-color: rgb(162, 162, 121);</string>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="page_Results">
-       <widget class="QWidget" name="layoutWidget">
-        <property name="geometry">
-         <rect>
-          <x>60</x>
-          <y>70</y>
-          <width>72</width>
-          <height>182</height>
-         </rect>
-        </property>
-        <layout class="QVBoxLayout" name="verticalLayout_13">
-         <item>
-          <widget class="QLabel" name="label_8">
-           <property name="text">
-            <string>Winner: </string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_38">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_9">
-           <property name="text">
-            <string>2st Place: </string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_39">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_15">
-           <property name="text">
-            <string>3rd Place:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_40">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_16">
-           <property name="text">
-            <string>4th Place: </string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
+      <widget class="QWidget" name="page_GameResults">
+       <layout class="QGridLayout" name="gridLayout_19">
+        <item row="0" column="0">
+         <layout class="QVBoxLayout" name="verticalLayout_13">
+          <item>
+           <widget class="QLabel" name="label_8">
+            <property name="text">
+             <string>Winner: </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_38">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_9">
+            <property name="text">
+             <string>2st Place: </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_39">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_15">
+            <property name="text">
+             <string>3rd Place:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_40">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_16">
+            <property name="text">
+             <string>4th Place: </string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
       </widget>
      </widget>
     </item>

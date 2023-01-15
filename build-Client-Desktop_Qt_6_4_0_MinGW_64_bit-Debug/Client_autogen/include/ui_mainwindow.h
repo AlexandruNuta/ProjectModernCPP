@@ -92,6 +92,7 @@ public:
     QVBoxLayout *verticalLayout_7;
     QPushButton *pushButton_Play;
     QSpacerItem *horizontalSpacer_13;
+    QSpacerItem *horizontalSpacer_43;
     QSpacerItem *horizontalSpacer_12;
     QPushButton *pushButton_Options;
     QSpacerItem *horizontalSpacer_11;
@@ -104,7 +105,13 @@ public:
     QSpacerItem *horizontalSpacer_16;
     QLabel *label_2;
     QWidget *page_Profile;
+    QGridLayout *gridLayout_18;
+    QVBoxLayout *verticalLayout_14;
+    QHBoxLayout *horizontalLayout_19;
+    QPushButton *pushButton_3;
+    QSpacerItem *horizontalSpacer_42;
     QLabel *label_17;
+    QLabel *label_18;
     QWidget *page_Options;
     QGridLayout *gridLayout_17;
     QSpacerItem *horizontalSpacer_36;
@@ -214,11 +221,14 @@ public:
     QPushButton *pushButton_SubmitAnswer;
     QSpacerItem *horizontalSpacer_33;
     QLabel *NumericalAnswerQuestionLabel;
+    QWidget *page_QuestionResults;
+    QGridLayout *gridLayout_20;
+    QGraphicsView *graphicsView;
     QWidget *page_Map;
     QGridLayout *gridLayout_12;
     QGraphicsView *mapView;
-    QWidget *page_Results;
-    QWidget *layoutWidget;
+    QWidget *page_GameResults;
+    QGridLayout *gridLayout_19;
     QVBoxLayout *verticalLayout_13;
     QLabel *label_8;
     QSpacerItem *horizontalSpacer_38;
@@ -299,6 +309,7 @@ public:
         groupBox_2->setObjectName("groupBox_2");
         groupBox_2->setLayoutDirection(Qt::LeftToRight);
         groupBox_2->setAutoFillBackground(false);
+        groupBox_2->setStyleSheet(QString::fromUtf8(""));
         groupBox_2->setAlignment(Qt::AlignCenter);
         groupBox_2->setFlat(true);
         groupBox_2->setCheckable(false);
@@ -320,7 +331,8 @@ public:
         pushButton_SignUp = new QPushButton(groupBox_2);
         pushButton_SignUp->setObjectName("pushButton_SignUp");
         pushButton_SignUp->setCursor(QCursor(Qt::PointingHandCursor));
-        pushButton_SignUp->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(196, 204, 170, 255), stop:1 rgba(255, 255, 255, 255));"));
+        pushButton_SignUp->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(196, 204, 170, 255), stop:1 rgba(255, 255, 255, 255));\n"
+""));
 
         horizontalLayout_3->addWidget(pushButton_SignUp);
 
@@ -555,6 +567,10 @@ public:
 
         verticalLayout_7->addItem(horizontalSpacer_13);
 
+        horizontalSpacer_43 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        verticalLayout_7->addItem(horizontalSpacer_43);
+
         horizontalSpacer_12 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         verticalLayout_7->addItem(horizontalSpacer_12);
@@ -619,9 +635,44 @@ public:
         stackedWidget->addWidget(page_GameMenu);
         page_Profile = new QWidget();
         page_Profile->setObjectName("page_Profile");
+        gridLayout_18 = new QGridLayout(page_Profile);
+        gridLayout_18->setObjectName("gridLayout_18");
+        verticalLayout_14 = new QVBoxLayout();
+        verticalLayout_14->setObjectName("verticalLayout_14");
+        verticalLayout_14->setContentsMargins(-1, -1, -1, 50);
+        horizontalLayout_19 = new QHBoxLayout();
+        horizontalLayout_19->setObjectName("horizontalLayout_19");
+        pushButton_3 = new QPushButton(page_Profile);
+        pushButton_3->setObjectName("pushButton_3");
+        pushButton_3->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(96, 199, 82, 255), stop:1 rgba(255, 255, 255, 255));"));
+
+        horizontalLayout_19->addWidget(pushButton_3);
+
+        horizontalSpacer_42 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_19->addItem(horizontalSpacer_42);
+
+
+        verticalLayout_14->addLayout(horizontalLayout_19);
+
         label_17 = new QLabel(page_Profile);
         label_17->setObjectName("label_17");
-        label_17->setGeometry(QRect(140, 120, 71, 16));
+        label_17->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_14->addWidget(label_17);
+
+        label_18 = new QLabel(page_Profile);
+        label_18->setObjectName("label_18");
+        label_18->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_14->addWidget(label_18);
+
+        verticalLayout_14->setStretch(0, 1);
+        verticalLayout_14->setStretch(1, 5);
+        verticalLayout_14->setStretch(2, 6);
+
+        gridLayout_18->addLayout(verticalLayout_14, 0, 0, 1, 1);
+
         stackedWidget->addWidget(page_Profile);
         page_Options = new QWidget();
         page_Options->setObjectName("page_Options");
@@ -1219,6 +1270,17 @@ public:
         gridLayout_16->addWidget(groupBox_11, 0, 0, 1, 1);
 
         stackedWidget->addWidget(page_NAQScreen);
+        page_QuestionResults = new QWidget();
+        page_QuestionResults->setObjectName("page_QuestionResults");
+        gridLayout_20 = new QGridLayout(page_QuestionResults);
+        gridLayout_20->setObjectName("gridLayout_20");
+        gridLayout_20->setContentsMargins(50, 25, 50, 25);
+        graphicsView = new QGraphicsView(page_QuestionResults);
+        graphicsView->setObjectName("graphicsView");
+
+        gridLayout_20->addWidget(graphicsView, 0, 0, 1, 1);
+
+        stackedWidget->addWidget(page_QuestionResults);
         page_Map = new QWidget();
         page_Map->setObjectName("page_Map");
         gridLayout_12 = new QGridLayout(page_Map);
@@ -1230,15 +1292,13 @@ public:
         gridLayout_12->addWidget(mapView, 0, 0, 1, 1);
 
         stackedWidget->addWidget(page_Map);
-        page_Results = new QWidget();
-        page_Results->setObjectName("page_Results");
-        layoutWidget = new QWidget(page_Results);
-        layoutWidget->setObjectName("layoutWidget");
-        layoutWidget->setGeometry(QRect(60, 70, 72, 182));
-        verticalLayout_13 = new QVBoxLayout(layoutWidget);
+        page_GameResults = new QWidget();
+        page_GameResults->setObjectName("page_GameResults");
+        gridLayout_19 = new QGridLayout(page_GameResults);
+        gridLayout_19->setObjectName("gridLayout_19");
+        verticalLayout_13 = new QVBoxLayout();
         verticalLayout_13->setObjectName("verticalLayout_13");
-        verticalLayout_13->setContentsMargins(0, 0, 0, 0);
-        label_8 = new QLabel(layoutWidget);
+        label_8 = new QLabel(page_GameResults);
         label_8->setObjectName("label_8");
 
         verticalLayout_13->addWidget(label_8);
@@ -1247,7 +1307,7 @@ public:
 
         verticalLayout_13->addItem(horizontalSpacer_38);
 
-        label_9 = new QLabel(layoutWidget);
+        label_9 = new QLabel(page_GameResults);
         label_9->setObjectName("label_9");
 
         verticalLayout_13->addWidget(label_9);
@@ -1256,7 +1316,7 @@ public:
 
         verticalLayout_13->addItem(horizontalSpacer_39);
 
-        label_15 = new QLabel(layoutWidget);
+        label_15 = new QLabel(page_GameResults);
         label_15->setObjectName("label_15");
 
         verticalLayout_13->addWidget(label_15);
@@ -1265,12 +1325,15 @@ public:
 
         verticalLayout_13->addItem(horizontalSpacer_40);
 
-        label_16 = new QLabel(layoutWidget);
+        label_16 = new QLabel(page_GameResults);
         label_16->setObjectName("label_16");
 
         verticalLayout_13->addWidget(label_16);
 
-        stackedWidget->addWidget(page_Results);
+
+        gridLayout_19->addLayout(verticalLayout_13, 0, 0, 1, 1);
+
+        stackedWidget->addWidget(page_GameResults);
 
         gridLayout_6->addWidget(stackedWidget, 1, 0, 1, 1);
 
@@ -1285,7 +1348,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(3);
+        stackedWidget->setCurrentIndex(2);
         pushButton_RoomBack->setDefault(false);
 
 
@@ -1299,23 +1362,25 @@ public:
         pushButton_SignIn->setText(QCoreApplication::translate("MainWindow", "Sign in", nullptr));
         pushButton_SignUp->setText(QCoreApplication::translate("MainWindow", "Sign up", nullptr));
         groupBox->setTitle(QString());
-        label_3->setText(QCoreApplication::translate("MainWindow", "Username: ", nullptr));
+        label_3->setText(QCoreApplication::translate("MainWindow", "Username:", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "Password:  ", nullptr));
         pushButton_Login->setText(QCoreApplication::translate("MainWindow", "Login", nullptr));
         pushButton_LoginPage_Back->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
         groupBox_3->setTitle(QString());
-        label_5->setText(QCoreApplication::translate("MainWindow", "Enter a Username: ", nullptr));
-        label_6->setText(QCoreApplication::translate("MainWindow", "Enter a Password:   ", nullptr));
+        label_5->setText(QCoreApplication::translate("MainWindow", "Enter a Username:", nullptr));
+        label_6->setText(QCoreApplication::translate("MainWindow", "Enter a Password:  ", nullptr));
         label_7->setText(QCoreApplication::translate("MainWindow", "Confirm Password:", nullptr));
         pushButton_Register->setText(QCoreApplication::translate("MainWindow", "Register", nullptr));
         pushButton_RegisterPage_Back->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
         groupBox_7->setTitle(QString());
         pushButton_Play->setText(QCoreApplication::translate("MainWindow", "Play", nullptr));
         pushButton_Options->setText(QCoreApplication::translate("MainWindow", "Options", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("MainWindow", "Profile", nullptr));
         pushButton_Exit->setText(QCoreApplication::translate("MainWindow", "Exit game", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Menu", nullptr));
-        label_17->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        pushButton_3->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
+        label_17->setText(QCoreApplication::translate("MainWindow", "Match History:", nullptr));
+        label_18->setText(QCoreApplication::translate("MainWindow", "Matches", nullptr));
         groupBox_12->setTitle(QString());
         pushButton_Fullscreen->setText(QCoreApplication::translate("MainWindow", "Fullscreen", nullptr));
         pushButton_Windowed->setText(QCoreApplication::translate("MainWindow", "Windowed", nullptr));
