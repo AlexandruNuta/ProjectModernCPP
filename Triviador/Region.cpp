@@ -63,7 +63,7 @@ void Region::DecrementScore()
 
 bool Region::operator==(Region region)
 {
-	if (this->m_coordinates == region.GetCoordinates())
+	if (m_coordinates == region.GetCoordinates())
 		return true;
 	return false;
 }

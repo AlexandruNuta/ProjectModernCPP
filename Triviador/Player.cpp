@@ -67,8 +67,9 @@ bool Player::VerifyRegion(const std::pair<uint16_t, uint16_t>& indexes) const
 
 bool Player::EligibleForAvantages() const
 {
+	const uint16_t minScoreAvantage = 200;
 	for (const auto& region : m_territory)
-		if (region->GetScore() >= 200 && !region->GetIsBase())
+		if (region->GetScore() >= minScoreAvantage && !region->GetIsBase())
 			return true;
 	return false;
 }

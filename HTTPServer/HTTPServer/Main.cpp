@@ -20,9 +20,6 @@ int main()
 	db.sync_schema();
 	crow::SimpleApp app;
 
-	CROW_ROUTE(app, "/")([]() {
-		return "Test";
-		});
 
 	CROW_ROUTE(app, "/history")([&db]() {
 		std::vector<crow::json::wvalue> MatchesJson;
@@ -81,24 +78,6 @@ int main()
 	if (multipleAnswerNumber == 0) {
 		populateStorage(db);
 	}
-
-	CROW_ROUTE(app, "/InceputulJocului")
-		([] {
-		crow::json::wvalue x;
-	x["message"] = "InceputulJocului!";
-	return x;
-			});
-
-
-	CROW_ROUTE(app, "/NumberOfPlayers/<int>")([](int numberOfPlayers) {
-		if (numberOfPlayers > 4) {
-			return crow::response(400);
-		}
-			std::ostringstream os;
-			os << "In this game will be " << numberOfPlayers << " players";
-			return crow::response(os.str());
-		});
-
 	CROW_ROUTE(app, "/LoginUser").methods("POST"_method)([&db](const crow::request& req) {
 		auto data = crow::json::load(req.body);
 		auto username = data["username"].s();
@@ -147,13 +126,6 @@ int main()
 	res.write("Player added to lobby!");
 	crow::response(200);
 		});
-
-	
-	//CROW_ROUTE(app, "/NumberOfPlayers")([&lobby]() {
-	//	return crow::json::wvalue{ {"numberofplayers",lobby.GetNumberOfPlayers()}};
-	//	});
-
-	////CROW_ROUTE(app,"/game/<int>/<int>")
 	
 	app.port(18080).multithreaded().run();
 }

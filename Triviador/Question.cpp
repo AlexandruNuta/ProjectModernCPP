@@ -54,7 +54,9 @@ void Question::RemoveAnswer(const uint16_t& index)
 
 std::ostream& operator<<(std::ostream& out, const Question& question)
 {
-	if (question.GetAnswers().size() == 1)
+	const uint16_t questionWithAdvantage = 5;
+	const uint16_t numericalQuestion = 1;
+	if (question.GetAnswers().size() == numericalQuestion)
 		out << question.GetQuestion() << std::endl;
 	else
 	{
@@ -63,7 +65,8 @@ std::ostream& operator<<(std::ostream& out, const Question& question)
 		out << "a. " << answers[0] << "   b. " << answers[1] << std::endl;
 		out << "c. " << answers[2] << "   d. " << answers[3] << std::endl;
 	}
-	if (question.GetAnswers().size() != 5)
-		out << "If you want to choose an advantage, press the '+' key." << std::endl << std::endl;
+	if (question.GetAnswers().size() != questionWithAdvantage)
+		out << "If you want to choose an advantage, press the '+' key." << std::endl;
+	std::cout << std::endl;
 	return out;
 }

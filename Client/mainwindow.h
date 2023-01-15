@@ -65,13 +65,16 @@ private slots:
 
     void on_regionButton_clicked();
 
-    //void button_click_sound();
+    void on_pushButton_Profile_clicked();
+
+    void on_pushButton_Profile_Back_clicked();
 
 private:
     Ui::MainWindow *ui;
 
 public:
     void GenerateMap(int cols, int rows);
+    void ChangeMatchHistory(QString matchHistory);
 
 };
 

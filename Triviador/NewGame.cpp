@@ -140,6 +140,7 @@ void ReadCoordinates(uint16_t& coordinate1, uint16_t& coordinate2)
 
 void NewGame::VerifyAvantageCoordinates(std::shared_ptr<Player> player, uint16_t& coordinate1, uint16_t& coordinate2)
 {
+	const uint16_t minScoreAvantage = 200;
 	std::cout << m_map;
 	std::cout << player << ", choose a region, based on coordinates, that you want to decrement to be able to use an advantage." << std::endl;
 	ReadCoordinates(coordinate1, coordinate2);
@@ -153,7 +154,7 @@ void NewGame::VerifyAvantageCoordinates(std::shared_ptr<Player> player, uint16_t
 		std::cout << "The selected region is not yours. Please choose a region which is yours, based on coordinates." << std::endl;
 		ReadCoordinates(coordinate1, coordinate2);
 	}
-	while (m_map.GetMap()[coordinate1][coordinate2]->GetScore() < 200)
+	while (m_map.GetMap()[coordinate1][coordinate2]->GetScore() < minScoreAvantage)
 	{
 		std::cout << "The selected region doesn't have a high enough score. Please choose a region which has at least a score of 200, based on coordinates." << std::endl;
 		ReadCoordinates(coordinate1, coordinate2);
@@ -177,6 +178,7 @@ void NewGame::UseAvantage(std::shared_ptr<Player> player, const Question& questi
 template <typename T>
 T NewGame::AskForInput(std::shared_ptr<Player> player, const Question& question)
 {
+	const uint16_t numericalQuestion = 1;
 	std::string answer;
 	T newAnswer;
 	std::cout << player << ", please input your answer: ";
@@ -188,17 +190,17 @@ T NewGame::AskForInput(std::shared_ptr<Player> player, const Question& question)
 		std::cin >> newAnswer;
 	}
 	else
-		if (question.GetAnswers().size() == 1)
+		if (question.GetAnswers().size() == numericalQuestion)
 			newAnswer = std::stoi(answer);
 		else
 			newAnswer = answer[0];
 	return newAnswer;
 }
 
-std::tuple<uint16_t, uint16_t, uint16_t> NewGame::IndexAnswerTime(const Question& question, std::shared_ptr<Player> player, const uint16_t& index)
+std::tuple<uint16_t, int, int> NewGame::IndexAnswerTime(const Question& question, std::shared_ptr<Player> player, const uint16_t& index)
 {
 	int answer;
-	float time;
+	int time;
 
 	using Clock = std::chrono::high_resolution_clock;
 	auto start = Clock::now();
@@ -208,11 +210,11 @@ std::tuple<uint16_t, uint16_t, uint16_t> NewGame::IndexAnswerTime(const Question
 	answer = answer - std::stoi(question.GetCorrectAnswer());
 	answer = std::abs(answer);
 
-	time = std::chrono::duration_cast<std::chrono::seconds>(end - start).count();
+	time = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
 	return std::make_tuple(index, answer, time);
 }
 
-bool compareTuples(const std::tuple<uint16_t, uint16_t, uint16_t>& a, const std::tuple<uint16_t, uint16_t, uint16_t>& b)
+bool compareTuples(const std::tuple<uint16_t, int, int>& a, const std::tuple<uint16_t, int, int>& b)
 {
 	if (std::get<1>(a) == std::get<1>(b))
 	{
@@ -223,7 +225,7 @@ bool compareTuples(const std::tuple<uint16_t, uint16_t, uint16_t>& a, const std:
 
 void NewGame::TopPlayersForOneQuestion(const Question& question, std::vector<std::shared_ptr<Player>>& players)
 {
-	std::vector<std::tuple<uint16_t, uint16_t, uint16_t>> forSorting;
+	std::vector<std::tuple<uint16_t, int, int>> forSorting;
 	std::cout << question;
 	for (int index = 0; index < players.size(); index++)
 		forSorting.push_back(IndexAnswerTime(question, players[index], index));
@@ -318,11 +320,12 @@ void NewGame::StageChoseRegion()
 bool NewGame::VerifyGameContinues() const
 {
 	uint16_t counter = 0;
+	const uint16_t minPlayers = 1;
 	for (const auto& player : m_players)
 	{
 		if (player->GetTerritory().size())
 			counter++;
-		if (counter > 1)
+		if (counter > minPlayers)
 			return true;
 	}
 	return false;
@@ -369,9 +372,9 @@ void NewGame::DetermineWinner(std::shared_ptr<Player> player, std::shared_ptr<Re
 		if (VerifyAnswer(answers.second, question))
 		{
 			std::cout << std::endl;
-			question = GetNumericalQuestion();
-			TopPlayersForOneQuestion(question, players);
-			std::cout << std::endl << "Correct Answer: " << question.GetCorrectAnswer() << std::endl;
+			Question numericalQuestion = GetNumericalQuestion();
+			TopPlayersForOneQuestion(numericalQuestion, players);
+			std::cout << std::endl << "Correct Answer: " << numericalQuestion.GetCorrectAnswer() << std::endl;
 		}
 		if (player == players[0])
 		{
