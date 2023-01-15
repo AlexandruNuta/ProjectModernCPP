@@ -28,6 +28,8 @@ MainWindow::MainWindow(QWidget *parent)
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(updateLoadingPoints()));
     timer->start(150);
+    ui->stackedWidget->setCurrentWidget(ui->page_Map);
+    GenerateMap(6,4);
 }
 
 MainWindow::~MainWindow()
@@ -132,7 +134,7 @@ void MainWindow::on_pushButton_RegisterPage_Back_clicked()
 
 void MainWindow::on_pushButton_Options_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(4);
+    ui->stackedWidget->setCurrentWidget(ui->page_Options);
 }
 
 
@@ -144,7 +146,7 @@ void MainWindow::on_pushButton_OptionsPage_Back_clicked()
 
 void MainWindow::on_pushButton_Play_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(5);
+    ui->stackedWidget->setCurrentWidget(ui->page_RoomMenu);
 }
 
 void MainWindow::on_pushButton_SubmitAnswer_clicked()

@@ -838,7 +838,7 @@ background-color: rgb(162, 162, 121);</string>
                 <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(96, 199, 82, 255), stop:1 rgba(255, 255, 255, 255));</string>
                </property>
                <property name="text">
-                <string>PushButton</string>
+                <string>Profile</string>
                </property>
               </widget>
              </item>
@@ -941,19 +941,62 @@ background-color: rgb(162, 162, 121);</string>
        </layout>
       </widget>
       <widget class="QWidget" name="page_Profile">
-       <widget class="QLabel" name="label_17">
-        <property name="geometry">
-         <rect>
-          <x>140</x>
-          <y>120</y>
-          <width>71</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>TextLabel</string>
-        </property>
-       </widget>
+       <layout class="QGridLayout" name="gridLayout_18" columnstretch="0,0">
+        <item row="0" column="0">
+         <layout class="QVBoxLayout" name="verticalLayout_14" stretch="1,5,6">
+          <property name="bottomMargin">
+           <number>50</number>
+          </property>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_19">
+            <item>
+             <widget class="QPushButton" name="pushButton_3">
+              <property name="styleSheet">
+               <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(96, 199, 82, 255), stop:1 rgba(255, 255, 255, 255));</string>
+              </property>
+              <property name="text">
+               <string>Back</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_42">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_17">
+            <property name="text">
+             <string>Match History:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_18">
+            <property name="text">
+             <string>TextLabel</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="page_Options">
        <layout class="QGridLayout" name="gridLayout_17" columnstretch="1,1,1">

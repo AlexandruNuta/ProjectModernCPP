@@ -1285,7 +1285,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(4);
+        stackedWidget->setCurrentIndex(3);
         pushButton_RoomBack->setDefault(false);
 
 
