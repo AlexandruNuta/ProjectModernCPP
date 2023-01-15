@@ -985,7 +985,7 @@ background-color: rgb(162, 162, 121);</string>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_18">
+           <widget class="QLabel" name="label_Matches_History">
             <property name="text">
              <string>TextLabel</string>
             </property>

@@ -74,6 +74,7 @@ private:
 
 public:
     void GenerateMap(int cols, int rows);
+    void ChangeMatchHistory(QString matchHistory);
 
 };
 

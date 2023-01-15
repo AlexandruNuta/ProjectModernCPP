@@ -331,3 +331,8 @@ void MainWindow::on_pushButton_Profile_Back_clicked()
     ui->stackedWidget->setCurrentWidget(ui->page_GameMenu);
 }
 
+void MainWindow::ChangeMatchHistory(QString matchHistory)
+{
+    ui->label_Matches_History->setText(matchHistory);
+}
+

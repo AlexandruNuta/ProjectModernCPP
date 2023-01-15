@@ -110,7 +110,7 @@ public:
     QPushButton *pushButton_Profile_Back;
     QSpacerItem *horizontalSpacer_42;
     QLabel *label_17;
-    QLabel *label_18;
+    QLabel *label_Matches_History;
     QWidget *page_Options;
     QGridLayout *gridLayout_17;
     QSpacerItem *horizontalSpacer_36;
@@ -651,11 +651,11 @@ public:
 
         verticalLayout_14->addWidget(label_17);
 
-        label_18 = new QLabel(page_Profile);
-        label_18->setObjectName("label_18");
-        label_18->setAlignment(Qt::AlignCenter);
+        label_Matches_History = new QLabel(page_Profile);
+        label_Matches_History->setObjectName("label_Matches_History");
+        label_Matches_History->setAlignment(Qt::AlignCenter);
 
-        verticalLayout_14->addWidget(label_18);
+        verticalLayout_14->addWidget(label_Matches_History);
 
         verticalLayout_14->setStretch(0, 1);
         verticalLayout_14->setStretch(1, 5);
@@ -1358,7 +1358,7 @@ public:
         label_2->setText(QCoreApplication::translate("MainWindow", "Menu", nullptr));
         pushButton_Profile_Back->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
         label_17->setText(QCoreApplication::translate("MainWindow", "Match History:", nullptr));
-        label_18->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        label_Matches_History->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         groupBox_12->setTitle(QString());
         pushButton_Fullscreen->setText(QCoreApplication::translate("MainWindow", "Fullscreen", nullptr));
         pushButton_Windowed->setText(QCoreApplication::translate("MainWindow", "Windowed", nullptr));
